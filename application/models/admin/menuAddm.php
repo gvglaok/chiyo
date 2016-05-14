@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class mlogin extends CI_Model {
+class menuAddm extends CI_Model {
 
 	/*public $variable;*/
 
@@ -17,9 +17,11 @@ class mlogin extends CI_Model {
 		return $data;
 	}
 
-	public function addClass($value='')
+	public function addMenu($data='')
 	{
-		$query=$this->db->insert('class', $data);
+		$query=$this->db->insert('menu', $data);
+
+		return $query;
 	}
 
 	

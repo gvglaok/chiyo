@@ -90,42 +90,44 @@
                             <h3 class="panel-title"> 添加菜品 </h3>
                         </div>
                         <div class="panel-body">
-                            <form class="form-inline">
+                            <form class="form-inline" action="menuAdd/addMenu" method="post" enctype="multipart/form-data" >
                                 <div class="form-group formm">
-                                    <label for="exampleInputName2">菜名：</label>
-                                    <input type="text" class="form-control" id="exampleInputName2" placeholder=" ">
+                                    <label for="mName">菜名：</label>
+                                    <input type="text" class="form-control" id="mName" name="mName" required="required">
                                 </div>
                                 <br>
                                 <div class="form-group formm">
-                                    <label for="exampleInputEmail2">所属类别：</label>
-                                    <select name="" id="input" class="form-control" required="required">
-                                        <option value="">21111</option>
-                                        <option value="">22</option>
-                                        <option value="">233332</option>
+                                    <label for="cID">所属类别：</label>
+                                    <select id="cID" name="cID" class="form-control" required="required">
+                                        <?php $i=1; ?>
+                                        <?php foreach ($ms as $key): ?>
+                                        <option 
+                                            <?php 
+                                            if($i==1)
+                                            {echo 'selected = "selected"';} 
+                                            $i++;
+                                            ?>  
+                                            value="<?php echo $key['cID']?>">
+                                            <?php echo $key['cName']?>
+                                        </option>
+                                        <?php endforeach; ?>
                                     </select>
-                                    <!-- <div class="form-group">
-                                    <label for="input" class="col-sm-2 control-label">:</label>
-                                    <div class="col-sm-2">
-                                        <select name="" id="input" class="form-control" required="required">
-                                            <option value=""></option>
-                                        </select>
-                                    </div>
-                                </div> -->
+                                    
                                 </div>
                                 <br>
                                 <div class="form-group formm">
-                                    <label for="exampleInputEmail2">价格：</label>
-                                    <input type="number" class="form-control" id="exampleInputEmail2" placeholder="">
+                                    <label for="mPrice">价格：</label>
+                                    <input type="number" class="form-control" id="mPrice" name="mPrice" required="required">
                                 </div>
                                 <br>
                                 <div class="form-group formm">
-                                    <label for="exampleInputEmail2">简介：</label>
-                                    <textarea class="form-control" id="exampleInputEmail2" placeholder=""></textarea>
+                                    <label for="mInfo">简介：</label>
+                                    <textarea class="form-control" id="mInfo" name="mInfo" placeholder=""></textarea>
                                 </div>
                                 <br>
                                 <div class="form-group formm">
-                                    <label for="exampleInputEmail2">图片：</label>
-                                    <input type="file" class="form-control" id="exampleInputEmail2" placeholder="">
+                                    <label for="mImage">图片：</label>
+                                    <input type="file" class="form-control" id="mImage" name="mImage" placeholder="">
                                 </div>
                                 <br>
                                 <button type="reset" class="btn btn-default">重置</button>&nbsp;&nbsp;&nbsp;&nbsp;
