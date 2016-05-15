@@ -34,3 +34,26 @@ $(function() {
         element.addClass('active');
     }
 });
+
+
+function addCN () {
+   $.ajax({
+       url: 'menuclass/addclass',
+       type: 'post',
+       dataType: 'html',
+       data: {cn: $("#newClass").val()},
+   })
+   .done(function() {
+       console.log("success");
+   })
+   .fail(function() {
+       console.log("error");
+   })
+   .always(function(mes) {
+       console.log("complete");
+       alert(mes);
+   });
+   
+   
+};
+

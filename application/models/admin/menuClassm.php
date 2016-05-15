@@ -9,7 +9,11 @@ class menuClassm extends CI_Model {
 		parent::__construct();	
 	}
 
-	
+	public function addcn($data='')
+	{
+		$query=$this->db->insert('class', $data);
+		return $query;
+	}
 
 }
 

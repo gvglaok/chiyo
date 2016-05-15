@@ -19,6 +19,17 @@ class menuAddm extends CI_Model {
 
 	public function addMenu($data='')
 	{
+		/*$classID=$data['cID'];
+
+		$query1=$this->db->get_where('class', array('cID'=>$classID));
+
+		$num=$query1->row()->cMenuNumber;
+
+		$num++;
+
+		$numData=array("cMenuNumber"=>$num);*/
+		
+
 		$query=$this->db->insert('menu', $data);
 
 		return $query;

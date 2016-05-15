@@ -21,11 +21,11 @@
     <link href="<?php echo base_url(); ?>skin/admin/css/style.css" rel='stylesheet' type='text/css' />
     <!-- Graph CSS -->
     <link href="<?php echo base_url(); ?>skin/admin/css/lines.css" rel='stylesheet' type='text/css' />
-    <link href="<?php echo base_url(); ?>skin/admin/css/font-awesome.css" rel="stylesheet">
+
     <!-- jQuery -->
     <script src="<?php echo base_url(); ?>skin/admin/js/jquery.min.js"></script>
     <!-- webfonts -->
-    <link href='http://fonts.useso.com/css?family=Roboto:400,100,300,500,700,900' rel='stylesheet' type='text/css'>
+   
     <!-- webfonts -->
     <!-- Nav CSS -->
     <link href="<?php echo base_url(); ?>skin/admin/css/custom.css" rel="stylesheet">
@@ -91,27 +91,17 @@
                             <h3 class="panel-title">菜单分类</h3>
                         </div>
                         <div class="list-group">
+                        <?php foreach ($menu as $key ) :?>
                           <li class="list-group-item">
-                            <a href="">Cras justo odio</a>
+                            <a href=""><?php echo $key['cName']; ?></a>
                             <button type="button" class="btn btn-sm btn-info pull-right m75">修改</button>
                             <button type="button" class="btn btn-sm btn-danger pull-right m15">删除</button>
-                            <span class="badge">14</span>
+                            <span class="badge"><?php echo $key['cMenuNumber']; ?></span>
                           </li>
-                          <li class="list-group-item">
-                            <a href="">Cras justo odio</a>
-                            <button type="button" class="btn btn-sm btn-info pull-right m75">修改</button>
-                            <button type="button" class="btn btn-sm btn-danger pull-right m15">删除</button>
-                            <span class="badge">14</span>
-                          </li>
-                          <li class="list-group-item">
-                            <a href="">Cras justo odio</a>
-                            <button type="button" class="btn btn-sm btn-info pull-right m75">修改</button>
-                            <button type="button" class="btn btn-sm btn-danger pull-right m15">删除</button>
-                            <span class="badge">14</span>
-                          </li>
+                        <?php endforeach; ?> 
                           <li class="list-group-item">
                             <input type="text" name="newClass" id="newClass"  required="required">
-                            <button class="btn btn-sm pull-right">添加</button>
+                            <button onclick="addCN()" class="btn btn-sm pull-right">添加</button>
                           </li>
                         </div>
                     </div>
@@ -130,7 +120,7 @@
     </div>
     <!-- /#wrapper -->
     <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="<?php echo base_url(); ?>skin/admin/js/bootstrap.min.js"></script>
 </body>
 
 </html>

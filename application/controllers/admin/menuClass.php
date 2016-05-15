@@ -9,9 +9,27 @@ class menuClass extends CI_Controller {
 
 	public function index()
 	{
-		
+		$this->load->model('admin/menuAddm', 'ma');
+		$data['menu']=$this->ma->getClass();
+		$this->load->view('admin/menuClass',$data);
 	}
 	
+	public function addClass()
+	{
+		$className=$this->input->post('cn', TRUE);
+		
+		$data = array('cName' => $className,'cAddTime'=>time());
+
+		$this->load->model('admin/menuClassm', 'mc');
+
+		$res=$this -> mc ->addcn($data);
+
+		if ($res) {
+			echo "success";
+		} else {
+			echo "error";
+		}
+	}
 
 }
 
