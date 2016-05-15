@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50540
 File Encoding         : 65001
 
-Date: 2016-05-14 18:11:50
+Date: 2016-05-15 20:26:27
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -22,19 +22,21 @@ DROP TABLE IF EXISTS `ysd_class`;
 CREATE TABLE `ysd_class` (
   `cID` int(11) NOT NULL AUTO_INCREMENT,
   `cName` varchar(255) NOT NULL DEFAULT '',
-  `cAddTime` varchar(255) DEFAULT NULL,
+  `cMenuNumber` int(11) DEFAULT '0',
+  `cAddTime` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`cID`)
-) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=gbk;
+) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=gbk;
 
 -- ----------------------------
 -- Records of ysd_class
 -- ----------------------------
-INSERT INTO `ysd_class` VALUES ('1', '凉菜', '2016-5-12 11:02');
-INSERT INTO `ysd_class` VALUES ('2', '炒菜', '2016-5-12 11:04');
-INSERT INTO `ysd_class` VALUES ('3', '汤类', '2016-5-12 11:06');
-INSERT INTO `ysd_class` VALUES ('4', '主食', '2016-5-12 11:02');
-INSERT INTO `ysd_class` VALUES ('5', '酒水', '2016-5-12 11:08');
-INSERT INTO `ysd_class` VALUES ('6', '饮料', '2016-5-12 11:11');
+INSERT INTO `ysd_class` VALUES ('1', '凉菜', '1', '2016-05-12 11:02:00');
+INSERT INTO `ysd_class` VALUES ('2', '炒菜', '1', '2016-05-12 11:04:00');
+INSERT INTO `ysd_class` VALUES ('3', '汤类', '0', '2016-05-12 11:06:00');
+INSERT INTO `ysd_class` VALUES ('4', '主食', '0', '2016-05-12 11:02:00');
+INSERT INTO `ysd_class` VALUES ('5', '酒水', '0', '2016-05-12 11:08:00');
+INSERT INTO `ysd_class` VALUES ('6', '饮料', '0', '2016-05-12 11:11:00');
+INSERT INTO `ysd_class` VALUES ('7', '烧烤', '0', '2016-05-15 20:16:16');
 
 -- ----------------------------
 -- Table structure for ysd_menu
@@ -56,7 +58,7 @@ CREATE TABLE `ysd_menu` (
 -- Records of ysd_menu
 -- ----------------------------
 INSERT INTO `ysd_menu` VALUES ('1', '1', '菜名', '/img/1.jpg', '22.00', 'O(∩_∩)O哈！', '1', '0');
-INSERT INTO `ysd_menu` VALUES ('2', '1', '宫保鸡丁', 'c9641dbc4706f9ab6828e625fe452bdf.jpg', '3434.00', '6+56+5\r\n232+5+56+', '1', null);
+INSERT INTO `ysd_menu` VALUES ('2', '2', '宫保鸡丁', 'c9641dbc4706f9ab6828e625fe452bdf.jpg', '3434.00', '6+56+5\r\n232+5+56+', '1', null);
 
 -- ----------------------------
 -- Table structure for ysd_menu_number
