@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class ControllerName extends CI_Controller {
+class timeOrder extends CI_Controller {
 
 	public function __construct()
 	{
@@ -9,7 +9,9 @@ class ControllerName extends CI_Controller {
 
 	public function index()
 	{
-		
+		$this->load->model('admin/timeOrderm', 'to');
+		$data['to']=$this->to->listTime();
+		$this->load->view('admin/timeOrder',$data);
 	}
 	
 

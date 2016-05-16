@@ -16,25 +16,25 @@
     }
     </script>
     <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel='stylesheet' type='text/css' />
+    <link href="<?php echo base_url(); ?>skin/admin/css/bootstrap.min.css" rel='stylesheet' type='text/css' />
     <!-- Custom CSS -->
-    <link href="css/style.css" rel='stylesheet' type='text/css' />
+    <link href="<?php echo base_url(); ?>skin/admin/css/style.css" rel='stylesheet' type='text/css' />
     <!-- Graph CSS -->
-    <link href="css/lines.css" rel='stylesheet' type='text/css' />
-    <link href="css/font-awesome.css" rel="stylesheet">
+    <link href="<?php echo base_url(); ?>skin/admin/css/lines.css" rel='stylesheet' type='text/css' />
+    <link href="<?php echo base_url(); ?>skin/admin/css/font-awesome.css" rel="stylesheet">
     <!-- jQuery -->
-    <script src="js/jquery.min.js"></script>
+    <script src="<?php echo base_url(); ?>skin/admin/js/jquery.min.js"></script>
     <!-- webfonts -->
     <link href='http://fonts.useso.com/css?family=Roboto:400,100,300,500,700,900' rel='stylesheet' type='text/css'>
     <!-- webfonts -->
     <!-- Nav CSS -->
-    <link href="css/custom.css" rel="stylesheet">
+    <link href="<?php echo base_url(); ?>skin/admin/css/custom.css" rel="stylesheet">
     <!-- Metis Menu Plugin JavaScript -->
-    <script src="js/metisMenu.min.js"></script>
-    <script src="js/custom.js"></script>
+    <script src="<?php echo base_url(); ?>skin/admin/js/metisMenu.min.js"></script>
+    <script src="<?php echo base_url(); ?>skin/admin/js/custom.js"></script>
     <!-- Graph JavaScript -->
-    <script src="js/d3.v3.js"></script>
-    <script src="js/rickshaw.js"></script>
+    <script src="<?php echo base_url(); ?>skin/admin/js/d3.v3.js"></script>
+    <script src="<?php echo base_url(); ?>skin/admin/js/rickshaw.js"></script>
 </head>
 
 <body>
@@ -62,19 +62,19 @@
                             <a href="#"><i class="fa fa-dashboard fa-fw nav_icon"></i>控制面板</a>
                         </li>
                         <li>
-                            <a href="timeorder.html"><i class="glyphicon glyphicon-bullhorn nav_icon"></i>未处理订单</a>
+                            <a href="timeorder"><i class="glyphicon glyphicon-bullhorn nav_icon"></i>未处理订单</a>
                         </li>
                         <li>
-                            <a href="allorder.html"><i class="glyphicon glyphicon-file nav_icon"></i>所有订单</a>
+                            <a href="allorder"><i class="glyphicon glyphicon-file nav_icon"></i>所有订单</a>
                         </li>
                         <li>
-                            <a href="menuclass.html"><i class="glyphicon glyphicon-tasks nav_icon"></i>菜单分类</a>
+                            <a href="menuclass"><i class="glyphicon glyphicon-tasks nav_icon"></i>菜单分类</a>
                         </li>
                         <li>
-                            <a href="menulist.html"><i class="glyphicon glyphicon-modal-window  nav_icon"></i>所有菜品</a>
+                            <a href="menulist"><i class="glyphicon glyphicon-modal-window  nav_icon"></i>所有菜品</a>
                         </li>
                         <li>
-                            <a href="menuadd.html"><i class="glyphicon glyphicon-copy nav_icon"></i>添加菜品</a>
+                            <a href="menuadd"><i class="glyphicon glyphicon-copy nav_icon"></i>添加菜品</a>
                         </li>
                     </ul>
                 </div>
@@ -179,7 +179,7 @@
     </div>
     <!-- /#wrapper -->
     <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="<?php echo base_url(); ?>skin/admin/js/bootstrap.min.js"></script>
 </body>
 
 </html>

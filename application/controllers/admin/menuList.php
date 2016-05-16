@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class ControllerName extends CI_Controller {
+class menuList extends CI_Controller {
 
 	public function __construct()
 	{
@@ -9,7 +9,7 @@ class ControllerName extends CI_Controller {
 
 	public function index()
 	{
-		
+		$this->load->view('admin/menuList');
 	}
 	
 

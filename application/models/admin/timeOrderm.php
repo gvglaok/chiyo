@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class mlogin extends CI_Model {
+class timeOrder extends CI_Model {
 
 	public $variable;
 
@@ -10,27 +10,18 @@ class mlogin extends CI_Model {
 		
 	}
 
-	public function userCheck($uname='',$ukey='')
+	public function listTime()
 	{
-		$this->db->where('uname',$uname);
-		$this->db->where('upwd',$ukey);
-		$query=$this->db->get('user_login');
-		return $query;
-	}
+		$query=$this->db->get_where('order', array('oStatus'=>0));
+		$data=$query->result_array();
 
-	public function userReg($uname='',$ukey='')
-	{
-		$data = array('uname' => $uname, 'upwd' => $ukey);
-		$query=$this->db->insert('user_login', $data);
-		return $query;
-	}
+		$arrayMID=split($data['oMidArr'], ',');
+		for ($i=0; $i < $arrayMID.count() ; $i++) { 
+			# code...
+		}
+		
 
-	public function noteInsert($uname,$message)
-	{
-		$data = array('uname'=> $uname,'note' => $message);
-		$query=$this->db->insert('note', $data);
-
-		return $query;
+		return $data;
 	}
 
 }

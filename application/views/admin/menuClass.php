@@ -58,23 +58,23 @@
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
-                        <li>
+                       <li>
                             <a href="#"><i class="fa fa-dashboard fa-fw nav_icon"></i>控制面板</a>
                         </li>
                         <li>
-                            <a href="timeorder.html"><i class="glyphicon glyphicon-bullhorn nav_icon"></i>未处理订单</a>
+                            <a href="timeorder"><i class="glyphicon glyphicon-bullhorn nav_icon"></i>未处理订单</a>
                         </li>
                         <li>
-                            <a href="allorder.html"><i class="glyphicon glyphicon-file nav_icon"></i>所有订单</a>
+                            <a href="allorder"><i class="glyphicon glyphicon-file nav_icon"></i>所有订单</a>
                         </li>
                         <li>
-                            <a href="menuclass.html"><i class="glyphicon glyphicon-tasks nav_icon"></i>菜单分类</a>
+                            <a href="menuclass"><i class="glyphicon glyphicon-tasks nav_icon"></i>菜单分类</a>
                         </li>
                         <li>
-                            <a href="menulist.html"><i class="glyphicon glyphicon-modal-window  nav_icon"></i>所有菜品</a>
+                            <a href="menulist"><i class="glyphicon glyphicon-modal-window  nav_icon"></i>所有菜品</a>
                         </li>
                         <li>
-                            <a href="menuadd.html"><i class="glyphicon glyphicon-copy nav_icon"></i>添加菜品</a>
+                            <a href="menuadd."><i class="glyphicon glyphicon-copy nav_icon"></i>添加菜品</a>
                         </li>
                     </ul>
                 </div>
