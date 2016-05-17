@@ -38,6 +38,14 @@
 </head>
 
 <body>
+<br>
+<div style="background-color: #bfbfbf; border: 2px dashed red;">
+    <?php print_r($res) ?>
+</div>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+
     <div id="wrapper">
         <!-- Navigation -->
         <nav class="top1 navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
@@ -96,33 +104,39 @@
             WinPrint.close();
             } 
             </script> 
-                <?php foreach($to as $key) :?>
+            <?php 
+            foreach ($res as $key) {
+                echo $key[0]."===...";
+            }
+             ?>
+                <?php //foreach($res as $key): ?>
                 <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
                     
                 	<div id="order1" class="panel panel-warning">
 
 						<div class="panel-heading">
-							<h3 class="panel-title">台号：<?php echo $key['oTableNumber'] ?></h3>	
+							<h3 class="panel-title">台号：<?php //echo $key['oTableNumber'];?></h3>	
 						</div>
 						
 						<ul class="list-group">
-						    <li class="list-group-item">Cras justo odio<span class="badge">125</span></li>
-						    <li class="list-group-item">Dapibus ac facilisis in<span class="badge">14</span></li>
-						    <li class="list-group-item">Morbi leo risus<span class="badge">14</span></li>
-						    <li class="list-group-item">Porta ac consectetur ac<span class="badge">14</span></li>
-						    <li class="list-group-item">Vestibulum at eros<span class="badge">14</span></li>
-						    <li class="list-group-item">总金额：266￥</li>
+                            <?php //print_r($key['oMidArr']); //foreach($key['oMidArr'] as $menu): ?>
+						    <li class="list-group-item"><?php //$menu['mName'];?><span class="badge"><?php //$menu['mPrice'];?>￥</span></li>
+						    <?php //endforeach; ?>
+						    <li class="list-group-item">总金额：<?php //echo $key['oMoney']; ?>￥</li>
 						</ul>
+
 						<div class="panel-footer"><button type="button" onClick="doPrint()" class="btn btn-info">打印</button></div>
+
 					</div>
                     <!--endprint-->
                 </div>
-                <?php endforeach; ?>
+                <?php //endforeach; ?>
 				
-
+                
 				<div class="clearfix">
 				
-				</div><div style="margin-bottom: 30px">1</div>
+				</div>
+                <div style="margin-bottom: 30px">1</div>
                 <div class="copy">
                     <p>Copyright &copy; 2016.Company name All rights reserved. <a href="#" target="_blank" title="YSD">YSD</a> - Collect from <a href="#" title="YSD_keven" target="_blank">YSD_keven</a></p>
                 </div>

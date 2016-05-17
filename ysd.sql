@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50547
 File Encoding         : 65001
 
-Date: 2016-05-16 14:19:47
+Date: 2016-05-17 18:44:34
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -61,7 +61,7 @@ CREATE TABLE `ysd_menu` (
 INSERT INTO `ysd_menu` VALUES ('1', '1', '菜名', '1.jpg', '22.00', 'O(∩_∩)O哈！', '', '0');
 INSERT INTO `ysd_menu` VALUES ('2', '2', '宫保鸡丁', 'c9641dbc4706f9ab6828e625fe452bdf.jpg', '56.00', '6+56+5\r\n232+5+56+', '', '0');
 INSERT INTO `ysd_menu` VALUES ('3', '2', '菜名2', '2.jpg', '15.00', 'info2', '', '0');
-INSERT INTO `ysd_menu` VALUES ('4', '2', '菜名3', '3.jpg', '11.00', 'info3', '', '0');
+INSERT INTO `ysd_menu` VALUES ('4', '2', '菜名3', '3.png', '11.00', 'info3', '', '0');
 INSERT INTO `ysd_menu` VALUES ('5', '8', '菜名4', '4.jpg', '12.00', 'info4', '', '0');
 
 -- ----------------------------
@@ -97,9 +97,9 @@ CREATE TABLE `ysd_order` (
 -- ----------------------------
 -- Records of ysd_order
 -- ----------------------------
-INSERT INTO `ysd_order` VALUES ('5', 'A-12', '1,2,3,4,5,', '6', '156', '2016-05-11 15:11:39', '');
+INSERT INTO `ysd_order` VALUES ('5', 'A-12', '1,2,3,4,5', '5', '156', '2016-05-11 15:11:39', '');
 INSERT INTO `ysd_order` VALUES ('1', 'B-12', '1,2,3', '4', '66', '2016-05-11 15:12:14', '\0');
-INSERT INTO `ysd_order` VALUES ('2', 'A-1', '1,3,4,5', '4', '52', '2016-05-16 11:28:36', '\0');
-INSERT INTO `ysd_order` VALUES ('3', 'A-2', '1,2,3,5', '4', '45', '2016-05-16 11:29:35', '\0');
+INSERT INTO `ysd_order` VALUES ('2', 'A-1', '1,3,4,5', '4', '52', '2016-05-16 11:28:36', '');
+INSERT INTO `ysd_order` VALUES ('3', 'A-2', '1,2,3,5', '4', '45', '2016-05-16 11:29:35', '');
 INSERT INTO `ysd_order` VALUES ('68', 'A-4', '1,2,4,5', '4', '36', '2016-05-16 11:33:40', '\0');
 INSERT INTO `ysd_order` VALUES ('69', 'A-3', '1,2,5', '3', '47', '2016-05-16 11:35:08', '\0');

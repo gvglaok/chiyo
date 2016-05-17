@@ -10,7 +10,8 @@ class timeOrder extends CI_Controller {
 	public function index()
 	{
 		$this->load->model('admin/timeOrderm', 'to');
-		$data['to']=$this->to->listTime();
+		$data['res']=$this->to->orderTable();
+		//$data['tableMenu']=$this->to->tableMenu();
 		$this->load->view('admin/timeOrder',$data);
 	}
 	

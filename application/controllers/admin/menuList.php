@@ -9,7 +9,9 @@ class menuList extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('admin/menuList');
+		$this->load->model('admin/menuListm', 'ml');
+		$data['data']=$this -> ml ->getMenu();
+		$this->load->view('admin/menuList',$data);
 	}
 	
 

@@ -104,42 +104,21 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                <?php foreach($data as $key): ?>
                                 <tr>
-                                    <td>0</td>
-                                    <td><img class="menuImg" src="images/1.png" alt=""></td>
-                                    <td>菜名一</td>
-                                    <td>30￥</td>
-                                    <td>aaaasssssssdddssssssaaa</td>
+                                    <td><?php echo $key['mID'] ?></td>
+                                    <td><img class="menuImg" src="<?php echo base_url(); ?>uploads/<?php echo $key['mImage'] ?>" alt=""></td>
+                                    <td><?php echo $key['mName'] ?></td>
+                                    <td><?php echo $key['mPrice'] ?>￥</td>
+                                    <td><?php echo $key['mInfo'] ?></td>
                                     <td>
                                         <button type="button" class="btn btn-info m15">上架</button>
                                         <button type="button" class="btn btn-info m15">修改</button>
                                         <button type="button" class="btn btn-danger">删除</button>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td>0</td>
-                                    <td><img class="menuImg" src="images/1.png" alt=""></td>
-                                    <td>菜名一</td>
-                                    <td>30￥</td>
-                                    <td>aaaasssssssdddssssssaaa</td>
-                                    <td>
-                                        <button type="button" class="btn btn-info m15">下架</button>
-                                        <button type="button" class="btn btn-info m15">修改</button>
-                                        <button type="button" class="btn btn-danger">删除</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>0</td>
-                                    <td><img class="menuImg" src="images/1.png" alt=""></td>
-                                    <td>菜名一</td>
-                                    <td>30￥</td>
-                                    <td>aaaasssssssdddssssssaaa</td>
-                                    <td>
-                                        <button type="button" class="btn btn-info m15">下架</button>
-                                        <button type="button" class="btn btn-info m15">修改</button>
-                                        <button type="button" class="btn btn-danger">删除</button>
-                                    </td>
-                                </tr>
+                            <?php endforeach; ?>
+                                
                             </tbody>
                         </table>
                     </div>
@@ -170,6 +149,7 @@
 				<div class="clearfix">
 				
 				</div>
+                <br><br><br>
                 <div class="copy">
                     <p>Copyright &copy; 2016.Company name All rights reserved. <a href="#" target="_blank" title="YSD">YSD</a> - Collect from <a href="#" title="YSD_keven" target="_blank">YSD_keven</a></p>
                 </div>
