@@ -39,12 +39,6 @@
 
 <body>
 <br>
-<div style="background-color: #bfbfbf; border: 2px dashed red;">
-    <?php print_r($res) ?>
-</div>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-
-
 
     <div id="wrapper">
         <!-- Navigation -->
@@ -105,24 +99,30 @@
             } 
             </script> 
             <?php 
-            foreach ($res as $key) {
-                echo $key[0]."===...";
-            }
+            //print_r($res);
+            /*foreach ($res as $key) {
+                
+                echo $key['oTableNumber']."<br>";
+                foreach ($key['oMidArr'] as $menu) {
+                    echo $menu['mName']."<br>";
+                }
+            }*/
+
              ?>
-                <?php //foreach($res as $key): ?>
+                <?php foreach($res as $key): ?>
                 <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
                     
-                	<div id="order1" class="panel panel-warning">
+                	<div id="order<?php echo $key['oID'];?>" class="panel panel-warning">
 
 						<div class="panel-heading">
-							<h3 class="panel-title">台号：<?php //echo $key['oTableNumber'];?></h3>	
+							<h3 class="panel-title">台号：<?php echo $key['oTableNumber'];?></h3>	
 						</div>
 						
 						<ul class="list-group">
-                            <?php //print_r($key['oMidArr']); //foreach($key['oMidArr'] as $menu): ?>
-						    <li class="list-group-item"><?php //$menu['mName'];?><span class="badge"><?php //$menu['mPrice'];?>￥</span></li>
-						    <?php //endforeach; ?>
-						    <li class="list-group-item">总金额：<?php //echo $key['oMoney']; ?>￥</li>
+                            <?php foreach($key['oMidArr'] as $menu): ?>
+						    <li class="list-group-item"><?php echo $menu['mName'];?><span class="badge"><?php echo $menu['mPrice'];?>￥</span></li>
+						    <?php endforeach; ?>
+						    <li class="list-group-item">总金额：<?php echo $key['oMoney']; ?>￥</li>
 						</ul>
 
 						<div class="panel-footer"><button type="button" onClick="doPrint()" class="btn btn-info">打印</button></div>
@@ -130,7 +130,7 @@
 					</div>
                     <!--endprint-->
                 </div>
-                <?php //endforeach; ?>
+                <?php endforeach; ?>
 				
                 
 				<div class="clearfix">

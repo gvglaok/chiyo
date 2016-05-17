@@ -14,21 +14,38 @@ class timeOrderm extends CI_Model {
 	{
 		$query=$this->db->get_where('order', array('oStatus'=>0));
 		$data=$query->result_array();
-		$arrayMID=explode( ',',$data[0]['oMidArr']);
+		//$arrayMID=explode( ',',$data[0]['oMidArr']);
+		$arrMid=array();
+		for ($i=0; $i <count($data) ; $i++) { 
+			$arrMid[$i]=explode( ',',$data[$i]['oMidArr']);
+		}
+
+
 		//获取menu数据
-		$this->db->select('mID,mName,mPrice');
+		//$arrMenu=array();
+		for ($i=0; $i < count($data); $i++) { 
+			$this->db->select('mID,mName,mPrice');
 
-		$this->db->from('menu');
+			$this->db->from('menu');
 
-		$this->db->or_where_in('mID', $arrayMID);
+			$this->db->or_where_in('mID', $arrMid[$i]);
 
-		$query2=$this->db->get();
+			$query2=$this->db->get();
 
-		$data2=$query2->result_array();
+			$data2=$query2->result_array();
 
-		$data[0]['oMidArr']=$data2;
+			$data[$i]['oMidArr']=$data2;
+		}
+		
+
+		
+
+		
 		//$res=array_fill_keys($data[0]['oMidArr'], $arrayMID);
-		return $data[0];
+		
+
+		
+		return $data;
 	}
 
 	public function tableMenu()
