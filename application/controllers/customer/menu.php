@@ -11,7 +11,22 @@ class menu extends CI_Controller {
 	{
 		$this->load->model('customer/menuM', 'mm');
 		$data['res']=$this->mm->getMenu();
+		$data['class']=$this->mm->getClass();
 		$this->load->view('customer/menu',$data);
+	}
+
+	public function cMenu($value='')
+	{
+		$this->load->model('customer/menuM', 'mm');
+		$data['res']=$this->mm->getCMenu($value);
+		$data['class']=$this->mm->getClass();
+		$this->load->view('customer/menu',$data);
+	}
+
+	public function shopCart($mid='',$mname='',$mprice='')
+	{
+		$data=array('mID'=>$mid,'mName'=>$mname,'mPrice'=>$mprice);
+		$this->session->set_userdata($newdata);
 	}
 
 }

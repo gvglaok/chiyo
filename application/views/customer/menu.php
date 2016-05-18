@@ -27,18 +27,19 @@
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
                             </button>
-                            <a class="navbar-brand" href="#">YSD</a>
+                            <a class="navbar-brand" href="<?php echo base_url();?>customer/menu/">YSD</a>
                         </div>
                         <!-- Collect the nav links, forms, and other content for toggling -->
                         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                             <ul class="nav navbar-nav">
-                                <li class="active"><a href="#">特色菜品 <span class="sr-only">(current)</span></a></li>
-                                <li><a href="#">凉菜</a></li>
-                                <li><a href="#">热菜</a></li>
-                                <li><a href="#">烧烤</a></li>
-                                <li><a href="#">主食</a></li>
-                                <li><a href="#">汤类</a></li>
-                                <li><a href="#">酒水|饮料</a></li>
+                                <!-- <li class="active"><a href="#">特色菜品 <span class="sr-only">(current)</span></a></li> -->
+                                <?php foreach ($class as $key): ?>
+                                    <li><a href="<?php echo base_url();?>customer/menu/cMenu/<?php echo $key['cID']; ?>" cid=''>
+                                        <?php echo $key['cName']; ?>
+                                    </a></li>
+                                <?php endforeach ?>
+                                
+                                
                             </ul>
                             <!--
                             <ul class="nav navbar-nav navbar-right">

@@ -9,9 +9,21 @@ class menuM extends CI_Model {
 		parent::__construct();
 	}
 
-	public function getMenu($value='')
+	public function getMenu()
 	{
 		$query=$this->db->get('menu', 15);
+		return $data=$query->result_array();
+	}
+
+	public function getCMenu($cID="")
+	{	 
+		$query=$this->db->get_where('menu', array('cID'=>$cID));
+		return $data=$query->result_array();
+	}
+
+	public function getClass()
+	{
+		$query=$this->db->get('class');
 		return $data=$query->result_array();
 	}
 
