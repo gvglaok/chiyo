@@ -5,11 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>YSD Menu</title>
-    <link href="http://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-    <link href="http://cdn.bootcss.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet">
+    <link href="<?php echo base_url(); ?>skin/customer/css/bootstrap.min.css" rel="stylesheet">   
+
     <link rel="stylesheet" href="<?php echo base_url(); ?>skin/customer/css/comm.css">
-    <script src="http://cdn.bootcss.com/jquery/2.2.3/jquery.min.js"></script>
-    <script src="http://cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+    <script src="<?php echo base_url(); ?>skin/customer/js/jquery.min.js"></script>
+    <script src="<?php echo base_url(); ?>skin/customer/js/bootstrap.min.js"></script>
 </head>
 
 <body>
@@ -60,13 +61,13 @@
         </div>
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <?php foreach ($red as $key): ?>
+                <?php foreach ($res as $key): ?>
                 <div class="thumbnail mediaList">
-                    <img src="img/3.jpg" alt="...">
+                    <img src="<?php echo base_url(); ?>uploads/<?php echo $key['mImage'] ?>" alt="...">
                     <div class="caption">
-                        <h4 class="media-heading"> Baked potato    </h4>
-                        <h5>56.5 $</h5>
-                        <p> Perfect your spud technique then pile our filling ideas high. </p>
+                        <h4 class="media-heading"><?php echo $key['mName'] ?></h4>
+                        <h5><?php echo $key['mPrice'] ?>￥</h5>
+                        <p><?php echo $key['mInfo'] ?></p>
                         <p>
                             <button type="button" class="btn btn-info btn-lg btn-block">来一份 <i class="glyphicon glyphicon-heart"></i></button>
                         </p>
@@ -90,9 +91,8 @@
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
                             </button>-->
-                            <button class="btn btn-info navr" data-toggle="modal" data-target="#shopchart" info="请选择喜欢的菜">
-                                <i class="glyphicon glyphicon-cutlery"></i> 已点6份 ：总计 223￥</button>
-                            <a class="navbar-brand" href="#"></a>
+                            <a href="cart" class="btn btn-info navr" info="选择喜欢的菜 :D">
+                                <i class="glyphicon glyphicon-cutlery"></i> 已点6份 ：总计 223￥</a>
                             <button type="button" class="btn btn-info pull-right navm8">提交</button>
                         </div>
                         <!-- Collect the nav links, forms, and other content for toggling -->

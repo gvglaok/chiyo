@@ -5,11 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>YSD Menu</title>
-    <link href="http://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-    <link href="http://cdn.bootcss.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/comm.css">
-    <script src="http://cdn.bootcss.com/jquery/2.2.3/jquery.min.js"></script>
-    <script src="http://cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <link href="<?php echo base_url(); ?>skin/customer/css/bootstrap.min.css" rel="stylesheet">   
+
+    <link rel="stylesheet" href="<?php echo base_url(); ?>skin/customer/css/comm.css">
+
+    <script src="<?php echo base_url(); ?>skin/customer/js/jquery.min.js"></script>
+    <script src="<?php echo base_url(); ?>skin/customer/js/bootstrap.min.js"></script>
 </head>
 
 <body>
@@ -26,7 +27,7 @@
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
                             </button>
-                            <a class="navbar-brand" href="#">YSD</a>
+                            <a class="navbar-brand" href="menu"><i class="glyphicon glyphicon-chevron-left"></i> YSD_订单</a>
                         </div>
                         <!-- Collect the nav links, forms, and other content for toggling -->
                         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -166,7 +167,7 @@
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
                             </button>-->
-                            <button class="btn btn-info navr" data-toggle="modal" data-target="#shopchart" info="请选择喜欢的菜">
+                            <button class="btn btn-info active navr" data-toggle="modal" data-target="#shopchart" info="请选择喜欢的菜">
                                 <i class="glyphicon glyphicon-cutlery"></i> 已点6份 ：总计 223￥</button>
                             <a class="navbar-brand" href="#"></a>
                             <button type="button" class="btn btn-info pull-right navm8">提交</button>

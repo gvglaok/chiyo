@@ -12,6 +12,7 @@ class menuM extends CI_Model {
 	public function getMenu($value='')
 	{
 		$query=$this->db->get('menu', 15);
+		return $data=$query->result_array();
 	}
 
 }

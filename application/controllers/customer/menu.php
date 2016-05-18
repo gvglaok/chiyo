@@ -9,7 +9,9 @@ class menu extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('customer/menu');
+		$this->load->model('customer/menuM', 'mm');
+		$data['res']=$this->mm->getMenu();
+		$this->load->view('customer/menu',$data);
 	}
 
 }
