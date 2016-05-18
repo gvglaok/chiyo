@@ -20,7 +20,6 @@ class timeOrderm extends CI_Model {
 			$arrMid[$i]=explode( ',',$data[$i]['oMidArr']);
 		}
 
-
 		//获取menu数据
 		//$arrMenu=array();
 		for ($i=0; $i < count($data); $i++) { 
@@ -36,11 +35,7 @@ class timeOrderm extends CI_Model {
 
 			$data[$i]['oMidArr']=$data2;
 		}
-		
 
-		
-
-		
 		//$res=array_fill_keys($data[0]['oMidArr'], $arrayMID);
 		
 

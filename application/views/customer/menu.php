@@ -7,7 +7,7 @@
     <title>YSD Menu</title>
     <link href="http://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
     <link href="http://cdn.bootcss.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/comm.css">
+    <link rel="stylesheet" href="<?php echo base_url(); ?>skin/customer/css/comm.css">
     <script src="http://cdn.bootcss.com/jquery/2.2.3/jquery.min.js"></script>
     <script src="http://cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </head>
@@ -60,6 +60,7 @@
         </div>
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <?php foreach ($red as $key): ?>
                 <div class="thumbnail mediaList">
                     <img src="img/3.jpg" alt="...">
                     <div class="caption">
@@ -71,28 +72,8 @@
                         </p>
                     </div>
                 </div>
-                <div class="thumbnail ">
-                    <img src="http://www.bbcgoodfood.com/sites/default/files/styles/category_retina/public/1897686_MEDIUM.jpg?itok=Rrdqmir2" alt="...">
-                    <div class="caption">
-                        <h4 class="media-heading"> Baked potato    </h4>
-                        <h5>56.5 $</h5>
-                        <p> Perfect your spud technique then pile our filling ideas high. </p>
-                        <p>
-                            <button type="button" class="btn btn-info btn-lg btn-block">来一份 <i class="glyphicon glyphicon-heart"></i></button>
-                        </p>
-                    </div>
-                </div>
-                <div class="thumbnail ">
-                    <img src="img/6.jpg" alt="...">
-                    <div class="caption">
-                        <h4 class="media-heading"> Baked potato    </h4>
-                        <h5>56.5 $</h5>
-                        <p> Perfect your spud technique then pile our filling ideas high. </p>
-                        <p>
-                            <button type="button" class="btn btn-info btn-lg btn-block">来一份 <i class="glyphicon glyphicon-heart"></i></button>
-                        </p>
-                    </div>
-                </div>
+                <?php endforeach; ?>
+                
             </div>
         </div>
         <br>
@@ -122,136 +103,7 @@
         </div>
     </div>
     <!-- Modal -->
-    <
-
-
-    div class="modal fade" id="shopchart" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-                </div>
-                <div class="modal-body">
-                    <table class="table table-striped table-hover">
-                        <thead>
-                            <tr>
-                                <th>菜名</th>
-                                <th>份数</th>
-                                <th>价格</th>
-                                <th>操作</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Cai Name</td>
-                                <td>
-                                    <div class="form-group">
-                                        <label class="sr-only" for="exampleInputAmount">Amount (in dollars)</label>
-                                        <div class="input-group">
-                                            <div class="input-group-addon btn">-</div>
-                                            <input type="number" min="1" max="99" step="1" class="form-control" id="exampleInputAmount" value="1">
-                                            <div class="input-group-addon btn">+</div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>223$</td>
-                                <td>
-                                    <button type="button" class="btn btn-xs btn-danger">
-                                        <i class="glyphicon glyphicon-remove"></i> 删除
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Cai Name</td>
-                                <td>- 21 +</td>
-                                <td>223$</td>
-                                <td>
-                                    <button type="button" class="btn btn-xs btn-danger">
-                                        <i class="glyphicon glyphicon-remove"></i> 删除
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Cai Name</td>
-                                <td>- 21 +</td>
-                                <td>223$</td>
-                                <td>
-                                    <button type="button" class="btn btn-xs btn-danger">
-                                        <i class="glyphicon glyphicon-remove"></i> 删除
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Cai Name</td>
-                                <td>- 21 +</td>
-                                <td>223$</td>
-                                <td>
-                                    <button type="button" class="btn btn-xs btn-danger">
-                                        <i class="glyphicon glyphicon-remove"></i> 删除
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Cai Name</td>
-                                <td>- 21 +</td>
-                                <td>223$</td>
-                                <td>
-                                    <button type="button" class="btn btn-xs btn-danger">
-                                        <i class="glyphicon glyphicon-remove"></i> 删除
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Cai Name</td>
-                                <td>- 21 +</td>
-                                <td>223$</td>
-                                <td>
-                                    <button type="button" class="btn btn-xs btn-danger">
-                                        <i class="glyphicon glyphicon-remove"></i> 删除
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Cai Name</td>
-                                <td>- 21 +</td>
-                                <td>223$</td>
-                                <td>
-                                    <button type="button" class="btn btn-xs btn-danger">
-                                        <i class="glyphicon glyphicon-remove"></i> 删除
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Cai Name</td>
-                                <td>- 21 +</td>
-                                <td>223$</td>
-                                <td>
-                                    <button type="button" class="btn btn-xs btn-danger">
-                                        <i class="glyphicon glyphicon-remove"></i> 删除
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Cai Name</td>
-                                <td>- 21 +</td>
-                                <td>223$</td>
-                                <td>
-                                    <button type="button" class="btn btn-xs btn-danger">
-                                        <i class="glyphicon glyphicon-remove"></i> 删除
-                                    </button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
-            </div>
-        </div>
-    </div>
+    
 </body>
 
 </html>

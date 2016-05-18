@@ -24,9 +24,7 @@
     <link href="<?php echo base_url(); ?>skin/admin/css/font-awesome.css" rel="stylesheet">
     <!-- jQuery -->
     <script src="<?php echo base_url(); ?>skin/admin/js/jquery.min.js"></script>
-    <!-- webfonts -->
-    <link href='http://fonts.useso.com/css?family=Roboto:400,100,300,500,700,900' rel='stylesheet' type='text/css'>
-    <!-- webfonts -->
+     
     <!-- Nav CSS -->
     <link href="<?php echo base_url(); ?>skin/admin/css/custom.css" rel="stylesheet">
     <!-- Metis Menu Plugin JavaScript -->
@@ -38,7 +36,6 @@
 </head>
 
 <body>
-<br>
 
     <div id="wrapper">
         <!-- Navigation -->
@@ -136,7 +133,7 @@
 				<div class="clearfix">
 				
 				</div>
-                <div style="margin-bottom: 30px">1</div>
+                
                 <div class="copy">
                     <p>Copyright &copy; 2016.Company name All rights reserved. <a href="#" target="_blank" title="YSD">YSD</a> - Collect from <a href="#" title="YSD_keven" target="_blank">YSD_keven</a></p>
                 </div>
