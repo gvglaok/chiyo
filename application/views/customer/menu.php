@@ -92,7 +92,7 @@
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
                             </button>-->
-                            <a href="cart" class="btn btn-info navr" info="选择喜欢的菜 :D">
+                            <a href="<?php echo base_url(); ?>customer/cart" class="btn btn-info navr" info="选择喜欢的菜 :D">
                                 <i class="glyphicon glyphicon-cutlery"></i> 已点6份 ：总计 223￥</a>
                             <button type="button" class="btn btn-info pull-right navm8">提交</button>
                         </div>
