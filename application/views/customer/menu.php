@@ -59,10 +59,10 @@
                 </nav>
             </div>
         </div>
-        <div class="row">
+        <div class="row mediaList">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <?php foreach ($res as $key): ?>
-                <div class="thumbnail mediaList">
+                <div class="thumbnail ">
                     <img src="<?php echo base_url(); ?>uploads/<?php echo $key['mImage'] ?>" alt="...">
                     <div class="caption">
                         <h4 class="media-heading"><?php echo $key['mName'] ?></h4>
