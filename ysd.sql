@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50547
 File Encoding         : 65001
 
-Date: 2016-05-17 18:44:34
+Date: 2016-05-19 18:00:31
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -90,16 +90,16 @@ CREATE TABLE `ysd_order` (
   `oMenuNumber` int(11) DEFAULT NULL,
   `oMoney` varchar(255) DEFAULT NULL,
   `oAddTime` timestamp NULL DEFAULT NULL,
-  `oStatus` bit(1) NOT NULL DEFAULT b'0',
+  `oStatus` int(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`oID`)
 ) ENGINE=MyISAM AUTO_INCREMENT=70 DEFAULT CHARSET=gbk;
 
 -- ----------------------------
 -- Records of ysd_order
 -- ----------------------------
-INSERT INTO `ysd_order` VALUES ('5', 'A-12', '1,2,3,4,5', '5', '156', '2016-05-11 15:11:39', '');
-INSERT INTO `ysd_order` VALUES ('1', 'B-12', '1,2,3', '4', '66', '2016-05-11 15:12:14', '\0');
-INSERT INTO `ysd_order` VALUES ('2', 'A-1', '1,3,4,5', '4', '52', '2016-05-16 11:28:36', '');
-INSERT INTO `ysd_order` VALUES ('3', 'A-2', '1,2,3,5', '4', '45', '2016-05-16 11:29:35', '');
-INSERT INTO `ysd_order` VALUES ('68', 'A-4', '1,2,4,5', '4', '36', '2016-05-16 11:33:40', '\0');
-INSERT INTO `ysd_order` VALUES ('69', 'A-3', '1,2,5', '3', '47', '2016-05-16 11:35:08', '\0');
+INSERT INTO `ysd_order` VALUES ('5', 'A-12', '1,2,3,4,5', '5', '156', '2016-05-11 15:11:39', '1');
+INSERT INTO `ysd_order` VALUES ('1', 'B-12', '1,2,3', '4', '66', '2016-05-11 15:12:14', '0');
+INSERT INTO `ysd_order` VALUES ('2', 'A-1', '1,3,4,5', '4', '52', '2016-05-16 11:28:36', '1');
+INSERT INTO `ysd_order` VALUES ('3', 'A-2', '1,2,3,5', '4', '45', '2016-05-16 11:29:35', '1');
+INSERT INTO `ysd_order` VALUES ('68', 'A-4', '1,2,4,5', '4', '36', '2016-05-16 11:33:40', '0');
+INSERT INTO `ysd_order` VALUES ('69', 'A-3', '1,2,5', '3', '47', '2016-05-16 11:35:08', '0');

@@ -75,7 +75,7 @@ function less(id){
 	var mNumberID="#mNumber_"+id;
 	var num=$(mNumberID).text();
 	num--;
-	if(num<=1)
+	if(num<=0)
 	{
 		num=1;
 	} else {
