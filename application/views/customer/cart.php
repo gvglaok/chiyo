@@ -11,6 +11,7 @@
 
     <script src="<?php echo base_url(); ?>skin/customer/js/jquery.min.js"></script>
     <script src="<?php echo base_url(); ?>skin/customer/js/bootstrap.min.js"></script>
+    <script src="<?php echo base_url(); ?>skin/customer/js/doing.js"></script>
 </head>
 
 <body>
@@ -59,101 +60,38 @@
                 </nav>
             </div>
         </div>
+        
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <ul class="list-group mediaList">
+                    <?php foreach ($res as $key): ?>
                     <li class="list-group-item">
-                        <span class="text-primary">啥框架发好啦</span>&nbsp;&nbsp;
-                        <span>193.0￥</span>&nbsp;&nbsp;
-                        <button type="button" class="btn btn-xs">-</button>
-                        <span class="">15</span>份
-                        <button type="button" class="btn btn-xs">+</button>&nbsp;&nbsp;
-                        <button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <span class="text-primary"><?php echo $key['mName'] ?></span>&nbsp;&nbsp;
+                        
+                        <button type="button" class="close pull-right" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <span class="pull-right m5"><i id="price_<?php echo $key['mID'] ?>"><?php echo $key['mPrice'] ?></i>￥</span>&nbsp;&nbsp;
+                        <span class="pull-right m5">
+                            <button id="less_<?php echo $key['mID'] ?>" 
+                            info="<?php echo $key['mID'] ?>" type="button" class="btn btn-xs btn-info">-</button>
+                            <i id="mNumber_<?php echo $key['mID'] ?>">
+                            <?php 
+                                echo $count[$key['mID']];
+                            ?>
+                            </i>份
+                            <button id="add_<?php echo $key['mID'] ?>" 
+                            info="<?php echo $key['mID'] ?>" type="button" class="btn btn-xs btn-info">+</button>
+                        </span>&nbsp;&nbsp;
                     </li>
-                    <li class="list-group-item">
-                        <span class="text-primary">啥框架发好啦</span>&nbsp;&nbsp;
-                        <span>193.0￥</span>&nbsp;&nbsp;
-                        <button type="button" class="btn btn-xs">-</button>
-                        <span class="">15</span>份
-                        <button type="button" class="btn btn-xs">+</button>&nbsp;&nbsp;
-                        <button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    </li>
-                    <li class="list-group-item">
-                        <span class="text-primary">啥框架发好啦</span>&nbsp;&nbsp;
-                        <span>193.0￥</span>&nbsp;&nbsp;
-                        <button type="button" class="btn btn-xs">-</button>
-                        <span class="">15</span>份
-                        <button type="button" class="btn btn-xs">+</button>&nbsp;&nbsp;
-                        <button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    </li>
-                    <li class="list-group-item">
-                        <span class="text-primary">啥框架发好啦</span>&nbsp;&nbsp;
-                        <span>193.0￥</span>&nbsp;&nbsp;
-                        <button type="button" class="btn btn-xs">-</button>
-                        <span class="">15</span>份
-                        <button type="button" class="btn btn-xs">+</button>&nbsp;&nbsp;
-                        <button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    </li>
-                    <li class="list-group-item">
-                        <span class="text-primary">啥框架发好啦</span>&nbsp;&nbsp;
-                        <span>193.0￥</span>&nbsp;&nbsp;
-                        <button type="button" class="btn btn-xs">-</button>
-                        <span class="">15</span>份
-                        <button type="button" class="btn btn-xs">+</button>&nbsp;&nbsp;
-                        <button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    </li>
-                    <li class="list-group-item">
-                        <span class="text-primary">啥框架发好啦</span>&nbsp;&nbsp;
-                        <span>193.0￥</span>&nbsp;&nbsp;
-                        <button type="button" class="btn btn-xs">-</button>
-                        <span class="">15</span>份
-                        <button type="button" class="btn btn-xs">+</button>&nbsp;&nbsp;
-                        <button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    </li>
-                    <li class="list-group-item">
-                        <span class="text-primary">啥框架发好啦</span>&nbsp;&nbsp;
-                        <span>193.0￥</span>&nbsp;&nbsp;
-                        <button type="button" class="btn btn-xs">-</button>
-                        <span class="">15</span>份
-                        <button type="button" class="btn btn-xs">+</button>&nbsp;&nbsp;
-                        <button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    </li>
-                    <li class="list-group-item">
-                        <span class="text-primary">啥框架发好啦</span>&nbsp;&nbsp;
-                        <span>193.0￥</span>&nbsp;&nbsp;
-                        <button type="button" class="btn btn-xs">-</button>
-                        <span class="">15</span>份
-                        <button type="button" class="btn btn-xs">+</button>&nbsp;&nbsp;
-                        <button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    </li>
-                    <li class="list-group-item">
-                        <span class="text-primary">啥框架发好啦</span>&nbsp;&nbsp;
-                        <span>193.0￥</span>&nbsp;&nbsp;
-                        <button type="button" class="btn btn-xs">-</button>
-                        <span class="">15</span>份
-                        <button type="button" class="btn btn-xs">+</button>&nbsp;&nbsp;
-                        <button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    </li>
-                    <li class="list-group-item">
-                        <span class="text-primary">啥框架发好啦</span>&nbsp;&nbsp;
-                        <span>193.0￥</span>&nbsp;&nbsp;
-                        <button type="button" class="btn btn-xs">-</button>
-                        <span class="">15</span>份
-                        <button type="button" class="btn btn-xs">+</button>&nbsp;&nbsp;
-                        <button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    </li>
-                    <li class="list-group-item">
-                        <span class="text-primary">啥框架发好啦</span>&nbsp;&nbsp;
-                        <span>193.0￥</span>&nbsp;&nbsp;
-                        <button type="button" class="btn btn-xs">-</button>
-                        <span class="">15</span>份
-                        <button type="button" class="btn btn-xs">+</button>&nbsp;&nbsp;
-                        <button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    </li>
+                    <?php endforeach ?>
+
+                    <li class="list-group-item"><i class="glyphicon glyphicon-cutlery"></i> 共计：<?php echo $number;?>份 | 总价：<?php echo $money;?>￥</li>
                 </ul>
             </div>
         </div>
         <br>
+        <div class="row">
+            <?php //print_r($count); ?>
+        </div>
         <br>
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -166,11 +104,13 @@
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
-                            </button>-->
+                            </button>
                             <button class="btn btn-info active navr" data-toggle="modal" data-target="#shopchart" info="请选择喜欢的菜">
-                                <i class="glyphicon glyphicon-cutlery"></i> 已点6份 ：总计 223￥</button>
-                            <a class="navbar-brand" href="#"></a>
-                            <button type="button" class="btn btn-info pull-right navm8">提交</button>
+                                 已点6份</button>
+                            <a class="navbar-brand" href="#"></a>-->
+                            <button type="button" class="btn btn-info pull-right navm8">
+                            <i class='glyphicon glyphicon-ok'></i> 上菜 
+                            </button>
                         </div>
                         <!-- Collect the nav links, forms, and other content for toggling -->
                         <!-- /.navbar-collapse -->

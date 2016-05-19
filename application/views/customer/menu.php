@@ -11,6 +11,7 @@
 
     <script src="<?php echo base_url(); ?>skin/customer/js/jquery.min.js"></script>
     <script src="<?php echo base_url(); ?>skin/customer/js/bootstrap.min.js"></script>
+    <script src="<?php echo base_url(); ?>skin/customer/js/doing.js"></script>
 </head>
 
 <body>
@@ -38,23 +39,8 @@
                                         <?php echo $key['cName']; ?>
                                     </a></li>
                                 <?php endforeach ?>
-                                
-                                
                             </ul>
-                            <!--
-                            <ul class="nav navbar-nav navbar-right">
-                                <li><a href="#">Link</a></li>
-                                <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="#">Action</a></li>
-                                        <li><a href="#">Another action</a></li>
-                                        <li><a href="#">Something else here</a></li>
-                                        <li role="separator" class="divider"></li>
-                                        <li><a href="#">Separated link</a></li>
-                                    </ul>
-                                </li>
-                            </ul>-->
+
                         </div>
                     </div>
                 </nav>
@@ -70,7 +56,7 @@
                         <h5><?php echo $key['mPrice'] ?>￥</h5>
                         <p><?php echo $key['mInfo'] ?></p>
                         <p>
-                            <button type="button" class="btn btn-info btn-lg btn-block">来一份 <i class="glyphicon glyphicon-heart"></i></button>
+                            <button id="mid_<?php echo $key['mID']; ?>" info="<?php echo $key['mID']; ?>" type="button" class="btn btn-info btn-lg btn-block">来一份 <i class="glyphicon glyphicon-heart"></i></button>
                         </p>
                     </div>
                 </div>
@@ -93,7 +79,7 @@
                                 <span class="icon-bar"></span>
                             </button>-->
                             <a href="<?php echo base_url(); ?>customer/cart" class="btn btn-info navr" info="选择喜欢的菜 :D">
-                                <i class="glyphicon glyphicon-cutlery"></i> 已点6份 ：总计 223￥</a>
+                                <i class="glyphicon glyphicon-list-alt"></i> 已点<i id="menuNumber">6</i>份: 查看已点菜 </a>
                             <button type="button" class="btn btn-info pull-right navm8">提交</button>
                         </div>
                         <!-- Collect the nav links, forms, and other content for toggling -->

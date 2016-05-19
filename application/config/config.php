@@ -371,9 +371,9 @@ $config['sess_driver'] = 'files';
 $config['sess_cookie_name'] = 'ci';
 $config['sess_expiration'] = 7200;
 $config['sess_save_path'] = realpath('./sessKe');
-$config['sess_match_ip'] = FALSE;
+$config['sess_match_ip'] = TRUE;
 $config['sess_time_to_update'] = 300;
-$config['sess_regenerate_destroy'] = FALSE;
+$config['sess_regenerate_destroy'] = TRUE;
 
 /*
 |--------------------------------------------------------------------------

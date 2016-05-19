@@ -10,6 +10,17 @@ class cartM extends CI_Model {
 		
 	}
 
+	function getMenu($midArr='')
+	{
+		$this->db->select('mID,mName,mPrice');
+		$this->db->from('menu');
+		$this->db->or_where_in('mID', $midArr);
+		$query=$this->db->get();
+		//$sql=$this->db->get_compiled_select();
+		$data=$query->result_array();
+		return $data;
+	}
+
 }
 
 /* End of file cartM.php */

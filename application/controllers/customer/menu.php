@@ -23,10 +23,20 @@ class menu extends CI_Controller {
 		$this->load->view('customer/menu',$data);
 	}
 
-	public function shopCart($mid='',$mname='',$mprice='')
+	public function shopCart($mid='')
 	{
-		$data=array('mID'=>$mid,'mName'=>$mname,'mPrice'=>$mprice);
-		$this->session->set_userdata($newdata);
+		$mid=$this->input->post('mid', TRUE);
+		if (isset($_SESSION['mID'])) {
+			$midStr=$_SESSION['mID'];
+			$midStr=$midStr.','.$mid;
+		}
+		else{
+			$midStr=$mid;
+		}
+	
+		$data=array("mID"=>$midStr);
+		$this->session->set_userdata($data);
+		echo 'this Session:'.$_SESSION['mID'];
 	}
 
 }
