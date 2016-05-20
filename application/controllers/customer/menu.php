@@ -12,6 +12,14 @@ class menu extends CI_Controller {
 		$this->load->model('customer/menuM', 'mm');
 		$data['res']=$this->mm->getMenu();
 		$data['class']=$this->mm->getClass();
+		if (isset($_SESSION['mID'])) {
+			$str=$_SESSION['mID'];
+			$midArr=explode(',',$str);
+			$data['mNumber'] = count($midArr);
+		} else {
+			$data['mNumber']=0;
+		}
+		
 		$this->load->view('customer/menu',$data);
 	}
 
@@ -36,7 +44,9 @@ class menu extends CI_Controller {
 	
 		$data=array("mID"=>$midStr);
 		$this->session->set_userdata($data);
-		echo 'this Session:'.$_SESSION['mID'];
+		$str=$_SESSION['mID'];
+		$midArr=explode(',',$str);
+		echo count($midArr);
 	}
 
 }
