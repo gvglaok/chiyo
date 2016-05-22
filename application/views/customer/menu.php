@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>YSD Menu</title>
     <link href="<?php echo base_url(); ?>skin/customer/css/bootstrap.min.css" rel="stylesheet">   
-
     <link rel="stylesheet" href="<?php echo base_url(); ?>skin/customer/css/comm.css">
 
     <script src="<?php echo base_url(); ?>skin/customer/js/jquery.min.js"></script>

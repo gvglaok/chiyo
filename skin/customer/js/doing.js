@@ -1,7 +1,11 @@
+//预加载
 $(function(){
+	//添加菜品按钮功能
 	$("[id^='mid']").click(function() { 
 		getCMenu($(this).attr("info"));
+		numberAdd();
 	});
+
 	$("[id^='less']").click(function() {
 		var mid= $(this).attr("info");
 		less(mid);
@@ -14,7 +18,7 @@ $(function(){
 	});
 });
 
-//get menu class
+//add menu one
 function getCMenu(pmid) {
 	$.ajax({
 		url: 'menu/shopCart',
@@ -28,9 +32,9 @@ function getCMenu(pmid) {
 	.fail(function() { 
 		console.log("error");
 	})
-	.always(function(mes) {
+	.always(function() {
 		console.log("complete");
-		$("#menuNumber").text(mes);
+		//$("#menuNumber").text(mes);
 	});
 }
 //delete mid
@@ -131,7 +135,6 @@ function getsum() {
 
 //dele menu
 function deleMenu(pmid) {
-	
 	$.ajax({
 		url: 'cart/deleMenu',
 		type: 'post',
@@ -148,6 +151,14 @@ function deleMenu(pmid) {
 	})
 	.always(function() {
 		console.log("complete");
-	});
-	
+	});	
 }
+
+//页面数字自动增加
+function numberAdd(){
+	var number=Number($('#menuNumber').text());
+	number++;
+	$('#menuNumber').text(number);
+}
+
+

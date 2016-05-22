@@ -28,6 +28,13 @@ class menu extends CI_Controller {
 		$this->load->model('customer/menuM', 'mm');
 		$data['res']=$this->mm->getCMenu($value);
 		$data['class']=$this->mm->getClass();
+		if (isset($_SESSION['mID'])) {
+			$str=$_SESSION['mID'];
+			$midArr=explode(',',$str);
+			$data['mNumber'] = count($midArr);
+		} else {
+			$data['mNumber']=0;
+		}
 		$this->load->view('customer/menu',$data);
 	}
 
