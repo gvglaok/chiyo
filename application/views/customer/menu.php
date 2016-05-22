@@ -11,6 +11,7 @@
     <script src="<?php echo base_url(); ?>skin/customer/js/jquery.min.js"></script>
     <script src="<?php echo base_url(); ?>skin/customer/js/bootstrap.min.js"></script>
     <script src="<?php echo base_url(); ?>skin/customer/js/doing.js"></script>
+
 </head>
 
 <body>
@@ -47,6 +48,7 @@
         </div>
         <div class="row mediaList">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                
                 <?php foreach ($res as $key): ?>
                 <div class="thumbnail ">
                     <img src="<?php echo base_url(); ?>uploads/<?php echo $key['mImage'] ?>" alt="...">

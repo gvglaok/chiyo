@@ -9,6 +9,35 @@ class menu extends CI_Controller {
 
 	public function index()
 	{
+		if (!isset($_SESSION['tid'])) {
+			echo '请扫码点餐';
+			die();
+		}
+		$this->load->model('customer/menuM', 'mm');
+		$data['res']=$this->mm->getMenu();
+		$data['class']=$this->mm->getClass();
+		if (isset($_SESSION['mID'])) {
+			$str=$_SESSION['mID'];
+			$midArr=explode(',',$str);
+			$data['mNumber'] = count($midArr);
+		} else {
+			$data['mNumber']=0;
+		}
+		
+		$this->load->view('customer/menu',$data);
+	}
+
+	//tableID add
+	public function welcome($tid='')
+	{
+		if ($tid!='') {
+			$ses=array("tid"=>$tid);
+			$this->session->set_userdata($ses);
+		} else {
+			echo '请扫码点餐';
+			die();
+		}
+
 		$this->load->model('customer/menuM', 'mm');
 		$data['res']=$this->mm->getMenu();
 		$data['class']=$this->mm->getClass();

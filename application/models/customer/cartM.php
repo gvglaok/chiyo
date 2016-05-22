@@ -21,6 +21,14 @@ class cartM extends CI_Model {
 		return $data;
 	}
 
+	public function addOrder($arr='')
+	{
+
+		$query=$this->db->insert('order', $arr);
+
+		return $query;
+	}
+
 }
 
 /* End of file cartM.php */

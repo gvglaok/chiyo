@@ -42,8 +42,8 @@ class cart extends CI_Controller {
 	}
 	
 	/**
-	 * [sum description]
-	 * @return [type] [description]
+	 * [sum ajax function 废除]
+	 * 
 	 */
 	public function sum()
 	{
@@ -155,7 +155,51 @@ class cart extends CI_Controller {
 		//print_r($midArr);
 	}
 
+	public function addOrder()
+	{
+		$tid=$_SESSION['tid'];
+		$mid=$_SESSION['mID'];
+		$midArr=explode(',', $mid);
+		$number=count($midArr);
+		//获取菜ID及选择次数
+		$midArrCount=array_count_values($midArr);
+
+		//获取总价
+		$money=0;
+		$rMid=array_keys($midArrCount);
+		$this->load->model('customer/cartM', 'cm');
+		$data['res']=$this->cm->getMenu($rMid);
+		$data['count']=$midArrCount;
+		foreach ($data['res'] as $key) {
+			$one=$key['mPrice']*$midArrCount[$key['mID']];
+			$money+=$one;
+		}
+
+		$dataArr=array('oTableNumber'=>$tid,'oMidArr'=>$mid,'oMenuNumber'=>$number,'oMoney'=>$money,'oAddTime'=>time(),'oStatus'=>0);
+
+		$res=$this->cm->addOrder($dataArr);
+	}
+
 }
 
 /* End of file cart.php */
-/* Location: ./application/controllers/cart.php */
+/* Location: ./application/controllers/cart.php 
+
+CREATE TABLE `ysd`.`ysd_order` (
+`oID` int(11) NOT NULL AUTO_INCREMENT,
+`oTableNumber` varchar(11) CHARACTER SET gbk COLLATE gbk_chinese_ci NULL DEFAULT NULL,
+`oMidArr` varchar(255) CHARACTER SET gbk COLLATE gbk_chinese_ci NULL DEFAULT NULL,
+`oMenuNumber` int(11) NULL DEFAULT NULL,
+`oMoney` varchar(255) CHARACTER SET gbk COLLATE gbk_chinese_ci NULL DEFAULT NULL,
+`oAddTime` timestamp NULL DEFAULT NULL,
+`oStatus` int(1) NOT NULL DEFAULT 0,
+PRIMARY KEY (`oID`) 
+)
+ENGINE=MyISAM
+DEFAULT CHARACTER SET=gbk COLLATE=gbk_chinese_ci
+;
+
+
+
+
+*/
