@@ -85,32 +85,20 @@
         <div id="page-wrapper">
             <div class="graphs">
             <script language=javascript> 
-            function doPrint() {
-            var prtContent = document.getElementById("order1");
-            var WinPrint = window.open('', '', 'left=0,top=0,width=800,height=900,toolbar=0,scrollbars=0,status=0');
-            WinPrint.document.write(prtContent.innerHTML);
-            WinPrint.document.close();
-            WinPrint.focus();
-            WinPrint.print();
-            WinPrint.close();
-            } 
+            
             </script> 
-            <?php 
-            //print_r($res);
-            /*foreach ($res as $key) {
-                
-                echo $key['oTableNumber']."<br>";
-                foreach ($key['oMidArr'] as $menu) {
-                    echo $menu['mName']."<br>";
-                }
-            }*/
-
-             ?>
+                <?php $num=0;?>
                 <?php foreach($res as $key): ?>
-                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                <?php 
+                if ($num==0) {
+                    echo '<div class="row">';
+                }
+
+                 ?>
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 pull-left">
                     
                 	<div id="order<?php echo $key['oID'];?>" class="panel panel-warning">
-
+                        
 						<div class="panel-heading">
 							<h3 class="panel-title">台号：<?php echo $key['oTableNumber'];?></h3>	
 						</div>
@@ -119,14 +107,24 @@
                             <?php foreach($key['oMidArr'] as $menu): ?>
 						    <li class="list-group-item"><?php echo $menu['mName'];?><span class="badge"><?php echo $menu['mPrice'];?>￥</span></li>
 						    <?php endforeach; ?>
-						    <li class="list-group-item">总金额：<?php echo $key['oMoney']; ?>￥</li>
+						    <li class="list-group-item tp">总金额：<?php echo $key['oMoney']; ?>￥</li>
 						</ul>
 
 						<div class="panel-footer"><button type="button" onClick="doPrint()" class="btn btn-info">打印</button></div>
 
+                         
+
 					</div>
                     <!--endprint-->
                 </div>
+                <?php 
+                $num++;
+                if ($num==3) {
+                    echo '</div>';
+                    $num=0;
+                }
+                
+                 ?>
                 <?php endforeach; ?>
 				
                 

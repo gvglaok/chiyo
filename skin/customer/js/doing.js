@@ -25,7 +25,7 @@ $(function(){
 //add menu one
 function getCMenu(pmid) {
 	$.ajax({
-		url: 'menu/shopCart',
+		url: '/chiyo/customer/menu/shopCart',
 		type: 'POST',
 		dataType: 'html',
 		data: {mid: pmid},
@@ -41,6 +41,7 @@ function getCMenu(pmid) {
 		//$("#menuNumber").text(mes);
 	});
 }
+
 //delete mid
 function getLess(pmid) {
 	var mess='';
@@ -149,6 +150,7 @@ function deleMenu(pmid) {
 		console.log("success");
 		var lgID="#lg_"+pmid;
 		$(lgID).remove();
+		getsum();
 	})
 	.fail(function() {
 		console.log("error");
@@ -170,6 +172,7 @@ function subMenu() {
 	$.post('cart/addOrder', function(data) {
 		alert(data);
 		$('#btm').hide();
+		$('#back').hide();
 	});
 }
 

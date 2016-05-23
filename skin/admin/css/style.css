@@ -805,7 +805,7 @@ i.icon_13{
 	color:#999;
 	font-size:15px;
 }
-.fa.pull-left {
+.f{
   margin-right: 10% !important;
 }
 .icon-rounded{
@@ -1611,7 +1611,7 @@ i.icon_8{
 a.btn.btn-default.mrg5R {
   float: left;
 }
-.float-left, .pull-left {
+.float-left {
   float: left!important;
   width: 50%;
   cursor: pointer;
@@ -2221,7 +2221,7 @@ canvas#doughnut, canvas#line, canvas#polarArea, #bar, #pie, #radar {
 .avatar_left {
   width: 65%;
 }
-.float-left, .pull-left {
+.float-left,{
   width: 47%;
 }
 .login-social-link a.facebook {
@@ -2242,7 +2242,7 @@ i.text-info {
   line-height: 39px;
   font-size: 1em;
 }
-.float-left, .pull-left {
+.float-left,{
   width: 42%;
 }
 .login-social-link a {
@@ -2346,7 +2346,7 @@ canvas#doughnut, canvas#line, canvas#polarArea, #bar, #pie, #radar {
 ul.collection, .mailbox-content{
   padding: 10px;
 }
-.float-left, .pull-left {
+.float-left,{
   width: 35%;
 }
 .m-r-sm {
@@ -2603,7 +2603,7 @@ button.btn.btn-lg, button.btn{
 .login-logo {
   padding: 40px 0;
 }
-.float-left, .pull-left {
+.float-left,{
   width: 50%;
 }
 .mail-toolbar.clearfix {

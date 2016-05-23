@@ -181,30 +181,14 @@ class cart extends CI_Controller {
 		if ($res) {
 			//提示成功
 			//销毁 tid mID
-			echo 'ok';
+			echo '下单成功！# '.time();
+			$sesarr = array('tid','mID');
+			//$this->session->session_unset(oid)
+			$this->session->unset_userdata($sesarr);
 		}
 	}
 
 }
 
 /* End of file cart.php */
-/* Location: ./application/controllers/cart.php 
-
-CREATE TABLE `ysd`.`ysd_order` (
-`oID` int(11) NOT NULL AUTO_INCREMENT,
-`oTableNumber` varchar(11) CHARACTER SET gbk COLLATE gbk_chinese_ci NULL DEFAULT NULL,
-`oMidArr` varchar(255) CHARACTER SET gbk COLLATE gbk_chinese_ci NULL DEFAULT NULL,
-`oMenuNumber` int(11) NULL DEFAULT NULL,
-`oMoney` varchar(255) CHARACTER SET gbk COLLATE gbk_chinese_ci NULL DEFAULT NULL,
-`oAddTime` timestamp NULL DEFAULT NULL,
-`oStatus` int(1) NOT NULL DEFAULT 0,
-PRIMARY KEY (`oID`) 
-)
-ENGINE=MyISAM
-DEFAULT CHARACTER SET=gbk COLLATE=gbk_chinese_ci
-;
-
-
-
-
-*/
+/* Location: ./application/controllers/cart.php */

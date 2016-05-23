@@ -36,24 +36,35 @@ $(function() {
 });
 
 
-function addCN () {
-   $.ajax({
-       url: 'menuclass/addclass',
-       type: 'post',
-       dataType: 'html',
-       data: {cn: $("#newClass").val()},
-   })
-   .done(function() {
-       console.log("success");
-   })
-   .fail(function() {
-       console.log("error");
-   })
-   .always(function(mes) {
-       console.log("complete");
-       alert(mes);
-   });
-   
-   
+function addCN() {
+    $.ajax({
+            url: 'menuclass/addclass',
+            type: 'post',
+            dataType: 'html',
+            data: { cn: $("#newClass").val() },
+        })
+        .done(function() {
+            console.log("success");
+        })
+        .fail(function() {
+            console.log("error");
+        })
+        .always(function(mes) {
+            console.log("complete");
+            alert(mes);
+        });
+
+
 };
 
+function doPrint() {
+    var pcss='<style>.panel-heading{font-size:12px;}.list-group{font-size:12px;padding:0;}.list-group li{font-size:12px;list-style:none;}.panel-footer{display:none}.tp{font-weight:bold;margin-top:10px;}.badge{float:right}</style>'
+    var prtContent = $('#order1').html()+pcss;
+
+    var WinPrint = window.open('', '', 'left=0,top=0,width=800,height=900,toolbar=0,scrollbars=0,status=0');
+    WinPrint.document.write(prtContent);
+    WinPrint.document.close();
+    WinPrint.focus();
+    WinPrint.print();
+    WinPrint.close();
+}

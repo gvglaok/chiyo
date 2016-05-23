@@ -23,7 +23,7 @@
                         <!-- Brand and toggle get grouped for better mobile display -->
                         <div class="navbar-header">
                             
-                            <a class="navbar-brand" href="<?php echo base_url(); ?>customer/menu"><i class="glyphicon glyphicon-chevron-left"></i> YSD_订单</a>
+                            <a id="back" class="navbar-brand" href="<?php echo base_url(); ?>customer/menu"><i class="glyphicon glyphicon-chevron-left"></i></a> <a class="navbar-brand" href="#">YSD_订单</a>
                         </div>
                        
                     </div>

@@ -12,19 +12,20 @@ class menu extends CI_Controller {
 		if (!isset($_SESSION['tid'])) {
 			echo '请扫码点餐';
 			die();
-		}
-		$this->load->model('customer/menuM', 'mm');
-		$data['res']=$this->mm->getMenu();
-		$data['class']=$this->mm->getClass();
-		if (isset($_SESSION['mID'])) {
-			$str=$_SESSION['mID'];
-			$midArr=explode(',',$str);
-			$data['mNumber'] = count($midArr);
 		} else {
-			$data['mNumber']=0;
+			$this->load->model('customer/menuM', 'mm');
+			$data['res']=$this->mm->getMenu();
+			$data['class']=$this->mm->getClass();
+			if (isset($_SESSION['mID'])) {
+				$str=$_SESSION['mID'];
+				$midArr=explode(',',$str);
+				$data['mNumber'] = count($midArr);
+			} else {
+				$data['mNumber']=0;
+			}
+			
+			$this->load->view('customer/menu',$data);
 		}
-		
-		$this->load->view('customer/menu',$data);
 	}
 
 	//tableID add

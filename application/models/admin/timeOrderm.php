@@ -10,6 +10,11 @@ class timeOrderm extends CI_Model {
 		
 	}
 
+	
+	/**
+	 * [orderTable 获取每个order的midarr,查询每个menu信息]
+	 * @return [type] [description]
+	 */
 	public function orderTable()
 	{
 		$query=$this->db->get_where('order', array('oStatus'=>0));
@@ -23,6 +28,12 @@ class timeOrderm extends CI_Model {
 		//获取menu数据
 		//$arrMenu=array();
 		for ($i=0; $i < count($data); $i++) { 
+			$menuNumber[$i]=array_count_values($arrMid[$i]);
+			
+			$menuKey=array_keys($menuNumber[$i]);
+
+			//$onlyMid=array_unique($arrMid[$i]);
+
 			$this->db->select('mID,mName,mPrice');
 
 			$this->db->from('menu');
@@ -34,6 +45,8 @@ class timeOrderm extends CI_Model {
 			$data2=$query2->result_array();
 
 			$data[$i]['oMidArr']=$data2;
+
+
 		}
 
 		//$res=array_fill_keys($data[0]['oMidArr'], $arrayMID);
