@@ -81,7 +81,7 @@
                             </button>-->
                             <a href="<?php echo base_url(); ?>customer/cart" class="btn btn-info navr">
                                 <i class="glyphicon glyphicon-list-alt"></i> 已点<i id="menuNumber"><?php echo $mNumber ?></i>份: 查看已点菜 </a>
-                            <button type="button" class="btn btn-info pull-right navm8">提交</button>
+                            <!-- <button type="button" class="btn btn-info pull-right navm8">提交</button> -->
                         </div>
                         <!-- Collect the nav links, forms, and other content for toggling -->
                         <!-- /.navbar-collapse -->

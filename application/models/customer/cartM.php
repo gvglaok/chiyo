@@ -23,7 +23,6 @@ class cartM extends CI_Model {
 
 	public function addOrder($arr='')
 	{
-
 		$query=$this->db->insert('order', $arr);
 
 		return $query;

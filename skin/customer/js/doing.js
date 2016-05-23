@@ -16,6 +16,10 @@ $(function(){
 	$("[class^='close']").click(function() {
 		deleMenu($(this).attr("info"));
 	});
+
+	$("#subMenu").click(function() {
+		subMenu();
+	});
 });
 
 //add menu one
@@ -161,4 +165,11 @@ function numberAdd(){
 	$('#menuNumber').text(number);
 }
 
+//提交订单
+function subMenu() {
+	$.post('cart/addOrder', function(data) {
+		alert(data);
+		$('#btm').hide();
+	});
+}
 

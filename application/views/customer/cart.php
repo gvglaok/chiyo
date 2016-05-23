@@ -76,7 +76,7 @@
             <?php //print_r($count); ?>
         </div>
         <br>
-        <div class="row">
+        <div id="btm" class="row">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
                     <div class="container-fluid">
@@ -91,8 +91,8 @@
                             <button class="btn btn-info active navr" data-toggle="modal" data-target="#shopchart" info="请选择喜欢的菜">
                                  已点6份</button>
                             <a class="navbar-brand" href="#"></a>-->
-                            <button onclick="deleMenu()" type="button" class="btn btn-info pull-right navm8">
-                            <i class='glyphicon glyphicon-ok'></i> 上菜
+                            <button id="subMenu" type="button" class="btn btn-info pull-right navm8">
+                                <i class='glyphicon glyphicon-ok'></i> 上菜
                             </button>
                         </div>
                         <!-- Collect the nav links, forms, and other content for toggling -->

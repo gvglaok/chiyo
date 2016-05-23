@@ -178,6 +178,11 @@ class cart extends CI_Controller {
 		$dataArr=array('oTableNumber'=>$tid,'oMidArr'=>$mid,'oMenuNumber'=>$number,'oMoney'=>$money,'oAddTime'=>time(),'oStatus'=>0);
 
 		$res=$this->cm->addOrder($dataArr);
+		if ($res) {
+			//提示成功
+			//销毁 tid mID
+			echo 'ok';
+		}
 	}
 
 }
