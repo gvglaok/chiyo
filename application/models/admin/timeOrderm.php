@@ -29,7 +29,7 @@ class timeOrderm extends CI_Model {
 		//$arrMenu=array();
 		for ($i=0; $i < count($data); $i++) { 
 			$menuNumber[$i]=array_count_values($arrMid[$i]);
-			
+
 			$menuKey=array_keys($menuNumber[$i]);
 
 			//$onlyMid=array_unique($arrMid[$i]);
@@ -38,13 +38,15 @@ class timeOrderm extends CI_Model {
 
 			$this->db->from('menu');
 
-			$this->db->or_where_in('mID', $arrMid[$i]);
+			//$this->db->or_where_in('mID', $arrMid[$i]);
+			$this->db->or_where_in('mID', $menuKey);
 
 			$query2=$this->db->get();
 
 			$data2=$query2->result_array();
 
 			$data[$i]['oMidArr']=$data2;
+			$data[$i]['oMidArr']['num']=$menuKey;
 
 
 		}
