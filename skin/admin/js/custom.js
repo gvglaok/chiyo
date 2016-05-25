@@ -41,7 +41,7 @@ function addCN() {
             url: 'menuclass/addclass',
             type: 'post',
             dataType: 'html',
-            data: { cn: $("#newClass").val() },
+            data: { cn: $("#newClass").val()}
         })
         .done(function() {
             console.log("success");
@@ -57,14 +57,43 @@ function addCN() {
 
 };
 
-function doPrint() {
-    var pcss='<style>.panel-heading{font-size:12px;}.list-group{font-size:12px;padding:0;}.list-group li{font-size:12px;list-style:none;}.panel-footer{display:none}.tp{font-weight:bold;margin-top:10px;}.badge{float:right}</style>'
-    var prtContent = $('#order1').html()+pcss;
-
-    var WinPrint = window.open('', '', 'left=0,top=0,width=800,height=900,toolbar=0,scrollbars=0,status=0');
-    WinPrint.document.write(prtContent);
-    WinPrint.document.close();
-    WinPrint.focus();
-    WinPrint.print();
-    WinPrint.close();
+function printOrder(poid) {
+  $.ajax({
+    url: '/chiyo/admin/timeorder/changeStatus/',
+    type: 'post',
+    dataType: 'json',
+    data: {oid: poid},
+    success:callb
+  });
 }
+
+function callb(mes) {
+  var sta = mes.res;
+  if(sta=='ok'){
+    var poid='#poid'+mes.oid;
+    $(poid).remove();
+  } else {
+    alert('底单处理失败，请稍后重试');
+  }
+
+}
+
+function doPrint(oid) {
+    var pcss='<style>body{font-family:"黑体"}.panel-heading{font-size:10px;}.list-group{font-size:10px;padding:0;}.list-group li{font-size:10px;list-style:none;}.panel-footer{display:none}.tp{font-weight:bold;margin-top:10px;}.badge{float:right}.mnum{margin-right:5px;float:right;font-weight:bold;}</style>';
+
+    var pid='#order'+oid;
+    var Content = $(pid).html()+pcss;
+    
+    var nw = window.open('', '', 'left=0,top=0,width=260,height=600,toolbar=0,scrollbars=0,status=0');
+
+    nw.document.write(Content);
+    nw.document.close();
+    nw.focus();
+    nw.print();
+    nw.close();
+
+    printOrder(oid);
+
+}
+
+

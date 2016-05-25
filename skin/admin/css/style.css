@@ -36,7 +36,16 @@ body a{
   margin-bottom: 15px !important;
 }
 
-
+.mnum{
+  float: right;
+    background-color: #5bc0de;
+    color: #fff;
+    border-radius: 5px;
+    padding: 0 5px;
+    font-size: 11px;
+    margin-right: 5px;
+    line-height: 18px;
+}
 
 
 /*-- header --*/
@@ -1336,20 +1345,7 @@ ul.collection li.email_last{
   padding: 0;
   color: #999;
 }
-span.badge {
-  min-width: 3rem;
-  padding: 2px 9px;
-  text-align: center;
-  font-size: 0.85;
-  line-height: inherit;
-  color: #fff;
-  position: absolute;
-  right:38px;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  border-radius: 2px;
-}
+
 span.blue{
 	background-color:#00aced;
 }

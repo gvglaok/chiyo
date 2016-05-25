@@ -181,7 +181,7 @@ class cart extends CI_Controller {
 		if ($res) {
 			//提示成功
 			//销毁 tid mID
-			echo '下单成功！# '.time();
+			echo '下单成功！继续点单 请扫二维码';
 			$sesarr = array('tid','mID');
 			//$this->session->session_unset(oid)
 			$this->session->unset_userdata($sesarr);

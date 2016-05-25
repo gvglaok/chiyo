@@ -28,8 +28,10 @@ class timeOrderm extends CI_Model {
 		//获取menu数据
 		//$arrMenu=array();
 		for ($i=0; $i < count($data); $i++) { 
+			//获取 mid 对应 number
 			$menuNumber[$i]=array_count_values($arrMid[$i]);
 
+			//获取不重复mid;
 			$menuKey=array_keys($menuNumber[$i]);
 
 			//$onlyMid=array_unique($arrMid[$i]);
@@ -46,43 +48,19 @@ class timeOrderm extends CI_Model {
 			$data2=$query2->result_array();
 
 			$data[$i]['oMidArr']=$data2;
-			$data[$i]['oMidArr']['num']=$menuKey;
 
-
-		}
-
-		//$res=array_fill_keys($data[0]['oMidArr'], $arrayMID);
-		
-
-		
-		return $data;
-	}
-
-	public function tableMenu()
-	{
-		/*$query=$this->db->get_where('order', array('oStatus'=>0));
-		$data=$query->result_array();
-
-		$arrayMID=split($data['oMidArr'], ',');
-
-		$this->db->select('mName','mPrice');
-
-		$this->db->from('menu');
-
-		$this->db->or_where_in('mID', $arrayMID);
-
-		$query2=$this->db->get();
-
-		$data2=$query2->result_array();
-
-		$query=$this->db->get_where('order', array('oStatus'=>0));
-		$data=$query->result_array();
-
-		foreach ($data as $key) {
+			//add menu number
+			$data[$i]['num']=$menuNumber[$i];
 			
 		}
 
-		return $data2;*/
+		return $data;
 	}
 
+	public function cStatus($condition='')
+	{
+		$data = array('oStatus' => 1);
+		$query = $this->db->update('order', $data, $condition);
+		return $query;
+	}
 }

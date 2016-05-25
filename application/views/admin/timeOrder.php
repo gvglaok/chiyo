@@ -84,9 +84,7 @@
        
         <div id="page-wrapper">
             <div class="graphs">
-            <script language=javascript> 
-            
-            </script> 
+           
                 <?php $num=0;?>
                 <?php foreach($res as $key): ?>
                 <?php 
@@ -95,7 +93,7 @@
                 }
 
                  ?>
-                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 pull-left">
+                <div id="poid<?php echo $key['oID'];?>" class="col-xs-12 col-sm-6 col-md-6 col-lg-4 pull-left">
                     
                 	<div id="order<?php echo $key['oID'];?>" class="panel panel-warning">
                         
@@ -105,12 +103,25 @@
 						
 						<ul class="list-group">
                             <?php foreach($key['oMidArr'] as $menu): ?>
-						    <li class="list-group-item"><?php echo $menu['mName'];?><span class="badge"><?php echo $menu['mPrice'];?>￥</span></li>
+						    <li class="list-group-item">
+                                <?php echo $menu['mName'];?>
+                                <span class="badge"><?php echo $menu['mPrice'];?>￥/份</span>
+                               <?php 
+                                if ($key['num'][$menu['mID']]>1 ) {
+                                  echo '<span class="mnum">'.$key['num'][$menu['mID']].'份</span>';
+                                } 
+                                ?> 
+                            </li>
 						    <?php endforeach; ?>
 						    <li class="list-group-item tp">总金额：<?php echo $key['oMoney']; ?>￥</li>
 						</ul>
 
-						<div class="panel-footer"><button type="button" onClick="doPrint()" class="btn btn-info">打印</button></div>
+						<div class="panel-footer">
+                            <button type="button" 
+                            onClick="doPrint(<?php echo $key['oID'];?>)" 
+                            class="btn btn-info">打印
+                            </button>
+                        </div>
 
                          
 
