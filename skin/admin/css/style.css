@@ -1070,10 +1070,7 @@ button.note-color-btn {
 .page_1{
 	padding:0;
 }
-.pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus {
-  background-color:rgb(6, 217, 149) !important;
-  border-color:rgb(6, 217, 149) !important;
-}
+
 .breadcrumb li{
 	font-size:0.85em;
 }
@@ -1221,9 +1218,7 @@ select[multiple] {
   padding:2em;
   margin: 2em 0 0 0;
 }
-.panel-warning {
-  margin-top: 2em;
-}
+
 .panel.panel-midnightblue {
   border-color: #263238;
 }

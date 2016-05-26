@@ -10,11 +10,13 @@ class allOrderm extends CI_Model {
 		
 	}
 
-	public function getOrder()
+	public function getOrder($num=0)
 	{
-		$query = $this->db->get('order', 0, 20);
+		$data['num']= $this->db->count_all('order'); 
 
-		$data=$query->result_array();
+		$query = $this->db->get('order',$num+12,$num);
+
+		$data['res']=$query->result_array();
 
 		return $data;
 	}
