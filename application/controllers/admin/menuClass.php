@@ -31,6 +31,21 @@ class menuClass extends CI_Controller {
 		}
 	}
 
+	public function delec()
+	{
+		$cid=$this->input->post('cid', TRUE);
+
+		$this->load->model('admin/menuClassm', 'mc');
+
+		$res=$this->mc->delec($cid);
+
+		if ($res) {
+			echo "success";
+		} else {
+			echo "error";
+		}
+	}
+
 }
 
 /* End of file timeOrder.php */

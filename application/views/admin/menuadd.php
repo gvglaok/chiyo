@@ -90,7 +90,7 @@
                             <h3 class="panel-title"> 添加菜品 </h3>
                         </div>
                         <div class="panel-body">
-                            <form class="form-inline" action="menuAdd/addMenu" method="post" enctype="multipart/form-data" >
+                            <form class="form-inline" action="<?php echo base_url() ?>admin/menuAdd/addMenu" method="post" enctype="multipart/form-data" >
                                 <div class="form-group formm">
                                     <label for="mName">菜名：</label>
                                     <input type="text" class="form-control" id="mName" name="mName" required="required">
@@ -136,7 +136,22 @@
                         </div>
                     </div>
                 </div>
-                <div class="clearfix"> </div>
+
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <?php
+                        if (isset($mes)) {
+                            echo '<div class="alert alert-'.$mes['type'].' alert-dismissible" role="alert">
+                                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                                  </button>
+                                  <strong>Warning!</strong>
+                                  '.$mes['info'].' 
+                                  </div>';
+                        }
+                    ?>
+                </div>
+
+                <div class="clearfix"></div>
                 <div class="copy">
                     <p>Copyright &copy; 2016.Company name All rights reserved. <a href="#" target="_blank" title="YSD">YSD</a> - Collect from <a href="#" title="YSD_keven" target="_blank">YSD_keven</a></p>
                 </div>

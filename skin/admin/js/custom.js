@@ -2,6 +2,14 @@ $(function() {
 
     $('#side-menu').metisMenu();
 
+    $("button[id^='dele']").click(function() {
+      var isTrue=confirm("确认删除！");
+      if (isTrue) {
+        var cid=$(this).attr('info');
+        classDele(cid);
+      }
+    });
+
 });
 
 //Loads the correct sidebar on window load,
@@ -43,15 +51,17 @@ function addCN() {
             dataType: 'html',
             data: { cn: $("#newClass").val()}
         })
-        .done(function() {
-            console.log("success");
+        .done(function(mes) {
+            if (String(mes)=="success") {
+              alert("添加成功");
+              window.location.reload();
+            }
         })
         .fail(function() {
             console.log("error");
         })
-        .always(function(mes) {
+        .always(function() {
             console.log("complete");
-            alert(mes);
         });
 
 
@@ -97,3 +107,30 @@ function doPrint(oid) {
 }
 
 
+
+function classDele(pcid) {
+  $.ajax({
+    url: '/chiyo/admin/menuclass/delec',
+    type: 'post',
+    dataType: 'html',
+    data: {cid: pcid}
+  })
+  .done(function(mes) {
+    if (String(mes)=="success") {
+      var tcid='#c'+pcid;
+      $(tcid).remove();
+    } else {
+      alert(mes+': 品类中有菜品 不允许删除！');
+    }
+  })
+  .fail(function() {
+    console.log("error");
+  })
+  .always(function() {
+    console.log("complete");
+  });  
+}
+
+function updc() {
+
+}

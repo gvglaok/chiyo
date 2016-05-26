@@ -92,16 +92,19 @@
                         </div>
                         <div class="list-group">
                         <?php foreach ($menu as $key ) :?>
-                          <li class="list-group-item">
+                          <li id="c<?php echo $key['cID'] ?>" class="list-group-item">
                             <a href=""><?php echo $key['cName']; ?></a>
-                            <button type="button" class="btn btn-sm btn-info pull-right m75">修改</button>
-                            <button type="button" class="btn btn-sm btn-danger pull-right m15">删除</button>
+                            <span class="kc<?php echo $key['cID'] ?>">
+                                <button id="ud<?php echo $key['cID'] ?>" info="<?php echo $key['cID'] ?>" type="button" class="btn btn-xs btn-info pull-right m75">修改</button>
+                                <button id="dele<?php echo $key['cID'] ?>" info="<?php echo $key['cID'] ?>" type="button" class="btn btn-xs btn-danger pull-right m15">删除</button>
+                            </span>        
+                            <button type="button" class="btn btn-xs btn-info bhide">确认</button>
                             <span class="badge"><?php echo $key['cMenuNumber']; ?></span>
                           </li>
                         <?php endforeach; ?> 
                           <li class="list-group-item">
                             <input type="text" name="newClass" id="newClass"  required="required">
-                            <button onclick="addCN()" class="btn btn-sm pull-right">添加</button>
+                            <button onclick="addCN()" class="btn btn-sm pull-right m75">添加</button>
                           </li>
                         </div>
                     </div>

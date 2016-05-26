@@ -22,6 +22,7 @@ class menuAdd extends CI_Controller {
 		$cID=$this->input->post('cID', TRUE);
 		$mPrice=$this->input->post('mPrice', TRUE);
 		$mInfo=$this->input->post('mInfo', TRUE);
+		//$img=$this->input->post('mImage', TRUE);
 
 		$conf['upload_path']   = './uploads/';
 		$conf['allowed_types'] = 'gif|jpg|png';
@@ -35,30 +36,39 @@ class menuAdd extends CI_Controller {
 		if ( ! $this->upload->do_upload('mImage'))
         {
             $error = array('error' => $this->upload->display_errors());
-
-            var_dump($error);
-            die();
+            //var_dump($error);  //输出错误
+            //die();
+            $imgName="";
         }
         else
         {
             $imgName = $this->upload->data('file_name');
         }
+		
 
         $data = array('cID'=>$cID,'mName'=>$mName,'mImage'=>$imgName,'mPrice'=>$mPrice,'mInfo'=>$mInfo,'mStatus'=>'1');
-
-        //var_dump($data);
 
         $this->load->model('admin/menuAddm', 'ma');
 
         $res = $this -> ma -> addMenu($data);
+
         if($res)
         {
-        	echo "success";
+        	$this->load->model('admin/menuAddm', 'ma');
+
+			$data['ms']=$this->ma->getClass();
+
+			$data['mes']['type']='success';
+
+			$data['mes']['info']='添加成功';
+
+			$this->load->view('admin/menuadd',$data);
+
         } else {
         	echo "error";
         }
-        //$res ? echo "success" ; : echo "error" ;
 
+	    
 	}
 
 }
