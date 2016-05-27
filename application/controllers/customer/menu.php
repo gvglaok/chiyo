@@ -10,8 +10,8 @@ class menu extends CI_Controller {
 	public function index()
 	{
 		if (!isset($_SESSION['tid'])) {
-			echo '请扫码点餐';
-			die();
+			echo '请扫码点餐!';
+			return false;
 		} else {
 			$this->load->model('customer/menuM', 'mm');
 			$data['res']=$this->mm->getMenu();

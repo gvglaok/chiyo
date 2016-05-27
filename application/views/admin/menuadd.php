@@ -62,19 +62,19 @@
                             <a href="#"><i class="fa fa-dashboard fa-fw nav_icon"></i>控制面板</a>
                         </li>
                         <li>
-                            <a href="timeorder"><i class="glyphicon glyphicon-bullhorn nav_icon"></i>未处理订单</a>
+                            <a href="<?php echo base_url();?>admin/timeorder"><i class="glyphicon glyphicon-bullhorn nav_icon"></i>未处理订单</a>
                         </li>
                         <li>
-                            <a href="allorder"><i class="glyphicon glyphicon-file nav_icon"></i>所有订单</a>
+                            <a href="<?php echo base_url();?>admin/allorder"><i class="glyphicon glyphicon-file nav_icon"></i>所有订单</a>
                         </li>
                         <li>
-                            <a href="menuclass"><i class="glyphicon glyphicon-tasks nav_icon"></i>菜单分类</a>
+                            <a href="<?php echo base_url();?>admin/menuclass"><i class="glyphicon glyphicon-tasks nav_icon"></i>菜单分类</a>
                         </li>
                         <li>
-                            <a href="menulist"><i class="glyphicon glyphicon-modal-window  nav_icon"></i>所有菜品</a>
+                            <a href="<?php echo base_url();?>admin/menulist"><i class="glyphicon glyphicon-modal-window  nav_icon"></i>所有菜品</a>
                         </li>
                         <li>
-                            <a href="menuadd"><i class="glyphicon glyphicon-copy nav_icon"></i>添加菜品</a>
+                            <a href="<?php echo base_url();?>admin/menuadd"><i class="glyphicon glyphicon-copy nav_icon"></i>添加菜品</a>
                         </li>
                     </ul>
                 </div>
@@ -89,7 +89,7 @@
                         <div class="panel-heading">
                             <h3 class="panel-title"> 添加菜品 </h3>
                         </div>
-                        <div class="panel-body">
+                        <div class="panel-body">   
                             <form class="form-inline" action="<?php echo base_url() ?>admin/menuAdd/addMenu" method="post" enctype="multipart/form-data" >
                                 <div class="form-group formm">
                                     <label for="mName">菜名：</label>
@@ -112,7 +112,6 @@
                                         </option>
                                         <?php endforeach; ?>
                                     </select>
-                                    
                                 </div>
                                 <br>
                                 <div class="form-group formm">

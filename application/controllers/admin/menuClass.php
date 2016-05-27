@@ -46,6 +46,27 @@ class menuClass extends CI_Controller {
 		}
 	}
 
+	public function udClass()
+	{
+		$cid=$this->input->post('pcid', TRUE);
+		$cname=$this->input->post('pcname', TRUE);
+		$cname=trim($cname);
+		if (isset($cid)&&isset($cname)) {
+
+			$data=array('cName'=>$cname);
+
+			$this->load->model('admin/menuClassm', 'mc');
+
+			$res=$this->mc->updatac($cid,$data);
+
+			echo $res ? "success":"error";
+		} else {
+			echo "error";
+		}
+		
+
+	}
+
 }
 
 /* End of file timeOrder.php */

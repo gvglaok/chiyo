@@ -159,6 +159,10 @@ class cart extends CI_Controller {
 	{
 		$tid=$_SESSION['tid'];
 		$mid=$_SESSION['mID'];
+		if (!isset($mid)) {
+			echo "请返回点餐！";
+			return false;
+		}
 		$midArr=explode(',', $mid);
 		$number=count($midArr);
 		//获取菜ID及选择次数
@@ -181,11 +185,15 @@ class cart extends CI_Controller {
 		if ($res) {
 			//提示成功
 			//销毁 tid mID
-			echo '下单成功！继续点单 请扫二维码';
-			$sesarr = array('tid','mID');
+			echo '下单成功！';
+			//$sesarr = array('tid','mID');
+			$sesarr = array('mID');
 			//$this->session->session_unset(oid)
 			$this->session->unset_userdata($sesarr);
 		}
+
+
+
 	}
 
 }

@@ -1,9 +1,22 @@
+
+var base_url="/chiyo/";
 //预加载
 $(function(){
+	$("img.mimg").lazyload({
+		placeholder : base_url+"skin/customer/img/load.gif",
+	    effect : "fadeIn"
+	});
 	//添加菜品按钮功能
-	$("[id^='mid']").click(function() { 
+	$("[id^='mid']").click(function() {
+		var thisID="#mid_"+$(this).attr("info");
+		$(thisID).addClass('animated rubberBand');
+		setTimeout(function() {
+        	$(thisID).removeClass('animated rubberBand');
+		}, 1000);
+
 		getCMenu($(this).attr("info"));
 		numberAdd();
+		//$(this).removeClass('animated rubberBand');
 	});
 
 	$("[id^='less']").click(function() {
@@ -25,7 +38,7 @@ $(function(){
 //add menu one
 function getCMenu(pmid) {
 	$.ajax({
-		url: '/chiyo/customer/menu/shopCart',
+		url: base_url+'customer/menu/shopCart',
 		type: 'POST',
 		dataType: 'html',
 		data: {mid: pmid},
@@ -169,10 +182,16 @@ function numberAdd(){
 
 //提交订单
 function subMenu() {
-	$.post('cart/addOrder', function(data) {
-		alert(data);
-		$('#btm').hide();
-		$('#back').hide();
-	});
+	var number=Number($('#menuNumber').text());
+	if (number!=0) {
+		$.post('cart/addOrder', function(data) {
+			alert(data);
+			$('#btm').hide();
+			//$('#back').hide();
+		});
+	} else {
+		alert('选好菜，再下单哟 :)');
+	}
+	
 }
 

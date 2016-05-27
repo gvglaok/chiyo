@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50547
 File Encoding         : 65001
 
-Date: 2016-05-26 19:26:43
+Date: 2016-05-27 18:09:50
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -30,7 +30,7 @@ CREATE TABLE `ysd_class` (
 -- ----------------------------
 -- Records of ysd_class
 -- ----------------------------
-INSERT INTO `ysd_class` VALUES ('12', '传家特色菜', '60', '2016-05-26 19:26:18');
+INSERT INTO `ysd_class` VALUES ('12', '特色传家菜', '60', '2016-05-27 13:28:07');
 INSERT INTO `ysd_class` VALUES ('4', '主食', '8', '2016-05-26 19:19:00');
 INSERT INTO `ysd_class` VALUES ('5', '酒', '17', '2016-05-26 19:19:29');
 INSERT INTO `ysd_class` VALUES ('6', '饮料', '10', '2016-05-26 19:19:54');
@@ -185,7 +185,7 @@ CREATE TABLE `ysd_order` (
   `oAddTime` varchar(20) DEFAULT NULL,
   `oStatus` int(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`oID`)
-) ENGINE=MyISAM AUTO_INCREMENT=100 DEFAULT CHARSET=gbk;
+) ENGINE=MyISAM AUTO_INCREMENT=102 DEFAULT CHARSET=gbk;
 
 -- ----------------------------
 -- Records of ysd_order
@@ -220,3 +220,5 @@ INSERT INTO `ysd_order` VALUES ('96', 'B66', '1,2,3,4,3', '5', '119', '146416921
 INSERT INTO `ysd_order` VALUES ('97', 'B66', '1,2,3,4,3', '5', '119', '1464169217', '1');
 INSERT INTO `ysd_order` VALUES ('98', 'B66', '1,2,3,4,3', '5', '119', '1464169217', '1');
 INSERT INTO `ysd_order` VALUES ('99', 'B69', '3,2,5,1', '4', '105', '1464236926', '1');
+INSERT INTO `ysd_order` VALUES ('100', 'B-21', '24,24,23,23,24,24,23,27,26,26,25,11,11,27', '14', '296', '1464336137', '1');
+INSERT INTO `ysd_order` VALUES ('101', 'B33', '11,12,13,14,15,17,11,12,13,14,29,31', '12', '544', '1464343020', '1');

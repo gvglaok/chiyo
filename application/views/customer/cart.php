@@ -12,6 +12,7 @@
     <script src="<?php echo base_url(); ?>skin/customer/js/jquery.min.js"></script>
     <script src="<?php echo base_url(); ?>skin/customer/js/bootstrap.min.js"></script>
     <script src="<?php echo base_url(); ?>skin/customer/js/doing.js"></script>
+    <script src="<?php echo base_url(); ?>skin/customer/js/lazyload.js"></script>
 </head>
 
 <body>
@@ -22,8 +23,7 @@
                     <div class="container">
                         <!-- Brand and toggle get grouped for better mobile display -->
                         <div class="navbar-header">
-                            
-                            <a id="back" class="navbar-brand" href="<?php echo base_url(); ?>customer/menu"><i class="glyphicon glyphicon-chevron-left"></i></a> <a class="navbar-brand" href="#">YSD_订单</a>
+                            <a id="back" class="navbar-brand" href="<?php echo base_url(); ?>customer/menu"><i class="glyphicon glyphicon-chevron-left"></i> YSD_订单</a>
                         </div>
                        
                     </div>

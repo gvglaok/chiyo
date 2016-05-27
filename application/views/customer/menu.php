@@ -7,10 +7,12 @@
     <title>YSD Menu</title>
     <link href="<?php echo base_url(); ?>skin/customer/css/bootstrap.min.css" rel="stylesheet">   
     <link rel="stylesheet" href="<?php echo base_url(); ?>skin/customer/css/comm.css">
+    <link rel="stylesheet" href="<?php echo base_url(); ?>skin/customer/css/animate.min.css">
 
     <script src="<?php echo base_url(); ?>skin/customer/js/jquery.min.js"></script>
     <script src="<?php echo base_url(); ?>skin/customer/js/bootstrap.min.js"></script>
     <script src="<?php echo base_url(); ?>skin/customer/js/doing.js"></script>
+    <script src="<?php echo base_url(); ?>skin/customer/js/lazyload.js"></script>
 
 </head>
 
@@ -51,7 +53,7 @@
                 
                 <?php foreach ($res as $key): ?>
                 <div class="thumbnail ">
-                    <img src="<?php echo base_url(); ?>uploads/<?php echo $key['mImage'] ?>" alt="...">
+                    <img class="mimg" data-original="<?php echo base_url(); ?>uploads/<?php echo $key['mImage'] ?>" alt="<?php echo $key['mName'] ?>">
                     <div class="caption">
                         <h4 class="media-heading"><?php echo $key['mName'] ?></h4>
                         <h5><?php echo $key['mPrice'] ?>￥</h5>
