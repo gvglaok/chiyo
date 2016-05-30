@@ -20,6 +20,8 @@ class menuListm extends CI_Model {
 
 		return $data;
 	}
+
+	
 	
 
 }

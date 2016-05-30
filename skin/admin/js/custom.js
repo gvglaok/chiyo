@@ -202,3 +202,12 @@ function doChange() {
     
     $('#changMname').modal('hide');
 }
+
+
+//jquery post file ok 
+function menuChange() {
+    $('#testf').ajaxSubmit(function(){
+        alert("xx");
+    });
+    alert("x22x");
+}

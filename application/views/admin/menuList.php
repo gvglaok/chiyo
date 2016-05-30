@@ -21,15 +21,11 @@
     <link href="<?php echo base_url(); ?>skin/admin/css/style.css" rel='stylesheet' type='text/css' />
     <!-- Graph CSS -->
     <link href="<?php echo base_url(); ?>skin/admin/css/lines.css" rel='stylesheet' type='text/css' />
-    <link href="<?php echo base_url(); ?>skin/admin/css/font-awesome.css" rel="stylesheet">
+    <link href="<?php echo base_url(); ?>skin/admin/css/custom.css" rel="stylesheet">
+
     <!-- jQuery -->
     <script src="<?php echo base_url(); ?>skin/admin/js/jquery.min.js"></script>
-    <!-- webfonts -->
-    <link href='http://fonts.useso.com/css?family=Roboto:400,100,300,500,700,900' rel='stylesheet' type='text/css'>
-    <!-- webfonts -->
-    <!-- Nav CSS -->
-    <link href="<?php echo base_url(); ?>skin/admin/css/custom.css" rel="stylesheet">
-    <!-- Metis Menu Plugin JavaScript -->
+    <script src="<?php echo base_url(); ?>skin/admin/js/jquery.form.js"></script>
     <script src="<?php echo base_url(); ?>skin/admin/js/metisMenu.min.js"></script>
     <script src="<?php echo base_url(); ?>skin/admin/js/custom.js"></script>
     <!-- Graph JavaScript -->
@@ -113,7 +109,9 @@
                                     <td><?php echo $key['mInfo'] ?></td>
                                     <td>
                                         <button type="button" class="btn btn-info m15">下架</button>
-                                        <button type="button" class="btn btn-info m15">修改</button>
+                                        <button id="mc_<?php echo $key['mID'] ?>" info="<?php echo $key['mID'] ?>" 
+                                        data-toggle="modal" href='#mchange'
+                                        type="button" class="btn btn-info m15">修改</button>
                                         <button type="button" class="btn btn-danger">删除</button>
                                     </td>
                                 </tr>
@@ -144,6 +142,42 @@
         <!-- /#page-wrapper -->
     </div>
     <!-- /#wrapper -->
+    <!-- modal -->
+    <div class="modal fade" id="mchange">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">菜品修改</h4>
+                </div>
+                <div class="modal-body"><!-- enctype="multipart/form-data" -->
+                    <form id="testf" method="post" action="/chiyo/admin/menulist/menupost/">
+                        <div class="input-group">
+                          <span class="input-group-addon" id="mimg">图片</span>
+                          <input name="mimg" type="file" class="form-control" placeholder="">
+                        </div>
+                        <div class="input-group">
+                          <span class="input-group-addon" id="mname">菜名</span>
+                          <input name="mname" required="true" type="text" class="form-control" placeholder="">
+                        </div>
+                        <div class="input-group">
+                          <span class="input-group-addon" id="mprice">价格</span>
+                          <input name="mmoney" type="text" class="form-control" placeholder="">
+                        </div>
+                        <div class="input-group">
+                          <span class="input-group-addon" id="minfo">简介</span>
+                          <input name="minfo" type="text" class="form-control" placeholder="">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button id="msub" onclick="menuChange()" type="button" class="btn btn-primary">保存修改</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Bootstrap Core JavaScript -->
     <script src="<?php echo base_url(); ?>skin/admin/js/bootstrap.min.js"></script>
 </body>

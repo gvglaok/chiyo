@@ -99,6 +99,34 @@ class menuList extends CI_Controller {
 		$this->load->view('admin/menuList',$mdata);
 	}
 
+	public function menuPost()
+	{
+		$mn = $this->input->post('menuName', TRUE);
+		echo $mn;
+
+		$conf['upload_path']   = './test/';
+		$conf['allowed_types'] = 'gif|jpg|png';
+		$conf['overwrite']     = FALSE;
+		$conf['max_size']      = 500;
+		$conf['max_width']     = 2000;
+		$conf['max_height']    = 2000;
+		$conf['encrypt_name']  = TRUE;
+		$this->load->library('upload', $conf);
+		$imgName='';
+		if ( ! $this->upload->do_upload('mimg'))
+        {
+            $error = array('error' => $this->upload->display_errors());
+            var_dump($error);  //输出错误
+            
+            $imgName="";
+        }
+        else
+        {
+            $imgName = $this->upload->data('file_name');
+            echo $imgName;
+        }
+	}
+
 }
 
 /* End of file menuList.php */
