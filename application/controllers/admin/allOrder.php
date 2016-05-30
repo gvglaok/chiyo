@@ -63,10 +63,8 @@ class allOrder extends CI_Controller {
 		$data['num']=$res['num'];
 
 
-		$config['base_url'] = 'http://192.168.1.111'.base_url().'admin/allorder/goPage';
-
+		$config['base_url'] = base_url().'admin/allorder/goPage';
 		$config['total_rows'] = $data['num'];
-
 		$config['per_page'] = 12;
 
 		$config['cur_tag_open'] = '<li class="active"><a>';

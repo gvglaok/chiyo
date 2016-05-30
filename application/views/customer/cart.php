@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>YSD Menu</title>
+    <link href="<?php echo base_url(); ?>skin/customer/img/favicon.ico" rel="shortcut icon">
+    <title>易食代</title>
     <link href="<?php echo base_url(); ?>skin/customer/css/bootstrap.min.css" rel="stylesheet">   
 
     <link rel="stylesheet" href="<?php echo base_url(); ?>skin/customer/css/comm.css">
@@ -23,7 +24,7 @@
                     <div class="container">
                         <!-- Brand and toggle get grouped for better mobile display -->
                         <div class="navbar-header">
-                            <a id="back" class="navbar-brand" href="<?php echo base_url(); ?>customer/menu"><i class="glyphicon glyphicon-chevron-left"></i> YSD_订单</a>
+                            <a id="back" class="navbar-brand" href="<?php echo base_url(); ?>customer/menu"><i class="glyphicon glyphicon-chevron-left"></i> 易食代_订单</a>
                         </div>
                        
                     </div>

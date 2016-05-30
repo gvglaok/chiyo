@@ -104,7 +104,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php foreach($data as $key): ?>
+                                <?php foreach($res as $key): ?>
                                 <tr>
                                     <td><?php echo $key['mID'] ?></td>
                                     <td><img class="menuImg" src="<?php echo base_url(); ?>uploads/<?php echo $key['mImage'] ?>" alt=""></td>
@@ -112,12 +112,12 @@
                                     <td><?php echo $key['mPrice'] ?>￥</td>
                                     <td><?php echo $key['mInfo'] ?></td>
                                     <td>
-                                        <button type="button" class="btn btn-info m15">上架</button>
+                                        <button type="button" class="btn btn-info m15">下架</button>
                                         <button type="button" class="btn btn-info m15">修改</button>
                                         <button type="button" class="btn btn-danger">删除</button>
                                     </td>
                                 </tr>
-                            <?php endforeach; ?>
+                                <?php endforeach; ?>
                                 
                             </tbody>
                         </table>
@@ -126,21 +126,7 @@
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                     <nav>
                       <ul class="pagination">
-                        <li>
-                          <a href="#" aria-label="Previous">
-                            <span aria-hidden="true">&laquo;</span>
-                          </a>
-                        </li>
-                        <li><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
-                        <li>
-                          <a href="#" aria-label="Next">
-                            <span aria-hidden="true">&raquo;</span>
-                          </a>
-                        </li>
+                        <?php echo $plink; ?>
                       </ul>
                     </nav>
                 </div>

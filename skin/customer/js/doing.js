@@ -2,7 +2,7 @@
 var base_url="/chiyo/";
 //预加载
 $(function(){
-	$("img.mimg").lazyload({
+	$("img.mmimg").lazyload({
 		placeholder : base_url+"skin/customer/img/load.gif",
 	    effect : "fadeIn"
 	});
@@ -182,7 +182,7 @@ function numberAdd(){
 
 //提交订单
 function subMenu() {
-	var number=Number($('#menuNumber').text());
+	var number=Number($('#allNumber').text());
 	if (number!=0) {
 		$.post('cart/addOrder', function(data) {
 			alert(data);

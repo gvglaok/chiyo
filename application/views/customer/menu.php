@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>YSD Menu</title>
+    <link href="<?php echo base_url(); ?>skin/customer/img/favicon.ico" rel="shortcut icon">
+    <title>易食代</title>
     <link href="<?php echo base_url(); ?>skin/customer/css/bootstrap.min.css" rel="stylesheet">   
     <link rel="stylesheet" href="<?php echo base_url(); ?>skin/customer/css/comm.css">
     <link rel="stylesheet" href="<?php echo base_url(); ?>skin/customer/css/animate.min.css">
@@ -30,7 +31,9 @@
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
                             </button>
-                            <a class="navbar-brand" href="<?php echo base_url();?>customer/menu/">YSD</a>
+                            <a class="navbar-brand" href="<?php echo base_url();?>customer/menu/">
+                            <!-- <img height="22px" sty src="<?php echo base_url(); ?>skin/customer/img/logo.png" alt=""> -->易食代
+                            </a>
                         </div>
                         <!-- Collect the nav links, forms, and other content for toggling -->
                         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -53,7 +56,7 @@
                 
                 <?php foreach ($res as $key): ?>
                 <div class="thumbnail ">
-                    <img class="mimg" data-original="<?php echo base_url(); ?>uploads/<?php echo $key['mImage'] ?>" alt="<?php echo $key['mName'] ?>">
+                    <img class="mmimg media-object" data-original="<?php echo base_url(); ?>uploads/<?php echo $key['mImage'] ?>" alt="<?php echo $key['mName'] ?>">
                     <div class="caption">
                         <h4 class="media-heading"><?php echo $key['mName'] ?></h4>
                         <h5><?php echo $key['mPrice'] ?>￥</h5>

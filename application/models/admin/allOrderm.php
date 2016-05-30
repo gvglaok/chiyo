@@ -14,9 +14,13 @@ class allOrderm extends CI_Model {
 	{
 		$data['num']= $this->db->count_all('order'); 
 
-		$query = $this->db->get('order',$num+12,$num);
+		$query = $this->db->get('order',12,$num);
 
 		$data['res']=$query->result_array();
+
+		for ($i=0; $i <count($data['res']) ; $i++) { 
+			$data['res'][$i]['oAddTime']=date('Y-m-d H:i:s',$data['res'][$i]['oAddTime']);
+		}
 
 		return $data;
 	}

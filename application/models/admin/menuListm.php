@@ -10,10 +10,14 @@ class menuListm extends CI_Model {
 		
 	}
 
-	public function getMenu()
+	public function getMenu($num=0)
 	{
-		$query=$this->db->get('menu', 10);
-		$data=$query->result_array();
+		$data['num']= $this->db->count_all('menu'); 
+
+		$query=$this->db->get('menu',10,$num);
+
+		$data['res']=$query->result_array();
+
 		return $data;
 	}
 	
