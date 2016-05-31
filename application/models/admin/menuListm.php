@@ -21,6 +21,20 @@ class menuListm extends CI_Model {
 		return $data;
 	}
 
+	public function updataMenu($data="",$condition="")
+	{
+		$query = $this->db->update('menu', $data, $condition);
+		return $query;
+	}
+
+	public function dele($acondition='')
+	{
+
+		$query =$this->db->delete('menu', $acondition);
+
+		return $query;
+	}
+
 	
 	
 

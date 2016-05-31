@@ -1,4 +1,6 @@
 $(function() {
+    //bs3 toolTip reset
+    $('[data-toggle="tooltip"]').tooltip();
 
     $('#side-menu').metisMenu();
 
@@ -16,6 +18,34 @@ $(function() {
         var nid = "#mName" + cid;
         var cname = $(nid).text();
         chageName(cid, cname);
+    });
+
+    //修改菜品
+    $("button[id^='mc']").click(function() {
+        var mid = $(this).attr('info');
+        var cid = $(this).attr('cid');
+        var mimg=$("#mimg" + mid).attr('src');
+        var mname=$("#mname" + mid).text();
+        var mprice=$("#mprice" + mid).text();
+        var minfo=$("#minfo" + mid).text();
+        $('#moimg').attr('src', mimg);
+        $("#cID").find('option[value='+cid+']').attr('selected', 'true');
+        $("#mname").val(mname);
+        $("#mmoney").val(mprice);
+        $("#minfo").val(minfo);
+        $("#mid").val(mid);
+    });
+
+    //menu delete
+    $("button[id^='mdele_']").click(function(){
+        var mid = $(this).attr('info');
+
+        var mimg=$("#mimg" + mid).attr('src');
+
+        var isTrue = confirm("确认删除！");
+        if (isTrue) {
+            menuDele(mid,mimg);
+        } 
     });
 
 });
@@ -206,8 +236,27 @@ function doChange() {
 
 //jquery post file ok 
 function menuChange() {
-    $('#testf').ajaxSubmit(function(){
-        alert("xx");
+    $('#moMenu').ajaxSubmit(function(){
+        alert("menu updata ok !");
+    });   
+}
+
+function menuDele(pmid,pimgName) {
+    $.ajax({
+        url: base_url+'admin/menulist/menuDele',
+        type: 'post',
+        data: {mid: pmid,imgName:pimgName}
+    })
+    .done(function(mes) {
+        if (String(mes)=="success") {
+            alert("删除成功");
+        }
+    })
+    .fail(function() {
+        console.log("error");
+    })
+    .always(function() {
+        console.log("complete");
     });
-    alert("x22x");
+    
 }

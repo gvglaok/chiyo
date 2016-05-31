@@ -14,6 +14,7 @@ class allOrderm extends CI_Model {
 	{
 		$data['num']= $this->db->count_all('order'); 
 
+		$this->db->order_by('oID', 'desc');
 		$query = $this->db->get('order',12,$num);
 
 		$data['res']=$query->result_array();

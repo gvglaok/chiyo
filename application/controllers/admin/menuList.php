@@ -12,6 +12,7 @@ class menuList extends CI_Controller {
 		$this->load->model('admin/menuListm', 'ml');
 		$mdata=$this -> ml ->getMenu($num);
 
+		// 分页
 		$config['base_url'] = base_url().'admin/menulist/menuNext/';
 
 		$config['total_rows'] = $mdata['num'];
@@ -48,7 +49,11 @@ class menuList extends CI_Controller {
 
 		$mdata['plink']=$this->pagination->create_links();
 
-		
+		//get menu class
+		$this->load->model('admin/menuAddm', 'ma');
+
+		$mdata['mclass']=$this->ma->getClass();
+
 		$this->load->view('admin/menuList',$mdata);
 	}
 	
@@ -96,15 +101,26 @@ class menuList extends CI_Controller {
 
 		$mdata['plink']=$this->pagination->create_links();
 
+		//get menu class
+		$this->load->model('admin/menuAddm', 'ma');
+
+		$mdata['mclass']=$this->ma->getClass();
+
 		$this->load->view('admin/menuList',$mdata);
 	}
 
-	public function menuPost()
+	public function menuUpdata()
 	{
-		$mn = $this->input->post('menuName', TRUE);
-		echo $mn;
+		//$img = $this->input->post('mimg', TRUE);
+		$mmname = $this->input->post('mname', TRUE);
+		$cid = $this->input->post('cID', TRUE);
+		$mmoney = $this->input->post('mmoney', TRUE);
+		$minfo = $this->input->post('minfo', TRUE);
+		$mid = $this->input->post('mid', TRUE);
 
-		$conf['upload_path']   = './test/';
+		//echo $img."===".$mmname."===".$cid."===".$mmoney."===".$minfo."===".$mid;
+
+		$conf['upload_path']   = './uploads/';
 		$conf['allowed_types'] = 'gif|jpg|png';
 		$conf['overwrite']     = FALSE;
 		$conf['max_size']      = 500;
@@ -116,15 +132,47 @@ class menuList extends CI_Controller {
 		if ( ! $this->upload->do_upload('mimg'))
         {
             $error = array('error' => $this->upload->display_errors());
-            var_dump($error);  //输出错误
-            
+            //var_dump($error);  //输出错误
             $imgName="";
         }
         else
         {
             $imgName = $this->upload->data('file_name');
-            echo $imgName;
+            //echo $imgName;
         }
+
+        $data = array('cID' => $cid ,'mName' => $mmname ,'mImage' => $imgName ,'mPrice' => $mmoney ,'mInfo' => $minfo);
+
+        $condition="mID=".$mid;
+
+        $this->load->model('admin/menuListm', 'ml');
+
+        $res = $this -> ml -> updataMenu($data,$condition);
+
+        if ($res) {
+        	echo "success";
+        } else {
+        	echo "error";
+        }
+
+	}
+
+
+	public function menuDele()
+	{
+		$mid=$this->input->post('mid', TRUE);
+		$img=$this->input->post('imgName', TRUE);
+		$pathArr= explode('/',$img);
+
+		$this->load->model('admin/menuListm', 'ml');
+		$warr = array('mID' => $mid);
+		$res = $this -> ml -> dele($warr);
+		if ($res) {
+			$imgFilePath = './uploads/'.$pathArr[3];
+			$unres=unlink($imgFilePath);
+			echo $unres ? 'success' : 'error' ;
+		}
+		
 	}
 
 }
