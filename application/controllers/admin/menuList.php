@@ -168,11 +168,32 @@ class menuList extends CI_Controller {
 		$warr = array('mID' => $mid);
 		$res = $this -> ml -> dele($warr);
 		if ($res) {
-			$imgFilePath = './uploads/'.$pathArr[3];
-			$unres=unlink($imgFilePath);
-			echo $unres ? 'success' : 'error' ;
+			if ($pathArr[3]=='admin') {
+				echo 'success';
+			} else {
+				$imgFilePath = './uploads/'.$pathArr[3];
+				$unres=unlink($imgFilePath);
+				echo $unres ? 'success' : 'error' ;
+			}
 		}
 		
+	}
+
+	public function udMS()
+	{
+		$status=$this->input->post('pss', TRUE);
+		$mid=$this->input->post('pmid', TRUE);
+		$status = $status==1 ? 0 : 1 ;
+
+		$mstatus=array('mStatus'=>$status);
+		
+		$condition='mID='.$mid;
+
+		$this->load->model('admin/menuListm', 'ml');
+
+		$res=$this->ml->udMS($mstatus,$condition);
+
+		echo $res ? 'success' : 'error';
 	}
 
 }

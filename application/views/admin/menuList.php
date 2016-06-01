@@ -83,13 +83,12 @@
                     <div class="panel panel-info">
                         <div class="panel-heading">
                             <h3 class="panel-title"> 菜品列表 </h3>
-                            <a href="menuadd.html" type="button" class="btn btn-primary pull-right m10">
+                            <a href="<?php echo base_url();?>admin/menuadd" type="button" class="btn btn-primary pull-right m10">
                                 <i class="glyphicon glyphicon-plus"></i> 添加菜品</a>
                         </div>
                         <table class="table table-striped table-hover">
                             <thead>
                                 <tr>
-                                    <th>#ID</th>
                                     <th>图片</th>
                                     <th>名称</th>
                                     <th>价格</th>
@@ -99,12 +98,11 @@
                             </thead>
                             <tbody>
                                 <?php foreach($res as $key): ?>
-                                <tr>
-                                    <td>
-                                        <?php echo $key['mID'] ?>
-                                    </td>
-
-                                    <td><img id="mimg<?php echo $key['mID'] ?>" class="menuImg" src="<?php echo base_url(); ?>uploads/<?php echo $key['mImage']==''? "load.gif" : $key['mImage'] ; ?>" ></td>
+                                <tr id="tr_<?php echo $key['mID'] ?>">
+                                    <td><img id="mimg<?php echo $key['mID'] ?>" class="menuImg" 
+                                    src="<?php 
+                                    echo base_url(); 
+                                    echo $key['mImage']==''? "skin/admin/images/load.gif" : 'uploads/'.$key['mImage'] ; ?>" ></td>
 
                                     <td id="mname<?php echo $key['mID'] ?>"><?php echo $key['mName'] ?></td>
 
@@ -113,7 +111,9 @@
                                     <td id="minfo<?php echo $key['mID'] ?>">  <?php echo $key['mInfo'] ?> </td>
 
                                     <td>
-                                        <button type="button" class="btn btn-info m15">下架</button>
+                                        <button type="button" class="btn btn-info m15" 
+                                        id="ud_<?php echo $key['mID'] ?>" info="<?php echo $key['mID'] ?>" ms="<?php echo $key['mStatus'] ?>">
+                                        <?php echo $key['mStatus']==1 ? "下架" : "上架"; ?></button>
                                         <button id="mc_<?php echo $key['mID'] ?>" 
                                         info="<?php echo $key['mID'] ?>" cid="<?php echo $key['cID'] ?>"
                                         data-toggle="modal" href='#mchange' 

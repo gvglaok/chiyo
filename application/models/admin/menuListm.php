@@ -35,6 +35,11 @@ class menuListm extends CI_Model {
 		return $query;
 	}
 
+	public function udMS($data='', $condition='')
+	{
+		$query = $this->db->update('menu', $data, $condition);
+		return $query;
+	}
 	
 	
 

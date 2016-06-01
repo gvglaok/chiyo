@@ -1,3 +1,5 @@
+//后台操作js
+
 $(function() {
     //bs3 toolTip reset
     $('[data-toggle="tooltip"]').tooltip();
@@ -24,12 +26,12 @@ $(function() {
     $("button[id^='mc']").click(function() {
         var mid = $(this).attr('info');
         var cid = $(this).attr('cid');
-        var mimg=$("#mimg" + mid).attr('src');
-        var mname=$("#mname" + mid).text();
-        var mprice=$("#mprice" + mid).text();
-        var minfo=$("#minfo" + mid).text();
+        var mimg = $("#mimg" + mid).attr('src');
+        var mname = $("#mname" + mid).text();
+        var mprice = $("#mprice" + mid).text();
+        var minfo = $("#minfo" + mid).text();
         $('#moimg').attr('src', mimg);
-        $("#cID").find('option[value='+cid+']').attr('selected', 'true');
+        $("#cID").find('option[value=' + cid + ']').attr('selected', 'true');
         $("#mname").val(mname);
         $("#mmoney").val(mprice);
         $("#minfo").val(minfo);
@@ -37,15 +39,22 @@ $(function() {
     });
 
     //menu delete
-    $("button[id^='mdele_']").click(function(){
+    $("button[id^='mdele_']").click(function() {
         var mid = $(this).attr('info');
 
-        var mimg=$("#mimg" + mid).attr('src');
+        var mimg = $("#mimg" + mid).attr('src');
 
         var isTrue = confirm("确认删除！");
         if (isTrue) {
-            menuDele(mid,mimg);
-        } 
+            menuDele(mid, mimg);
+        }
+    });
+
+    //menu status change
+    $("button[id^='ud_']").click(function() {
+        var mid = $(this).attr('info');
+        var ms = $(this).attr('ms');
+        msChange(mid, ms);
     });
 
 });
@@ -84,7 +93,26 @@ $(function() {
 
 //cy js-keven 2016-5-10
 
-var base_url="/chiyo/";
+var base_url = "/chiyo/";
+
+
+
+//menu status change
+function msChange(mid, ms) {
+    $.post(
+        base_url + 'admin/menulist/udms', { pmid: mid, pss: ms },
+        function(data) {
+            if (String(data)) {
+                if (ms == 0) {
+                    $("#ud_" + mid).attr('ms', '1');
+                    $("#ud_" + mid).text('下架');
+                } else {
+                    $("#ud_" + mid).attr('ms', '0');
+                    $("#ud_" + mid).text('上架');
+                }
+            }
+        });
+}
 
 
 //添加菜品类
@@ -113,7 +141,7 @@ function addCN() {
 
 function printOrder(poid) {
     $.ajax({
-        url: base_url+'admin/timeorder/changeStatus/',
+        url: base_url + 'admin/timeorder/changeStatus/',
         type: 'post',
         dataType: 'json',
         data: { oid: poid },
@@ -154,7 +182,7 @@ function doPrint(oid) {
 
 function classDele(pcid) {
     $.ajax({
-            url: base_url+'admin/menuclass/delec',
+            url: base_url + 'admin/menuclass/delec',
             type: 'post',
             dataType: 'html',
             data: { cid: pcid }
@@ -184,79 +212,80 @@ function chageName(cid, cname) {
 
 // modal修改菜名
 function doChange() {
-    var cname=$("#mClassName").val();
+    var cname = $("#mClassName").val();
     //去空格
-    cname = cname.replace(/^\s+|\s+$/g,"");
-    if (cname=="") {
+    cname = cname.replace(/^\s+|\s+$/g, "");
+    if (cname == "") {
         alert("请填写菜类目！");
         return false;
     }
-    var cid=$("#mClassName").attr('info');
+    var cid = $("#mClassName").attr('info');
     $.ajax({
-        url: base_url+'/admin/menuclass/udClass',
-        type: 'post',
-        dataType: 'html',
-        data: {pcid: cid,pcname: cname}
-    })
-    .done(function(mes) {
-        if (String(mes)=="success") {
-            var mnID="#mName"+cid;
-            $(mnID).text(cname);
-        } else {
-            alert(mes+": 修改失败！");
-        }
-    })
-    .fail(function() {
-        console.log("error");
-    })
-    .always(function() {
-        console.log("complete");
-    });
+            url: base_url + '/admin/menuclass/udClass',
+            type: 'post',
+            dataType: 'html',
+            data: { pcid: cid, pcname: cname }
+        })
+        .done(function(mes) {
+            if (String(mes) == "success") {
+                var mnID = "#mName" + cid;
+                $(mnID).text(cname);
+            } else {
+                alert(mes + ": 修改失败！");
+            }
+        })
+        .fail(function() {
+            console.log("error");
+        })
+        .always(function() {
+            console.log("complete");
+        });
 
     $.ajax({
-        url: '/path/to/file',
-        type: 'default GET (Other values: POST)',
-        dataType: 'default: Intelligent Guess (Other values: xml, json, script, or html)',
-        data: {param1: 'value1'},
-    })
-    .done(function() {
-        console.log("success");
-    })
-    .fail(function() {
-        console.log("error");
-    })
-    .always(function() {
-        console.log("complete");
-    });
-    
-    
+            url: '/path/to/file',
+            type: 'default GET (Other values: POST)',
+            dataType: 'default: Intelligent Guess (Other values: xml, json, script, or html)',
+            data: { param1: 'value1' },
+        })
+        .done(function() {
+            console.log("success");
+        })
+        .fail(function() {
+            console.log("error");
+        })
+        .always(function() {
+            console.log("complete");
+        });
+
+
     $('#changMname').modal('hide');
 }
 
 
 //jquery post file ok 
 function menuChange() {
-    $('#moMenu').ajaxSubmit(function(){
+    $('#moMenu').ajaxSubmit(function() {
         alert("menu updata ok !");
-    });   
+    });
 }
 
-function menuDele(pmid,pimgName) {
+function menuDele(pmid, pimgName) {
     $.ajax({
-        url: base_url+'admin/menulist/menuDele',
-        type: 'post',
-        data: {mid: pmid,imgName:pimgName}
-    })
-    .done(function(mes) {
-        if (String(mes)=="success") {
-            alert("删除成功");
-        }
-    })
-    .fail(function() {
-        console.log("error");
-    })
-    .always(function() {
-        console.log("complete");
-    });
-    
+            url: base_url + 'admin/menulist/menuDele',
+            type: 'post',
+            data: { mid: pmid, imgName: pimgName }
+        })
+        .done(function(mes) {
+            if (String(mes) == "success") {
+                $("#tr_" + pmid).remove();
+                alert("删除成功");
+            }
+        })
+        .fail(function() {
+            console.log("error");
+        })
+        .always(function() {
+            console.log("complete");
+        });
+
 }
