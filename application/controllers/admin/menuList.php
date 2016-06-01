@@ -129,19 +129,18 @@ class menuList extends CI_Controller {
 		$conf['encrypt_name']  = TRUE;
 		$this->load->library('upload', $conf);
 		$imgName='';
+		$data = '';
 		if ( ! $this->upload->do_upload('mimg'))
         {
             $error = array('error' => $this->upload->display_errors());
             //var_dump($error);  //输出错误
-            $imgName="";
+            $data = array('cID' => $cid ,'mName' => $mmname ,'mPrice' => $mmoney ,'mInfo' => $minfo);
         }
         else
         {
             $imgName = $this->upload->data('file_name');
-            //echo $imgName;
+            $data = array('cID' => $cid ,'mName' => $mmname ,'mImage' => $imgName ,'mPrice' => $mmoney ,'mInfo' => $minfo); 
         }
-
-        $data = array('cID' => $cid ,'mName' => $mmname ,'mImage' => $imgName ,'mPrice' => $mmoney ,'mInfo' => $minfo);
 
         $condition="mID=".$mid;
 

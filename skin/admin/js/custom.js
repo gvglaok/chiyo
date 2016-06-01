@@ -257,7 +257,6 @@ function doChange() {
             console.log("complete");
         });
 
-
     $('#changMname').modal('hide');
 }
 
@@ -265,7 +264,8 @@ function doChange() {
 //jquery post file ok 
 function menuChange() {
     $('#moMenu').ajaxSubmit(function() {
-        alert("menu updata ok !");
+        alert("菜单修改成功");
+        $('#mchange').modal('hide');
     });
 }
 
