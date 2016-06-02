@@ -19,7 +19,7 @@ class allOrder extends CI_Controller {
 		$data['num']=$res['num'];
 
 
-		$config['base_url'] = 'http://192.168.1.111'.base_url().'admin/allorder/goPage';
+		$config['base_url'] = base_url().'admin/allorder/goPage';
 
 		$config['total_rows'] = $data['num'];
 
@@ -27,9 +27,6 @@ class allOrder extends CI_Controller {
 
 		$config['cur_tag_open'] = '<li class="active"><a>';
 		$config['cur_tag_close'] = '</a></li>';
-
-		$config['first_tag_open'] = '<li>';
-		$config['first_tag_close'] = '</li>';
 
 		$config['num_tag_open'] = '<li>';
 		$config['num_tag_close'] = '</li>';
@@ -41,6 +38,14 @@ class allOrder extends CI_Controller {
 		$config['prev_link'] = '<span aria-hidden="true">&laquo;</span>';
 		$config['prev_tag_open'] = '<li>';
 		$config['prev_tag_close'] = '</li>';
+
+		$config['first_tag_open'] = '<li>';
+		$config['first_tag_close'] = '</li>';
+		$config['first_link'] = '第一页';
+
+		$config['last_tag_open'] = '<li>';
+		$config['last_tag_close'] = '</li>';
+		$config['last_link'] = '最后一页';
 
 		$config['attributes']['rel'] = FALSE;
 
@@ -84,6 +89,14 @@ class allOrder extends CI_Controller {
 		$config['prev_tag_open'] = '<li>';
 		$config['prev_tag_close'] = '</li>';
 
+		$config['first_tag_open'] = '<li>';
+		$config['first_tag_close'] = '</li>';
+		$config['first_link'] = '第一页';
+
+		$config['last_tag_open'] = '<li>';
+		$config['last_tag_close'] = '</li>';
+		$config['last_link'] = '最后一页';
+
 		$config['attributes']['rel'] = FALSE;
 
 		$this->pagination->initialize($config);
@@ -91,6 +104,16 @@ class allOrder extends CI_Controller {
 		$data['plink']=$this->pagination->create_links();
 
 		$this->load->view('admin/allOrder',$data);
+	}
+
+	public function getOMenu()
+	{
+		$oid = $this->input->post('poid', TRUE);
+		$this->load->model('admin/allOrderm', 'ao');
+		$res=$this->ao->OMenu($oid);
+		//print_r($res);
+		$this->output->set_content_type('text/plain', 'UTF-8');
+		echo json_encode($res);
 	}
 
 

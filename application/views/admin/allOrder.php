@@ -59,7 +59,7 @@
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
                         <li>
-                            <a href="#"><i class="fa fa-dashboard fa-fw nav_icon"></i>控制面板</a>
+                            <a href="#"><i class="glyphicon glyphicon-dashboard nav_icon"></i>控制面板</a>
                         </li>
                         <li>
                             <a href="<?php echo base_url();?>admin/timeorder"><i class="glyphicon glyphicon-bullhorn nav_icon"></i>未处理订单</a>
@@ -100,7 +100,7 @@
                                 <th>点菜数量</th>
                                 <th>总价</th>
                                 <th>时间</th>
-                                <!-- <th></th> -->
+                                <th>操作</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -111,7 +111,9 @@
                                 <td><?php echo $key['oMenuNumber'];?></td>
                                 <td><?php echo $key['oMoney'];?></td>
                                 <td><?php echo $key['oAddTime'];?></td>
-                                <!-- <td><button type="button" class="btn btn-info btn-sm" oid="<?php echo $key['oID'];?>">详情</button></td> -->
+                                <td>
+                                <button id="om_<?php echo $key['oID'];?>" 
+                                type="button" class="btn btn-info btn-sm" oid="<?php echo $key['oID'];?>">详情</button></td>
                             </tr>
                             <?php endforeach; ?>
 
@@ -145,8 +147,29 @@
         <!-- /#page-wrapper -->
     </div>
     <!-- /#wrapper -->
+    <div class="modal fade" id="order">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">台号：<span id="otn"></span></h4>
+                </div>
+                
+                   <ul id="mlist" class="list-group">
+                      
+                      
+                    </ul>
+                
+                <div class="modal-footer">
+                    
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <button onclick="orderPrint()" type="button" class="btn btn-primary">打印</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="<?php echo base_url();?>skin/admin/js/bootstrap.min.js"></script>
 </body>
 
 </html>

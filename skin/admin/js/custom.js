@@ -1,4 +1,35 @@
 //后台操作js
+//Loads the correct sidebar on window load,
+//collapses the sidebar on window resize.
+// Sets the min-height of #page-wrapper to window size
+$(function() {
+    $(window).bind("load resize", function() {
+        topOffset = 50;
+        width = (this.window.innerWidth > 0) ? this.window.innerWidth : this.screen.width;
+        if (width < 768) {
+            $('div.navbar-collapse').addClass('collapse');
+            topOffset = 100; // 2-row-menu
+        } else {
+            $('div.navbar-collapse').removeClass('collapse');
+        }
+
+        height = ((this.window.innerHeight > 0) ? this.window.innerHeight : this.screen.height) - 1;
+        height = height - topOffset;
+        if (height < 1) height = 1;
+        if (height > topOffset) {
+            $("#page-wrapper").css("min-height", (height) + "px");
+        }
+    });
+
+    var url = window.location;
+    var element = $('ul.nav a').filter(function() {
+        return this.href == url || url.href.indexOf(this.href) == 0;
+    }).addClass('active').parent().parent().addClass('in').parent();
+    if (element.is('li')) {
+        element.addClass('active');
+    }
+});
+
 
 $(function() {
     //bs3 toolTip reset
@@ -57,38 +88,42 @@ $(function() {
         msChange(mid, ms);
     });
 
-});
-
-//Loads the correct sidebar on window load,
-//collapses the sidebar on window resize.
-// Sets the min-height of #page-wrapper to window size
-$(function() {
-    $(window).bind("load resize", function() {
-        topOffset = 50;
-        width = (this.window.innerWidth > 0) ? this.window.innerWidth : this.screen.width;
-        if (width < 768) {
-            $('div.navbar-collapse').addClass('collapse');
-            topOffset = 100; // 2-row-menu
-        } else {
-            $('div.navbar-collapse').removeClass('collapse');
-        }
-
-        height = ((this.window.innerHeight > 0) ? this.window.innerHeight : this.screen.height) - 1;
-        height = height - topOffset;
-        if (height < 1) height = 1;
-        if (height > topOffset) {
-            $("#page-wrapper").css("min-height", (height) + "px");
-        }
+    //get orderMenu
+    $("button[id^='om_']").click(function(){
+        var oid=$(this).attr('oid');
+        $("#mlist").empty();
+        $.ajax({
+            url: base_url+'admin/allorder/getOMenu',
+            type: 'POST',
+            dataType: 'json',
+            data: {poid: oid},
+        })
+        .done(function(res) {
+            $('#order').modal('show');
+            $.each(res.oma, function(index, val) {
+                $("#mlist").prepend('<li class="list-group-item">'+
+                    val.mName+' <span class="badge">' + 
+                    val.mPrice+ ' ￥</span><span class="mnum">'+
+                    val.num+ ' 份</span></li>');
+            });
+            var total='<li class="list-group-item tp">菜品：<span id="omn">'+res.mn+'</span>份  |  总价：<span id="omm">'+res.mm+'</span>￥ </li>';
+            $("#mlist").append(total);
+            $("#mlist").prepend('<h3 class="bhide ">台号：'+res.otn+'</h3>');
+            $("#otn").text(res.otn);
+            
+        })
+        .fail(function() {
+            console.log("error");
+        })
+        .always(function() {
+            console.log("complete");
+        });
+        
     });
 
-    var url = window.location;
-    var element = $('ul.nav a').filter(function() {
-        return this.href == url || url.href.indexOf(this.href) == 0;
-    }).addClass('active').parent().parent().addClass('in').parent();
-    if (element.is('li')) {
-        element.addClass('active');
-    }
 });
+
+
 
 
 //cy js-keven 2016-5-10
@@ -96,19 +131,26 @@ $(function() {
 var base_url = "/chiyo/";
 
 
+//get orderMenu
+function OMenu() {
+    
+}
+
 
 //menu status change
 function msChange(mid, ms) {
     $.post(
         base_url + 'admin/menulist/udms', { pmid: mid, pss: ms },
         function(data) {
-            if (String(data)) {
+            if (String(data)=='success') {
                 if (ms == 0) {
                     $("#ud_" + mid).attr('ms', '1');
                     $("#ud_" + mid).text('下架');
+                    alert('上架成功');
                 } else {
                     $("#ud_" + mid).attr('ms', '0');
                     $("#ud_" + mid).text('上架');
+                    alert('下架成功');
                 }
             }
         });
@@ -166,7 +208,7 @@ function doPrint(oid) {
     var pid = '#order' + oid;
     var Content = $(pid).html() + pcss;
 
-    var nw = window.open('', '', 'left=0,top=0,width=260,height=600,toolbar=0,scrollbars=0,status=0');
+    var nw = window.open('', '', 'left=0,top=0,width=280,height=600,toolbar=0,scrollbars=0,status=0');
 
     nw.document.write(Content);
     nw.document.close();
@@ -175,6 +217,22 @@ function doPrint(oid) {
     nw.close();
 
     printOrder(oid);
+
+}
+
+function orderPrint() {
+    $('#order').modal('hide');
+    var pcss = '<style>body{font-family:"黑体";font-size:10px;}li{font-size:10px;list-style:none;}.tp{font-weight:bold;margin-top:10px;}.badge{float:right}.mnum{margin-right:5px;float:right;font-weight:bold;}</style>';
+
+    var Content = $("#mlist").html() + pcss;
+
+    var nw = window.open('', '', 'left=0,top=0,width=280,height=600,toolbar=0,scrollbars=0,status=0');
+
+    nw.document.write(Content);
+    nw.document.close();
+    nw.focus();
+    nw.print();
+    nw.close();
 
 }
 
