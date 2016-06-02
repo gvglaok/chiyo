@@ -195,6 +195,66 @@ class menuList extends CI_Controller {
 		echo $res ? 'success' : 'error';
 	}
 
+	public function mc($cid='',$num=0)
+	{
+		if($num==0){
+			if ($cid!=''&&$cid!=0) {
+				$this->session->set_userdata(array('scid'=>$cid));
+			} else {
+				echo "error";
+				return false;
+			}
+			
+		}
+
+		$this->load->model('admin/menuListm', 'ml');
+		$mdata=$this -> ml ->classMenu($_SESSION['scid'],$num);
+
+		$config['base_url'] = base_url().'admin/menulist/mc/'.$_SESSION['scid'];
+
+		$config['total_rows'] = $mdata['num'];
+
+		$config['per_page'] = 10;
+
+		$config['num_links'] = 6;
+
+		$config['cur_tag_open'] = '<li class="active"><a>';
+		$config['cur_tag_close'] = '</a></li>';
+
+		$config['first_tag_open'] = '<li>';
+		$config['first_tag_close'] = '</li>';
+		$config['first_link'] = '第一页';
+
+		$config['num_tag_open'] = '<li>';
+		$config['num_tag_close'] = '</li>';
+
+		$config['next_tag_open'] = '<li>';
+		$config['next_tag_close'] = '</li>';
+		$config['next_link']='<span aria-hidden="true">&raquo;</span>';
+
+		$config['prev_tag_open'] = '<li>';
+		$config['prev_tag_close'] = '</li>';
+		$config['prev_link'] = '<span aria-hidden="true">&laquo;</span>';
+
+		$config['last_tag_open'] = '<li>';
+		$config['last_tag_close'] = '</li>';
+		$config['last_link'] = '最后一页';
+
+		$config['attributes']['rel'] = FALSE;
+
+		$this->pagination->initialize($config);
+
+
+		$mdata['plink']=$this->pagination->create_links();
+
+		//get menu class
+		$this->load->model('admin/menuAddm', 'ma');
+
+		$mdata['mclass']=$this->ma->getClass();
+
+		$this->load->view('admin/menuList',$mdata);
+	}
+
 }
 
 /* End of file menuList.php */

@@ -93,7 +93,7 @@
                         <div class="list-group">
                         <?php foreach ($menu as $key ) :?>
                           <li id="c<?php echo $key['cID'] ?>" class="list-group-item">
-                            <a id="mName<?php echo $key['cID'] ?>" href=""><?php echo $key['cName']; ?></a>
+                            <a id="mName<?php echo $key['cID'] ?>" href="<?php echo base_url().'admin/menulist/mc/'.$key['cID'] ?>"><?php echo $key['cName']; ?></a>
                             <span class="kc<?php echo $key['cID'] ?>">
                                 <button id="ud<?php echo $key['cID'] ?>" info="<?php echo $key['cID'] ?>" data-toggle="modal" data-target="#changMname"  type="button" class="btn btn-xs btn-info pull-right m75">修改</button>
 

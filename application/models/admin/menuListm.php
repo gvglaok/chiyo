@@ -40,6 +40,20 @@ class menuListm extends CI_Model {
 		$query = $this->db->update('menu', $data, $condition);
 		return $query;
 	}
+
+	public function classMenu($cid='',$num=0)
+	{
+		$where = array('cID' => $cid);
+		
+		$data['num']=$this->db->get_where('menu', $where) -> num_rows();
+
+		$query = $this->db->get_where('menu', $where, 10, $num);
+
+		$data['res'] = $query ->result_array();
+
+		return $data;
+
+	}
 	
 	
 
