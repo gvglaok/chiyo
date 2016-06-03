@@ -19,31 +19,7 @@ class menuList extends CI_Controller {
 
 		$config['per_page'] = 10;
 
-		$config['num_links'] = 6;
-
-		$config['cur_tag_open'] = '<li class="active"><a>';
-		$config['cur_tag_close'] = '</a></li>';
-
-		$config['first_tag_open'] = '<li>';
-		$config['first_tag_close'] = '</li>';
-		$config['first_link'] = '第一页';
-
-		$config['num_tag_open'] = '<li>';
-		$config['num_tag_close'] = '</li>';
-
-		$config['next_tag_open'] = '<li>';
-		$config['next_tag_close'] = '</li>';
-		$config['next_link']='<span aria-hidden="true">&raquo;</span>';
-
-		$config['prev_tag_open'] = '<li>';
-		$config['prev_tag_close'] = '</li>';
-		$config['prev_link'] = '<span aria-hidden="true">&laquo;</span>';
-
-		$config['last_tag_open'] = '<li>';
-		$config['last_tag_close'] = '</li>';
-		$config['last_link'] = '最后一页';
-
-		$config['attributes']['rel'] = FALSE;
+		$config['num_links'] = 3;
 
 		$this->pagination->initialize($config);
 
@@ -70,31 +46,7 @@ class menuList extends CI_Controller {
 
 		$config['per_page'] = 10;
 
-		$config['num_links'] = 6;
-
-		$config['cur_tag_open'] = '<li class="active"><a>';
-		$config['cur_tag_close'] = '</a></li>';
-
-		$config['first_tag_open'] = '<li>';
-		$config['first_tag_close'] = '</li>';
-		$config['first_link'] = '第一页';
-
-		$config['num_tag_open'] = '<li>';
-		$config['num_tag_close'] = '</li>';
-
-		$config['next_tag_open'] = '<li>';
-		$config['next_tag_close'] = '</li>';
-		$config['next_link']='<span aria-hidden="true">&raquo;</span>';
-
-		$config['prev_tag_open'] = '<li>';
-		$config['prev_tag_close'] = '</li>';
-		$config['prev_link'] = '<span aria-hidden="true">&laquo;</span>';
-
-		$config['last_tag_open'] = '<li>';
-		$config['last_tag_close'] = '</li>';
-		$config['last_link'] = '最后一页';
-
-		$config['attributes']['rel'] = FALSE;
+		$config['num_links'] = 3;
 
 		$this->pagination->initialize($config);
 
@@ -171,9 +123,15 @@ class menuList extends CI_Controller {
 				echo 'success';
 			} else {
 				$imgFilePath = './uploads/'.$pathArr[3];
-				$unres=unlink($imgFilePath);
-				echo $unres ? 'success' : 'error' ;
+				$fexits=file_exists($imgFilePath);
+				if ($fexits) {
+					$unres=unlink($imgFilePath);
+					echo $unres ? 'success' : 'error' ;
+				}
+				
 			}
+		} error {
+			echo "error";
 		}
 		
 	}
@@ -210,37 +168,16 @@ class menuList extends CI_Controller {
 		$this->load->model('admin/menuListm', 'ml');
 		$mdata=$this -> ml ->classMenu($_SESSION['scid'],$num);
 
-		$config['base_url'] = base_url().'admin/menulist/mc/'.$_SESSION['scid'];
-
+		$config['base_url'] = base_url().'admin/menulist/mc/';
 		$config['total_rows'] = $mdata['num'];
 
 		$config['per_page'] = 10;
+		$config['num_links'] = 2;
 
-		$config['num_links'] = 6;
+		$config['prefix'] = $_SESSION['scid'].'/';
 
-		$config['cur_tag_open'] = '<li class="active"><a>';
-		$config['cur_tag_close'] = '</a></li>';
-
-		$config['first_tag_open'] = '<li>';
-		$config['first_tag_close'] = '</li>';
-		$config['first_link'] = '第一页';
-
-		$config['num_tag_open'] = '<li>';
-		$config['num_tag_close'] = '</li>';
-
-		$config['next_tag_open'] = '<li>';
-		$config['next_tag_close'] = '</li>';
-		$config['next_link']='<span aria-hidden="true">&raquo;</span>';
-
-		$config['prev_tag_open'] = '<li>';
-		$config['prev_tag_close'] = '</li>';
-		$config['prev_link'] = '<span aria-hidden="true">&laquo;</span>';
-
-		$config['last_tag_open'] = '<li>';
-		$config['last_tag_close'] = '</li>';
-		$config['last_link'] = '最后一页';
-
-		$config['attributes']['rel'] = FALSE;
+		//sometimes firsturl need hand do it
+		$config['first_url'] = base_url().'admin/menulist/mc/'.$_SESSION['scid'].'/0';
 
 		$this->pagination->initialize($config);
 
