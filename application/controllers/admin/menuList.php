@@ -63,14 +63,11 @@ class menuList extends CI_Controller {
 
 	public function menuUpdata()
 	{
-		//$img = $this->input->post('mimg', TRUE);
 		$mmname = $this->input->post('mname', TRUE);
 		$cid = $this->input->post('cID', TRUE);
 		$mmoney = $this->input->post('mmoney', TRUE);
 		$minfo = $this->input->post('minfo', TRUE);
 		$mid = $this->input->post('mid', TRUE);
-
-		//echo $img."===".$mmname."===".$cid."===".$mmoney."===".$minfo."===".$mid;
 
 		$conf['upload_path']   = './uploads/';
 		$conf['allowed_types'] = 'gif|jpg|png';
@@ -130,7 +127,7 @@ class menuList extends CI_Controller {
 				}
 				
 			}
-		} error {
+		} else {
 			echo "error";
 		}
 		
@@ -194,6 +191,3 @@ class menuList extends CI_Controller {
 
 }
 
-/* End of file menuList.php */
-/* Location: ./application/controllers/menuList.php */
- ?>

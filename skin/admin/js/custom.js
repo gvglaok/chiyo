@@ -101,10 +101,14 @@ $(function() {
         .done(function(res) {
             $('#order').modal('show');
             $.each(res.oma, function(index, val) {
+                var mnum='';
+                if (val.num>1) {
+                    mnum = val.num + ' 份';
+                }
                 $("#mlist").prepend('<li class="list-group-item">'+
                     val.mName+' <span class="badge">' + 
                     val.mPrice+ ' ￥</span><span class="mnum">'+
-                    val.num+ ' 份</span></li>');
+                    mnum+ '</span></li>');
             });
             var total='<li class="list-group-item tp">菜品：<span id="omn">'+res.mn+'</span>份  |  总价：<span id="omm">'+res.mm+'</span>￥ </li>';
             $("#mlist").append(total);
@@ -226,7 +230,7 @@ function orderPrint() {
 
     var Content = $("#mlist").html() + pcss;
 
-    var nw = window.open('', '', 'left=0,top=0,width=280,height=600,toolbar=0,scrollbars=0,status=0');
+    var nw = window.open('', '', 'left=0,top=0,width=300,height=600,toolbar=0,scrollbars=0,status=0');
 
     nw.document.write(Content);
     nw.document.close();
