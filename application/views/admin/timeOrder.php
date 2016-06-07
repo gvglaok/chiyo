@@ -113,7 +113,7 @@
                                 ?> 
                             </li>
 						    <?php endforeach; ?>
-						    <li class="list-group-item tp">总金额：<?php echo $key['oMoney']; ?>￥</li>
+						    <li class="list-group-item tp">总计：<?php echo $key['oMenuNumber']; ?>份 | 总价：<?php echo $key['oMoney']; ?>￥</li>
 						</ul>
 
 						<div class="panel-footer">

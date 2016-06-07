@@ -105,12 +105,12 @@ $(function() {
                 if (val.num>1) {
                     mnum = val.num + ' 份';
                 }
-                $("#mlist").prepend('<li class="list-group-item">'+
+                $("#mlist").append('<li class="list-group-item">'+
                     val.mName+' <span class="badge">' + 
                     val.mPrice+ ' ￥</span><span class="mnum">'+
                     mnum+ '</span></li>');
             });
-            var total='<li class="list-group-item tp">菜品：<span id="omn">'+res.mn+'</span>份  |  总价：<span id="omm">'+res.mm+'</span>￥ </li>';
+            var total='<li class="list-group-item tp">总计：<span id="omn">'+res.mn+'</span>份  |  总价：<span id="omm">'+res.mm+'</span>￥ </li>';
             $("#mlist").append(total);
             $("#mlist").prepend('<h3 class="bhide ">台号：'+res.otn+'</h3>');
             $("#otn").text(res.otn);
