@@ -25,17 +25,23 @@ class cart extends CI_Controller {
 
 			$this->load->model('customer/cartM', 'cm');
 			
-			$data['res']=$this->cm->getMenu($rMid);
-			$data['count']=$midArrCount;
+			if (count($rMid)>0) {
+				$data['res']=$this->cm->getMenu($rMid);
+				$data['count']=$midArrCount;
 
-			$money=0;
-			foreach ($data['res'] as $key) {
-				$one=$key['mPrice']*$midArrCount[$key['mID']];
-				$money+=$one;
+				$money=0;
+				foreach ($data['res'] as $key) {
+					$one=$key['mPrice']*$midArrCount[$key['mID']];
+					$money+=$one;
+				}
+				$data['money']=$money;
+			} else {
+				$data['res']=0;
+				$data['money']=0;
 			}
-			$data['money']=$money;
-		} else {
 			
+		} else {
+			$data['money']=0;
 			$data['res']=0;
 			
 		}
