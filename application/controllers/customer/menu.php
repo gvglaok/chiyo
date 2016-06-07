@@ -18,8 +18,14 @@ class menu extends CI_Controller {
 			$data['class']=$this->mm->getClass();
 			if (isset($_SESSION['mID'])) {
 				$str=$_SESSION['mID'];
-				$midArr=explode(',',$str);
-				$data['mNumber'] = count($midArr);
+				if ($str!="") {
+					$midArr=explode(',',$str);
+					$midArr=array_filter($midArr);
+					$data['mNumber'] = count($midArr);
+				} else {
+					$data['mNumber'] = 0;
+				}
+				
 			} else {
 				$data['mNumber']=0;
 			}
@@ -34,23 +40,11 @@ class menu extends CI_Controller {
 		if ($tid!='') {
 			$ses=array("tid"=>$tid);
 			$this->session->set_userdata($ses);
+			header("Location:".base_url()."customer/menu/");
 		} else {
 			echo '请扫码点餐';
-			die();
+			exit();
 		}
-
-		$this->load->model('customer/menuM', 'mm');
-		$data['res']=$this->mm->getMenu();
-		$data['class']=$this->mm->getClass();
-		if (isset($_SESSION['mID'])) {
-			$str=$_SESSION['mID'];
-			$midArr=explode(',',$str);
-			$data['mNumber'] = count($midArr);
-		} else {
-			$data['mNumber']=0;
-		}
-		
-		$this->load->view('customer/menu',$data);
 	}
 
 	public function cMenu($value='')

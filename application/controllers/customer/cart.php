@@ -12,9 +12,11 @@ class cart extends CI_Controller {
 		if (isset($_SESSION['mID'])) {
 
 			$mid=$_SESSION['mID'];
-			$midArr=explode(',', $mid);
+ 			$midArr=explode(',', $mid);
+ 			$midArr=array_filter($midArr);
 			$data['number']=count($midArr);
-
+		
+			
 			//获取菜ID及选择次数
 			$midArrCount=array_count_values($midArr);
 
@@ -51,6 +53,7 @@ class cart extends CI_Controller {
 
 			$mid=$_SESSION['mID'];
 			$midArr=explode(',', $mid);
+			$midArr=array_filter($midArr);
 			$data['number']=count($midArr);
 
 			//获取菜ID及选择次数
@@ -91,6 +94,8 @@ class cart extends CI_Controller {
 
 		$midArr=explode(',', $mid);
 
+		$midArr=array_filter($midArr);
+
 		$key=array_search($value, $midArr);
 
 		unset($midArr[$key]);
@@ -111,6 +116,8 @@ class cart extends CI_Controller {
 		$mid=$_SESSION['mID'];
 
 		$midArr=explode(',', $mid);
+
+		$midArr=array_filter($midArr);
 
 		array_push($midArr, $value);
 		
@@ -164,6 +171,7 @@ class cart extends CI_Controller {
 			return false;
 		}
 		$midArr=explode(',', $mid);
+		$midArr=array_filter($midArr);
 		$number=count($midArr);
 		//获取菜ID及选择次数
 		$midArrCount=array_count_values($midArr);

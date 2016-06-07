@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50547
 File Encoding         : 65001
 
-Date: 2016-05-30 18:35:29
+Date: 2016-06-07 16:09:09
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -30,11 +30,30 @@ CREATE TABLE `ysd_class` (
 -- ----------------------------
 -- Records of ysd_class
 -- ----------------------------
-INSERT INTO `ysd_class` VALUES ('12', '特色传家菜', '60', '2016-05-27 13:28:07');
+INSERT INTO `ysd_class` VALUES ('12', '特色传家菜', '61', '2016-06-01 16:56:56');
 INSERT INTO `ysd_class` VALUES ('4', '主食', '8', '2016-05-26 19:19:00');
 INSERT INTO `ysd_class` VALUES ('5', '酒', '17', '2016-05-26 19:19:29');
 INSERT INTO `ysd_class` VALUES ('6', '饮料', '10', '2016-05-26 19:19:54');
 INSERT INTO `ysd_class` VALUES ('13', '汤羹', '6', '2016-05-26 19:20:27');
+
+-- ----------------------------
+-- Table structure for ysd_login
+-- ----------------------------
+DROP TABLE IF EXISTS `ysd_login`;
+CREATE TABLE `ysd_login` (
+  `uID` int(11) NOT NULL AUTO_INCREMENT,
+  `loginName` varchar(255) DEFAULT NULL,
+  `loginKey` varchar(255) DEFAULT NULL,
+  `lStatus` varchar(255) DEFAULT NULL,
+  `loginTime` varchar(255) DEFAULT NULL,
+  `lip` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`uID`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=gbk;
+
+-- ----------------------------
+-- Records of ysd_login
+-- ----------------------------
+INSERT INTO `ysd_login` VALUES ('1', 'admin', 'admin', '0', '1465282363', '192.168.1.11');
 
 -- ----------------------------
 -- Table structure for ysd_menu
@@ -50,7 +69,7 @@ CREATE TABLE `ysd_menu` (
   `mStatus` bit(1) DEFAULT b'1',
   `mAddNumber` int(11) unsigned DEFAULT '0',
   PRIMARY KEY (`mID`)
-) ENGINE=MyISAM AUTO_INCREMENT=120 DEFAULT CHARSET=gbk;
+) ENGINE=MyISAM AUTO_INCREMENT=121 DEFAULT CHARSET=gbk;
 
 -- ----------------------------
 -- Records of ysd_menu
@@ -63,7 +82,7 @@ INSERT INTO `ysd_menu` VALUES ('15', '4', '榴莲酥', '559e0caae64767e69fd7b1a6
 INSERT INTO `ysd_menu` VALUES ('16', '4', '山药卷', 'f51cbf681bf9c8c3412b2c5f62210bc4.jpg', '18.0', '', '', '0');
 INSERT INTO `ysd_menu` VALUES ('17', '4', '金银馒头', '446f6b6405540043064f562bd2ec68cb.jpg', '16.0', '', '', '0');
 INSERT INTO `ysd_menu` VALUES ('18', '4', '爆香冰激凌', '9b109015802b53b43d70849b920a7b32.jpg', '26.0', '', '', '0');
-INSERT INTO `ysd_menu` VALUES ('19', '4', '菜泡饭', '692c40d9e1ec50a93651bab7343c1c3e.jpg', '22.0', '', '', '0');
+INSERT INTO `ysd_menu` VALUES ('19', '4', '菜泡饭', '692c40d9e1ec50a93651bab7343c1c3e.jpg', '23.0', '   ', '', '0');
 INSERT INTO `ysd_menu` VALUES ('20', '4', '扬州炒饭', 'd1fcd314f9af5b6158efe94c98ead88a.jpg', '26.0', '', '', '0');
 INSERT INTO `ysd_menu` VALUES ('21', '4', '阳春面', 'eda308987ddee19b1ab4c3b227f02b09.jpg', '22.0', '', '', '0');
 INSERT INTO `ysd_menu` VALUES ('22', '4', '水饺', '79c6253f3b4fb3e8b4fe0cdc2068ede7.jpg', '28.0', '', '', '0');
@@ -106,7 +125,6 @@ INSERT INTO `ysd_menu` VALUES ('60', '12', '天之蓝', '', '328.0', '', '', '0
 INSERT INTO `ysd_menu` VALUES ('62', '12', '宫爆虾球', 'c9cb6e25f861207d43729ecb30823e42.jpg', '58.0', '', '', '0');
 INSERT INTO `ysd_menu` VALUES ('63', '12', '石锅娃娃菜', '6fb9c4bd19bdef6219165d2e1a1d50cb.jpg', '26.0', '', '', '0');
 INSERT INTO `ysd_menu` VALUES ('66', '12', '海鲜烩豆腐', '744091bd8429837c9e81a6c049f5b8f1.jpg', '32.0', '', '', '0');
-INSERT INTO `ysd_menu` VALUES ('68', '12', '爽口小木耳', '', '18.0', '', '', '0');
 INSERT INTO `ysd_menu` VALUES ('69', '12', '杭椒牛柳', 'd37962d64136de420ef65020b37b2d47.jpg', '36.0', '', '', '0');
 INSERT INTO `ysd_menu` VALUES ('70', '5', '月亮', '', '98.0', '', '', '0');
 INSERT INTO `ysd_menu` VALUES ('71', '5', 'G6', '', '128.0', '', '', '0');
@@ -144,7 +162,6 @@ INSERT INTO `ysd_menu` VALUES ('103', '6', '加多宝', '', '6.0', '', '', '0')
 INSERT INTO `ysd_menu` VALUES ('104', '12', '香酥掌中宝', '19259747eab19b3fa61fb1901d1831c6.jpg', '46.0', '', '', '0');
 INSERT INTO `ysd_menu` VALUES ('105', '6', '小雪碧', '', '6.0', '', '', '0');
 INSERT INTO `ysd_menu` VALUES ('106', '12', '湘味小炒肉', '324d868933720b91425ad8c589eebbe4.jpg', '28.0', '', '', '0');
-INSERT INTO `ysd_menu` VALUES ('107', '6', '小可乐', '', '6.0', '', '', '0');
 INSERT INTO `ysd_menu` VALUES ('108', '6', '旺仔', '', '6.0', '', '', '0');
 INSERT INTO `ysd_menu` VALUES ('109', '12', '想家的锅巴', '8274639be66be7231315280ffecd4553.jpg', '32.0', '', '', '0');
 INSERT INTO `ysd_menu` VALUES ('110', '6', '矿泉水', '', '4.0', '', '', '0');
@@ -185,42 +202,14 @@ CREATE TABLE `ysd_order` (
   `oAddTime` varchar(20) DEFAULT NULL,
   `oStatus` int(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`oID`)
-) ENGINE=MyISAM AUTO_INCREMENT=106 DEFAULT CHARSET=gbk;
+) ENGINE=MyISAM AUTO_INCREMENT=109 DEFAULT CHARSET=gbk;
 
 -- ----------------------------
 -- Records of ysd_order
 -- ----------------------------
-INSERT INTO `ysd_order` VALUES ('5', 'A-12', '1,2,3,4,5', '5', '156', '1463980858', '1');
-INSERT INTO `ysd_order` VALUES ('1', 'B-12', '1,2,3', '4', '93', '1463980858', '1');
-INSERT INTO `ysd_order` VALUES ('2', 'A-1', '1,3,4,5', '4', '52', '1463980858', '1');
-INSERT INTO `ysd_order` VALUES ('3', 'A-2', '1,2,3,5', '4', '45', '1463980858', '1');
-INSERT INTO `ysd_order` VALUES ('68', 'A-4', '1,2,4,5', '4', '101', '1463980858', '1');
-INSERT INTO `ysd_order` VALUES ('69', 'A-3', '1,2,5', '3', '90', '1463980858', '1');
-INSERT INTO `ysd_order` VALUES ('76', '999', '1,1,1', '3', '66', '1463980858', '1');
-INSERT INTO `ysd_order` VALUES ('77', 'd11', '3,4,4,3', '4', '52', '1463981250', '1');
-INSERT INTO `ysd_order` VALUES ('105', 'B33', '36,44,46,49,17,46,44,36', '8', '266', '1464589697', '0');
-INSERT INTO `ysd_order` VALUES ('78', 'B66', '1,2,3,4,3', '5', '119', '1464169217', '1');
-INSERT INTO `ysd_order` VALUES ('79', 'B66', '1,2,3,4,3', '5', '119', '1464169217', '1');
-INSERT INTO `ysd_order` VALUES ('80', 'B66', '1,2,3,4,3', '5', '119', '1464169217', '1');
-INSERT INTO `ysd_order` VALUES ('81', 'B66', '1,2,3,4,3', '5', '119', '1464169217', '1');
-INSERT INTO `ysd_order` VALUES ('82', 'B66', '1,2,3,4,3', '5', '119', '1464169217', '1');
-INSERT INTO `ysd_order` VALUES ('83', 'B66', '1,2,3,4,3', '5', '119', '1464169217', '1');
-INSERT INTO `ysd_order` VALUES ('84', 'B66', '1,2,3,4,3', '5', '119', '1464169217', '1');
-INSERT INTO `ysd_order` VALUES ('85', 'B66', '1,2,3,4,3', '5', '119', '1464169217', '1');
-INSERT INTO `ysd_order` VALUES ('86', 'B66', '1,2,3,4,3', '5', '119', '1464169217', '1');
-INSERT INTO `ysd_order` VALUES ('87', 'B66', '1,2,3,4,3', '5', '119', '1464169217', '1');
-INSERT INTO `ysd_order` VALUES ('88', 'B66', '1,2,3,4,3', '5', '119', '1464169217', '1');
-INSERT INTO `ysd_order` VALUES ('89', 'B66', '1,2,3,4,3', '5', '119', '1464169217', '1');
-INSERT INTO `ysd_order` VALUES ('90', 'B66', '1,2,3,4,3', '5', '119', '1464169217', '1');
-INSERT INTO `ysd_order` VALUES ('91', 'B66', '1,2,3,4,3', '5', '119', '1464169217', '1');
-INSERT INTO `ysd_order` VALUES ('92', 'B66', '1,2,3,4,3', '5', '119', '1464169217', '1');
-INSERT INTO `ysd_order` VALUES ('93', 'B66', '1,2,3,4,3', '5', '119', '1464169217', '1');
-INSERT INTO `ysd_order` VALUES ('94', 'B66', '1,2,3,4,3', '5', '119', '1464169217', '1');
-INSERT INTO `ysd_order` VALUES ('95', 'B66', '1,2,3,4,3', '5', '119', '1464169217', '1');
-INSERT INTO `ysd_order` VALUES ('96', 'B66', '1,2,3,4,3', '5', '119', '1464169217', '1');
-INSERT INTO `ysd_order` VALUES ('97', 'B66', '1,2,3,4,3', '5', '119', '1464169217', '1');
-INSERT INTO `ysd_order` VALUES ('98', 'B66', '1,2,3,4,3', '5', '119', '1464169217', '1');
-INSERT INTO `ysd_order` VALUES ('99', 'B69', '3,2,5,1', '4', '105', '1464236926', '1');
+INSERT INTO `ysd_order` VALUES ('107', 'B33', '11,12,13,14,15,98,25,26,57', '9', '402', '1465264104', '0');
+INSERT INTO `ysd_order` VALUES ('105', 'B33', '36,44,46,49,17,46,44,36', '8', '266', '1464589697', '1');
+INSERT INTO `ysd_order` VALUES ('106', 'B33', '11,12,13,14,15,16,17', '7', '248', '1464831009', '1');
 INSERT INTO `ysd_order` VALUES ('100', 'B-21', '24,24,23,23,24,24,23,27,26,26,25,11,11,27', '14', '296', '1464336137', '1');
 INSERT INTO `ysd_order` VALUES ('101', 'B33', '11,12,13,14,15,17,11,12,13,14,29,31', '12', '544', '1464343020', '1');
 INSERT INTO `ysd_order` VALUES ('102', 'B34', '11,98,99,101,11', '5', '180', '1464573159', '1');

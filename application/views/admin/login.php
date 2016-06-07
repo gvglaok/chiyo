@@ -20,6 +20,8 @@
     <link href="<?php echo base_url(); ?>skin/admin/css/style.css" rel='stylesheet' type='text/css' />
     <!-- jQuery -->
     <script src="<?php echo base_url(); ?>skin/admin/js/jquery.min.js"></script>
+
+    <script src="<?php echo base_url(); ?>skin/admin/js/custom.js"></script>
     <!-- Bootstrap Core JavaScript -->
     <script src="<?php echo base_url(); ?>skin/admin/js/bootstrap.min.js"></script>
 </head>
@@ -30,19 +32,18 @@
     </div>
     <h2 class="form-heading">易食代登录</h2>
     <div class="app-cam">
-        <form action="" method="POST" role="form">
+        <form method="POST" role="form">
             <div class="input-group">
-                <span class="input-group-addon" id="basic-addon1">用户名</span>
-                <input type="text" class="form-control">
+                <span class="input-group-addon">用户名</span>
+                <input id="user" name="user" type="text" class="form-control" required="true">
             </div>
             <br>
             <div class="input-group">
-                <span class="input-group-addon" id="basic-addon1">密&nbsp;&nbsp;码</span>
-                <input type="text" class="form-control">
+                <span class="input-group-addon">密&nbsp;&nbsp;码</span>
+                <input id="psw" name="psw" type="password" class="form-control" required="true">
             </div>
             <br>
-            
-            <button type="submit" class="btn btn-info btn-lg btn-block">登录</button>
+            <button type="button" onclick="login()" class="btn btn-info btn-lg btn-block">登录</button>
         </form>
         <br><br><br><br><br><br><br>
     </div>

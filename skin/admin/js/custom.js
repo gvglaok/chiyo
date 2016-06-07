@@ -35,7 +35,7 @@ $(function() {
     //bs3 toolTip reset
     $('[data-toggle="tooltip"]').tooltip();
 
-    $('#side-menu').metisMenu();
+    //$('#side-menu').metisMenu();
 
     $("button[id^='dele']").click(function() {
         var isTrue = confirm("确认删除！");
@@ -128,15 +128,40 @@ $(function() {
 });
 
 
-
-
 //cy js-keven 2016-5-10
 
 var base_url = "/chiyo/";
 
-
-//get orderMenu
-function OMenu() {
+//login
+function login() {
+    var name=$("#user").val().replace(/^\s+|\s+$/g, "");
+    var psw=$("#psw").val();
+    if (name=='') {
+        alert('用户名不能为空！');
+        return false;
+    }
+    $.ajax({
+        url: base_url+'admin/clogin/check',
+        type: 'post',
+        dataType: 'html',
+        data: {pnm: name,ppsw:psw}
+    })
+    .done(function(mes) {
+        //alert(mes);
+        if (String(mes)=="success") {
+            alert("登录成功");
+            window.location.href=base_url+'/admin/timeorder';
+        } else {
+            alert("登录失败");
+        }
+        
+    })
+    .fail(function() {
+        console.log("error");
+    })
+    .always(function() {
+        console.log("complete");
+    });
     
 }
 
