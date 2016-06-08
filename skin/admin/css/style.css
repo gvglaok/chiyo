@@ -3,7 +3,7 @@ h1, h2, h3 {margin-top: 0;}
 ul, ol {margin: 0;}
 p {margin: 0;}
 
-html, body{
+body{
   	font-family: 'Roboto', sans-serif;
     font-size: 100%;
   	background:#000;
@@ -2008,7 +2008,7 @@ h2.form-heading {
   width: 100%;
 }
 body#login{
-  background: url(../images/bg.jpg)no-repeat;
+  background-color: #ECEDF0;
   background-size:cover;
   -webkit-background-size:cover;
   -moz-background-size:cover;
@@ -2017,8 +2017,11 @@ body#login{
   min-height:850px;
 }
 .app-cam {
-  width:22%;
-  margin:3em auto auto auto;
+    width: 30%;
+    margin: 16em auto auto auto;
+    padding: 30px 30px;
+    background-color: #FFF;
+    box-shadow: #ccc 0px 0px 13px;
 }
 
 .login-social-link {
@@ -2546,7 +2549,10 @@ td.head {
 }
 .app-cam {
   width: 70%;
-  margin: 1em auto auto auto;
+  /* margin: 1em auto auto auto; */
+  display: table-cell;   
+  vertical-align: middle;
+  background-color: #FFF;
 }
 h2.form-heading {
   font-size: 16px;
