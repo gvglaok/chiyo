@@ -52,3 +52,5 @@ uploads/
 sessKe/
 
 *.settings
+ftpsync.settings
+*.settings
