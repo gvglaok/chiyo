@@ -1,7 +1,10 @@
 //后台操作js
-//Loads the correct sidebar on window load,
-//collapses the sidebar on window resize.
-// Sets the min-height of #page-wrapper to window size
+
+//cy js-keven 2016-5-10
+
+var base_url = "/";
+
+
 $(function() {
     $(window).bind("load resize", function() {
         topOffset = 50;
@@ -128,9 +131,7 @@ $(function() {
 });
 
 
-//cy js-keven 2016-5-10
 
-var base_url = "/chiyo/";
 
 //login
 function login() {
@@ -150,7 +151,7 @@ function login() {
         //alert(mes);
         if (String(mes)=="success") {
             alert("登录成功");
-            window.location.href=base_url+'/admin/timeorder';
+            window.location.href='http://ysd.njcftec.com/admin/timeorder';
         } else {
             alert("登录失败");
         }

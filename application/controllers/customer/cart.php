@@ -41,7 +41,7 @@ class cart extends CI_Controller {
 			}
 			
 		} else {
-			$data['money']=0;
+			
 			$data['res']=0;
 			
 		}
