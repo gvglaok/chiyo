@@ -36,6 +36,10 @@
     <!-- Graph JavaScript -->
     <script src="<?php echo base_url(); ?>skin/admin/js/d3.v3.js"></script>
     <script src="<?php echo base_url(); ?>skin/admin/js/rickshaw.js"></script>
+        <!--[if IE]>
+      <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
 </head>
 
 <body>

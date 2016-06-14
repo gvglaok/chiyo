@@ -24,13 +24,15 @@
     <script src="<?php echo base_url(); ?>skin/admin/js/custom.js"></script>
     <!-- Bootstrap Core JavaScript -->
     <script src="<?php echo base_url(); ?>skin/admin/js/bootstrap.min.js"></script>
+
+    <!--[if IE]>
+      <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
 </head>
 
 <body id="login">
-    <!-- <div class="login-logo">
-        <a href="#"><img src="<?php echo base_url(); ?>skin/admin/images/logo.png" alt="gvgnn.com" /></a>
-    </div>
-    <h2 class="form-heading">易食代登录</h2> -->
+   
     <div class="app-cam">
         <h3><img height="25px" src="<?php echo base_url(); ?>skin/admin/images/logo.png" alt="gvgnn.com" /> 易食代登录</h3>
         <br>
