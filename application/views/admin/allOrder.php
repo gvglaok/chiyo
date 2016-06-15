@@ -35,7 +35,7 @@
     <!-- Graph JavaScript -->
     <script src="<?php echo base_url(); ?>skin/admin/js/d3.v3.js"></script>
     <script src="<?php echo base_url(); ?>skin/admin/js/rickshaw.js"></script>
-        <!--[if IE]>
+    <!--[if IE]>
       <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
@@ -56,14 +56,14 @@
             </div>
             <!-- /.navbar-header -->
            
-            <form class="navbar-form navbar-right">
+            <!-- <form class="navbar-form navbar-right">
                 <input type="text" class="form-control" value="Search..." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search...';}">
-            </form>
+            </form> -->
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
                         <li>
-                            <a href="#"><i class="glyphicon glyphicon-dashboard nav_icon"></i>控制面板</a>
+                            <a href="<?php echo base_url();?>admin/dashboard"><i class="glyphicon glyphicon-dashboard nav_icon"></i>控制面板</a>
                         </li>
                         <li>
                             <a href="<?php echo base_url();?>admin/timeorder"><i class="glyphicon glyphicon-bullhorn nav_icon"></i>未处理订单</a>
@@ -78,7 +78,7 @@
                             <a href="<?php echo base_url();?>admin/menulist"><i class="glyphicon glyphicon-modal-window  nav_icon"></i>所有菜品</a>
                         </li>
                         <li>
-                            <a href="<?php echo base_url();?>admin/menuadd."><i class="glyphicon glyphicon-copy nav_icon"></i>添加菜品</a>
+                            <a href="<?php echo base_url();?>admin/menuadd"><i class="glyphicon glyphicon-copy nav_icon"></i>添加菜品</a>
                         </li>
                         
                     </ul>

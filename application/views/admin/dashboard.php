@@ -16,25 +16,29 @@
     }
     </script>
     <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel='stylesheet' type='text/css' />
+    <link href="<?php echo base_url(); ?>skin/admin/css/bootstrap.min.css" rel='stylesheet' type='text/css' />
     <!-- Custom CSS -->
-    <link href="css/style.css" rel='stylesheet' type='text/css' />
+    <link href="<?php echo base_url(); ?>skin/admin/css/style.css" rel='stylesheet' type='text/css' />
     <!-- Graph CSS -->
-    <link href="css/lines.css" rel='stylesheet' type='text/css' />
-    <link href="css/font-awesome.css" rel="stylesheet">
+    <link href="<?php echo base_url(); ?>skin/admin/css/lines.css" rel='stylesheet' type='text/css' />
+    <link href="<?php echo base_url(); ?>skin/admin/css/font-awesome.css" rel="stylesheet">
     <!-- jQuery -->
-    <script src="js/jquery.min.js"></script>
+    <script src="<?php echo base_url(); ?>skin/admin/js/jquery.min.js"></script>
     <!-- webfonts -->
     <link href='http://fonts.useso.com/css?family=Roboto:400,100,300,500,700,900' rel='stylesheet' type='text/css'>
     <!-- webfonts -->
     <!-- Nav CSS -->
-    <link href="css/custom.css" rel="stylesheet">
+    <link href="<?php echo base_url(); ?>skin/admin/css/custom.css" rel="stylesheet">
     <!-- Metis Menu Plugin JavaScript -->
-    <script src="js/metisMenu.min.js"></script>
-    <script src="js/custom.js"></script>
+    <script src="<?php echo base_url(); ?>skin/admin/js/metisMenu.min.js"></script>
+    <script src="<?php echo base_url(); ?>skin/admin/js/custom.js"></script>
     <!-- Graph JavaScript -->
-    <script src="js/d3.v3.js"></script>
-    <script src="js/rickshaw.js"></script>
+    <script src="<?php echo base_url(); ?>skin/admin/js/d3.v3.js"></script>
+    <script src="<?php echo base_url(); ?>skin/admin/js/rickshaw.js"></script>
+    <!--[if IE]>
+      <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
 </head>
 
 <body>
@@ -50,111 +54,30 @@
                 </button>
                 <a class="navbar-brand" href="index.html">YSD_keven</a>
             </div>
-            <!-- /.navbar-header -->
-            <ul class="nav navbar-nav navbar-right">
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-comments-o"></i><span class="badge">4</span></a>
-                    <ul class="dropdown-menu">
-                        <li class="dropdown-menu-header">
-                            <strong>Messages</strong>
-                            <div class="progress thin">
-                                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
-                                    <span class="sr-only">40% Complete (success)</span>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="avatar">
-                            <a href="#">
-                                <img src="images/1.png" alt="" />
-                                <div>New message</div>
-                                <small>1 minute ago</small>
-                                <span class="label label-info">NEW</span>
-                            </a>
-                        </li>
-                        <li class="avatar">
-                            <a href="#">
-                                <img src="images/2.png" alt="" />
-                                <div>New message</div>
-                                <small>1 minute ago</small>
-                                <span class="label label-info">NEW</span>
-                            </a>
-                        </li>
-                        <li class="avatar">
-                            <a href="#">
-                                <img src="images/3.png" alt="" />
-                                <div>New message</div>
-                                <small>1 minute ago</small>
-                            </a>
-                        </li>
-                        <li class="avatar">
-                            <a href="#">
-                                <img src="images/4.png" alt="" />
-                                <div>New message</div>
-                                <small>1 minute ago</small>
-                            </a>
-                        </li>
-                        <li class="avatar">
-                            <a href="#">
-                                <img src="images/5.png" alt="" />
-                                <div>New message</div>
-                                <small>1 minute ago</small>
-                            </a>
-                        </li>
-                        <li class="avatar">
-                            <a href="#">
-                                <img src="images/pic1.png" alt="" />
-                                <div>New message</div>
-                                <small>1 minute ago</small>
-                            </a>
-                        </li>
-                        <li class="dropdown-menu-footer text-center">
-                            <a href="#">View all messages</a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle avatar" data-toggle="dropdown"><img src="images/1.png"><span class="badge">9</span></a>
-                    <ul class="dropdown-menu">
-                        <li class="dropdown-menu-header text-center">
-                            <strong>Account</strong>
-                        </li>
-                        <li class="m_2"><a href="#"><i class="fa fa-bell-o"></i> Updates <span class="label label-info">42</span></a></li>
-                        <li class="m_2"><a href="#"><i class="fa fa-envelope-o"></i> Messages <span class="label label-success">42</span></a></li>
-                        <li class="m_2"><a href="#"><i class="fa fa-tasks"></i> Tasks <span class="label label-danger">42</span></a></li>
-                        <li><a href="#"><i class="fa fa-comments"></i> Comments <span class="label label-warning">42</span></a></li>
-                        <li class="dropdown-menu-header text-center">
-                            <strong>Settings</strong>
-                        </li>
-                        <li class="m_2"><a href="#"><i class="fa fa-user"></i> Profile</a></li>
-                        <li class="m_2"><a href="#"><i class="fa fa-wrench"></i> Settings</a></li>
-                        <li class="m_2"><a href="#"><i class="fa fa-usd"></i> Payments <span class="label label-default">42</span></a></li>
-                        <li class="m_2"><a href="#"><i class="fa fa-file"></i> Projects <span class="label label-primary">42</span></a></li>
-                        <li class="divider"></li>
-                        <li class="m_2"><a href="#"><i class="fa fa-shield"></i> Lock Profile</a></li>
-                        <li class="m_2"><a href="#"><i class="fa fa-lock"></i> Logout</a></li>
-                    </ul>
-                </li>
-            </ul>
-            <form class="navbar-form navbar-right">
+            
+            <!-- <form class="navbar-form navbar-right">
                 <input type="text" class="form-control" value="Search..." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search...';}">
-            </form>
+            </form> -->
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
                         <li>
-                            <a href="index.html"><i class="fa fa-dashboard fa-fw nav_icon"></i>控制面板</a>
+                            <a href="<?php echo base_url();?>admin/dashboard"><i class="glyphicon glyphicon-dashboard nav_icon"></i>控制面板</a>
                         </li>
                         <li>
-                            <a href="timeorder.html"><i class="fa fa-dashboard fa-fw nav_icon"></i>未处理订单</a>
+                            <a href="<?php echo base_url();?>admin/timeorder"><i class="glyphicon glyphicon-bullhorn nav_icon"></i>未处理订单</a>
                         </li>
                         <li>
-                            <a href="allorder.html"><i class="fa fa-dashboard fa-fw nav_icon"></i>所有订单</a>
+                            <a href="<?php echo base_url();?>admin/allorder"><i class="glyphicon glyphicon-file nav_icon"></i>所有订单</a>
                         </li>
                         <li>
-                            <a href="menuclass.html"><i class="fa fa-dashboard fa-fw nav_icon"></i>菜单分类</a>
+                            <a href="<?php echo base_url();?>admin/menuclass"><i class="glyphicon glyphicon-tasks nav_icon"></i>菜单分类</a>
                         </li>
                         <li>
-                            <a href="menulist.html"><i class="fa fa-dashboard fa-fw nav_icon"></i>所有菜品</a>
+                            <a href="<?php echo base_url();?>admin/menulist"><i class="glyphicon glyphicon-modal-window  nav_icon"></i>所有菜品</a>
+                        </li>
+                        <li>
+                            <a href="<?php echo base_url();?>admin/menuadd"><i class="glyphicon glyphicon-copy nav_icon"></i>添加菜品</a>
                         </li>
                     </ul>
                 </div>
@@ -165,36 +88,158 @@
        
         <div id="page-wrapper">
             <div class="graphs">
-                <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-                    <div class="panel panel-info">
-                        <div class="panel-heading">
-                            <h3 class="panel-title">菜单分类</h3>
-                        </div>
-                        <div class="list-group">
-                          <li class="list-group-item">
-                            <a href="">Cras justo odio</a>
-                            <button type="button" class="btn btn-sm btn-info pull-right m75">修改</button>
-                            <button type="button" class="btn btn-sm btn-danger pull-right m15">删除</button>
-                            <span class="badge">14</span>
-                          </li>
-                          <li class="list-group-item">
-                            <a href="">Cras justo odio</a>
-                            <button type="button" class="btn btn-sm btn-info pull-right m75">修改</button>
-                            <button type="button" class="btn btn-sm btn-danger pull-right m15">删除</button>
-                            <span class="badge">14</span>
-                          </li>
-                          <li class="list-group-item">
-                            <a href="">Cras justo odio</a>
-                            <button type="button" class="btn btn-sm btn-info pull-right m75">修改</button>
-                            <button type="button" class="btn btn-sm btn-danger pull-right m15">删除</button>
-                            <span class="badge">14</span>
-                          </li>
-                          <li class="list-group-item">
-                            <input type="text" name="newClass" id="newClass"  required="required">
-                            <button class="btn btn-sm pull-right">添加</button>
-                          </li>
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div id="page-wrapper">
+            <div class="graphs">
+                <div class="graph_box">
+                    <div class="col-md-4 grid_2">
+                        <div class="grid_1">
+                            <h3>Circular</h3>
+                            <canvas id="doughnut" height="300" width="400" style="width: 400px; height: 300px;"></canvas>
                         </div>
                     </div>
+                    <div class="col-md-4 grid_2">
+                        <div class="grid_1">
+                            <h3>Line</h3>
+                            <canvas id="line" height="300" width="400" style="width: 400px; height: 300px;"></canvas>
+                        </div>
+                    </div>
+                    <div class="col-md-4 grid_2">
+                        <div class="grid_1">
+                            <h3>PolarArea</h3>
+                            <canvas id="polarArea" height="300" width="400" style="width: 400px; height: 300px;"></canvas>
+                        </div>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+                <div class="graph_box1">
+                    <div class="col-md-4 grid_2">
+                        <div class="grid_1">
+                            <h3>Bar</h3>
+                            <canvas id="bar" height="300" width="400" style="width: 400px; height: 300px;"></canvas>
+                        </div>
+                    </div>
+                    <div class="col-md-4 grid_2">
+                        <div class="grid_1">
+                            <h3>Pie</h3>
+                            <canvas id="pie" height="300" width="400" style="width: 400px; height: 300px;"></canvas>
+                        </div>
+                    </div>
+                    <div class="col-md-4 grid_2">
+                        <div class="grid_1">
+                            <h3>Radar</h3>
+                            <canvas id="radar" height="300" width="400" style="width: 400px; height: 300px;"></canvas>
+                        </div>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+                <script>
+                var doughnutData = [{
+                        value: 30,
+                        color: "#ef553a"
+                    }, {
+                        value: 50,
+                        color: "#9358ac"
+                    }, {
+                        value: 100,
+                        color: "#3b5998"
+                    }, {
+                        value: 40,
+                        color: "#00aced"
+                    }, {
+                        value: 120,
+                        color: "#4D5360"
+                    }
+
+                ];
+                var lineChartData = {
+                    labels: ["", "", "", "", "", "", ""],
+                    datasets: [{
+                        fillColor: "#00aced",
+                        strokeColor: "#00aced",
+                        pointColor: "#00aced",
+                        pointStrokeColor: "#fff",
+                        data: [65, 59, 90, 81, 56, 55, 40]
+                    }, {
+                        fillColor: "#3b5998",
+                        strokeColor: "#3b5998",
+                        pointColor: "#3b5998",
+                        pointStrokeColor: "#fff",
+                        data: [28, 48, 40, 19, 96, 27, 100]
+                    }]
+
+                };
+                var pieData = [{
+                        value: 30,
+                        color: "#ef553a"
+                    }, {
+                        value: 50,
+                        color: "#00aced"
+                    }, {
+                        value: 100,
+                        color: "#69D2E7"
+                    }
+
+                ];
+                var barChartData = {
+                    labels: ["January", "February", "March", "April", "May", "June", "July"],
+                    datasets: [{
+                        fillColor: "#ef553a",
+                        strokeColor: "#ef553a",
+                        data: [65, 59, 90, 81, 56, 55, 40]
+                    }, {
+                        fillColor: "#00aced",
+                        strokeColor: "#00aced",
+                        data: [28, 48, 40, 19, 96, 27, 100]
+                    }]
+
+                };
+                var chartData = [{
+                    value: Math.random(),
+                    color: "#D97041"
+                }, {
+                    value: Math.random(),
+                    color: "#C7604C"
+                }, {
+                    value: Math.random(),
+                    color: "#21323D"
+                }, {
+                    value: Math.random(),
+                    color: "#9D9B7F"
+                }, {
+                    value: Math.random(),
+                    color: "#7D4F6D"
+                }, {
+                    value: Math.random(),
+                    color: "#9358ac"
+                }];
+                var radarChartData = {
+                    labels: ["", "", "", "", "", "", ""],
+                    datasets: [{
+                        fillColor: "#3b5998",
+                        strokeColor: "#3b5998",
+                        pointColor: "#3b5998",
+                        pointStrokeColor: "#fff",
+                        data: [65, 59, 90, 81, 56, 55, 40]
+                    }, {
+                        fillColor: "#ef553a",
+                        strokeColor: "#ef553a",
+                        pointColor: "#ef553a",
+                        pointStrokeColor: "#fff",
+                        data: [28, 48, 40, 19, 96, 27, 100]
+                    }]
+
+                };
+                new Chart(document.getElementById("doughnut").getContext("2d")).Doughnut(doughnutData);
+                new Chart(document.getElementById("line").getContext("2d")).Line(lineChartData);
+                new Chart(document.getElementById("radar").getContext("2d")).Radar(radarChartData);
+                new Chart(document.getElementById("polarArea").getContext("2d")).PolarArea(chartData);
+                new Chart(document.getElementById("bar").getContext("2d")).Bar(barChartData);
+                new Chart(document.getElementById("pie").getContext("2d")).Pie(pieData);
+                </script>
+               
+            </div>
+        </div>
                 </div>
                 
 				
@@ -210,7 +255,7 @@
     </div>
     <!-- /#wrapper -->
     <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="<?php echo base_url(); ?>skin/admin/js/bootstrap.min.js"></script>
 </body>
 
 </html>
