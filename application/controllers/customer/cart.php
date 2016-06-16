@@ -196,16 +196,28 @@ class cart extends CI_Controller {
 		$dataArr=array('oTableNumber'=>$tid,'oMidArr'=>$mid,'oMenuNumber'=>$number,'oMoney'=>$money,'oAddTime'=>time(),'oStatus'=>0);
 
 		$res=$this->cm->addOrder($dataArr);
+
 		if ($res) {
 			//提示成功
 			//销毁 tid mID
-			echo '下单成功！';
+			echo 'success';
 			//$sesarr = array('tid','mID');
 			$sesarr = array('mID');
 			//$this->session->session_unset(oid)
 			$this->session->unset_userdata($sesarr);
 		}
 
+		$arrMenuData=array();
+
+		foreach ($midArrCount as $key => $value) {
+			array_push($arrMenuData,array('mID'=>$key,'mAddNumber'=>$value));
+		}
+		//更新菜品点击数量
+		$res2=$this -> cm -> udMenu($arrMenuData);
+		if($res2<=0)
+		{
+			log_message('info', '更新菜品点击数量出错');
+		}
 
 
 	}

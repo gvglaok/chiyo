@@ -28,6 +28,13 @@ class cartM extends CI_Model {
 		return $query;
 	}
 
+	public function udMenu($arr='')
+	{
+		$query = $this->db->update_batch('menu', $arr, 'mID');
+		
+		return $query;
+	}
+
 }
 
 /* End of file cartM.php */

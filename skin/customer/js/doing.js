@@ -185,9 +185,14 @@ function subMenu() {
 	var number=Number($('#allNumber').text());
 	if (number!=0) {
 		$.post('cart/addOrder', function(data) {
-			alert(data);
+			if(String(data)=='success')
+			{
+				alert('下单成功');
+			} else {
+				alert('有点问题哟，请返回重试');
+			}
 			$('#btm').hide();
-			//$('#back').hide();
+			
 		});
 	} else {
 		alert('选好菜，再下单哟 :)');
