@@ -11,10 +11,10 @@
                 </button>
                 <a class="navbar-brand" href="index.html">YSD_keven</a>
             </div>
-            <!-- /.navbar-header -->
+            <!-- /.navbar-header 
             <form class="navbar-form navbar-right">
                 <input type="text" class="form-control" placeholder="搜索...">
-            </form>
+            </form>-->
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">

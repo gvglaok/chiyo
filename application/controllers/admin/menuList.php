@@ -30,6 +30,9 @@ class menuList extends CI_Controller {
 
 		$mdata['mclass']=$this->ma->getClass();
 
+		$this->load->view('admin/header');
+		$this->load->view('admin/navbar');
+
 		$this->load->view('admin/menuList',$mdata);
 	}
 	
@@ -57,6 +60,9 @@ class menuList extends CI_Controller {
 		$this->load->model('admin/menuAddm', 'ma');
 
 		$mdata['mclass']=$this->ma->getClass();
+
+		$this->load->view('admin/header');
+		$this->load->view('admin/navbar');
 
 		$this->load->view('admin/menuList',$mdata);
 	}
@@ -185,6 +191,9 @@ class menuList extends CI_Controller {
 		$this->load->model('admin/menuAddm', 'ma');
 
 		$mdata['mclass']=$this->ma->getClass();
+
+		$this->load->view('admin/header');
+		$this->load->view('admin/navbar');
 
 		$this->load->view('admin/menuList',$mdata);
 	}

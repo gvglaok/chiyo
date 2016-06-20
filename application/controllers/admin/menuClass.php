@@ -11,6 +11,9 @@ class menuClass extends CI_Controller {
 	{
 		$this->load->model('admin/menuAddm', 'ma');
 		$data['menu']=$this->ma->getClass();
+
+		$this->load->view('admin/header');
+		$this->load->view('admin/navbar');
 		$this->load->view('admin/menuClass',$data);
 	}
 	

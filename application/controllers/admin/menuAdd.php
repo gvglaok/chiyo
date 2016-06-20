@@ -13,6 +13,9 @@ class menuAdd extends CI_Controller {
 
 		$data['ms']=$this->ma->getClass();
 
+		$this->load->view('admin/header');
+		$this->load->view('admin/navbar');
+
 		$this->load->view('admin/menuadd',$data);
 	}
 
@@ -61,6 +64,9 @@ class menuAdd extends CI_Controller {
 			$data['mes']['type']='success';
 
 			$data['mes']['info']='添加成功';
+
+			$this->load->view('admin/header');
+			$this->load->view('admin/navbar');
 
 			$this->load->view('admin/menuadd',$data);
 
