@@ -11,6 +11,8 @@ class timeOrder extends CI_Controller {
 	{
 		$this->load->model('admin/timeOrderm', 'to');
 		$data['res']=$this->to->orderTable();
+		$this->load->view('admin/header');
+		$this->load->view('admin/navbar');
 		$this->load->view('admin/timeOrder',$data);
 	}
 
