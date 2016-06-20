@@ -71,6 +71,14 @@
     <!-- /#wrapper -->
     <!-- Bootstrap Core JavaScript -->
     <script src="<?php echo base_url(); ?>skin/admin/js/bootstrap.min.js"></script>
+
+    <script language="JavaScript">
+    function refresh()
+    {
+       window.location.reload();
+    }
+    setTimeout('refresh()',5000); //指定1秒刷新一次
+    </script>
 </body>
 
 </html>
