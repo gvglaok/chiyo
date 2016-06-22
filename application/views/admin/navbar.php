@@ -18,9 +18,9 @@
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
-                        <!-- <li>
-                            <a href="#"><i class="glyphicon glyphicon-dashboard nav_icon"></i>控制面板</a>
-                        </li> -->
+                        <li>
+                            <a href="<?php echo base_url();?>admin/dashboardc"><i class="glyphicon glyphicon-dashboard nav_icon"></i>控制面板</a>
+                        </li>
                         <li>
                             <a href="<?php echo base_url();?>admin/timeorder"><i class="glyphicon glyphicon-bullhorn nav_icon"></i>未处理订单</a>
                         </li>

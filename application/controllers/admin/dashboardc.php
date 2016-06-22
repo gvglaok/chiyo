@@ -9,6 +9,8 @@ class dashboardc extends CI_Controller {
 
 	public function index()
 	{
+		$this->load->view('admin/header');
+		$this->load->view('admin/navbar');
 		$this->load->view('admin/dashboard');
 	}
 
