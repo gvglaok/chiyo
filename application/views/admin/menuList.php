@@ -85,10 +85,12 @@
                             <span class="input-group-addon">图片</span>
                             <input name="mimg" type="file" class="form-control" placeholder="" data-toggle="tooltip" data-placement="bottom" title="无需修改图片，请不要点击选图">
                         </div>
+                        <br>
                         <div class="input-group">
                             <span class="input-group-addon">菜名</span>
                             <input id="mname" name="mname" required="true" type="text" class="form-control">
                         </div>
+                        <br>
                         <div class="input-group">
                             <span class="input-group-addon">类别</span>
                             <!-- <input id="mname" name="mname" required="true" type="text" class="form-control" placeholder=""> -->
@@ -98,14 +100,17 @@
                                 <?php endforeach ?>
                             </select>
                         </div>
+                        <br>
                         <div class="input-group">
                             <span class="input-group-addon">价格</span>
                             <input id="mmoney" name="mmoney" type="number" class="form-control" placeholder="">
                         </div>
+                        <br>
                         <div class="input-group">
                             <span class="input-group-addon">简介</span>
                             <input id="minfo" name="minfo" type="text" class="form-control" placeholder="">
                         </div>
+                        <br>
                         <input id="mid" name="mid" type="hidden">
                     </form>
                 </div>

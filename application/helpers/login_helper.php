@@ -13,12 +13,12 @@
 		$url = $_SERVER["REQUEST_URI"];
 		$urlArr=explode('/', $url);
 		if (!isset($_SESSION['ls'])) {
-			if ($urlArr[2]=='clogin') {
+			if ($urlArr[3]=='clogin') {
 				return true;
 			} else if($urlArr[1]=='customer'){
 				return true;
 			} else {
-				header("Location:http://ysd.njcftec.com/admin/clogin");
+				header("Location: localhost/chiyo/admin/clogin");
 				return true;
 			}
 			//header("Location: /chiyo/admin/clogin"); 

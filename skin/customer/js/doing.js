@@ -1,5 +1,5 @@
 
-var base_url="/";
+var base_url="/chiyo/";
 //预加载
 $(function(){
 	$("img.mmimg").lazyload({

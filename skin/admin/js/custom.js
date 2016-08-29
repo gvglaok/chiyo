@@ -2,7 +2,7 @@
 
 //cy js-keven 2016-5-10
 
-var base_url = "/";
+var base_url = "http://localhost/chiyo/";
 
 
 $(function() {
@@ -151,7 +151,7 @@ function login() {
         //alert(mes);
         if (String(mes)=="success") {
             alert("登录成功");
-            window.location.href='http://ysd.njcftec.com/admin/timeorder';
+            window.location.href=base_url+'admin/timeorder';
         } else {
             alert("登录失败");
         }

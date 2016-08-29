@@ -1,3 +1,4 @@
+body{font-size: 14px;}
 #wrapper {
     width: 100%;
 }
@@ -104,6 +105,7 @@
 .sidebar .nav-third-level li a {
     padding-left: 52px;
 }
+.panel{font-size: 14px;}
 
 @media(min-width:768px) {
     .sidebar {
