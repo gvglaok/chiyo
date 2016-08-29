@@ -13,12 +13,13 @@
 		$url = $_SERVER["REQUEST_URI"];
 		$urlArr=explode('/', $url);
 		if (!isset($_SESSION['ls'])) {
+			//如果是网址 则为urlArr[2]
 			if ($urlArr[3]=='clogin') {
 				return true;
 			} else if($urlArr[1]=='customer'){
 				return true;
 			} else {
-				header("Location: localhost/chiyo/admin/clogin");
+				header("Location: localhost/chiyo/admin/clogin"); //跳转
 				return true;
 			}
 			//header("Location: /chiyo/admin/clogin"); 
